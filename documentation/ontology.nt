@@ -1,0 +1,669 @@
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress> <http://www.w3.org/2002/07/owl#imports> <http://www.w3.org/2006/time> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress> <http://www.w3.org/2002/07/owl#imports> <http://www.w3.org/ns/sosa/> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress> <http://www.w3.org/2000/01/rdf-schema#label> "WISDOM-Stress"@en .
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/annotatedDuringActivity
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/annotatedDuringActivity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/annotatedDuringActivity> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/isAnnotatedInRecord> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/annotatedDuringActivity> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AnnotationRecord> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/annotatedDuringActivity> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Activity> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/annotatedDuringActivity> <http://www.w3.org/2000/01/rdf-schema#comment> "Links an annotation record to the activity or experimental segment that it annotates."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/annotatedDuringActivity> <http://www.w3.org/2000/01/rdf-schema#label> "annotated during activity"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasActivityObservation
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasActivityObservation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasActivityObservation> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/observedDuringActivity> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasActivityObservation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Activity> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasActivityObservation> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/sosa/Observation> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasActivityObservation> <http://www.w3.org/2000/01/rdf-schema#comment> "Links an activity or experimental phase to an observation made during that activity."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasActivityObservation> <http://www.w3.org/2000/01/rdf-schema#label> "has activity observation"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAnnotationRecord
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAnnotationRecord> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAnnotationRecord> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalRecord> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAnnotationRecord> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AnnotationRecord> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAnnotationRecord> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a physiological record to its annotation record."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAnnotationRecord> <http://www.w3.org/2000/01/rdf-schema#label> "has annotation record"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAssociatedActivity
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAssociatedActivity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAssociatedActivity> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAssociatedStressor> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAssociatedActivity> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Stressor> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAssociatedActivity> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Activity> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAssociatedActivity> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a stressor to the activity or experimental phase associated with it."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAssociatedActivity> <http://www.w3.org/2000/01/rdf-schema#label> "has associated activity"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAssociatedStressor
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAssociatedStressor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAssociatedStressor> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasStressCondition> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAssociatedStressor> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Activity> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAssociatedStressor> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Stressor> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAssociatedStressor> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a stress-inducing activity or experimental phase to its associated stressor."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAssociatedStressor> <http://www.w3.org/2000/01/rdf-schema#label> "has associated stressor"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasPhysiologicalRecord
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasPhysiologicalRecord> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasPhysiologicalRecord> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/isPhysiologicalRecordOf> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasPhysiologicalRecord> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Subject> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasPhysiologicalRecord> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalRecord> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasPhysiologicalRecord> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a study subject to a physiological record containing measurements collected from that subject."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasPhysiologicalRecord> <http://www.w3.org/2000/01/rdf-schema#label> "has physiological record"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasSignalChannel
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasSignalChannel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasSignalChannel> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/isSignalChannelOf> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasSignalChannel> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalRecord> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasSignalChannel> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SignalChannel> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasSignalChannel> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a physiological record to one of its signal channels."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasSignalChannel> <http://www.w3.org/2000/01/rdf-schema#label> "has signal channel"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasSourceChannel
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasSourceChannel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasSourceChannel> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/sosa/Observation> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasSourceChannel> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SignalChannel> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasSourceChannel> <http://www.w3.org/2000/01/rdf-schema#comment> "Links an observation to the signal channel from which it was derived."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasSourceChannel> <http://www.w3.org/2000/01/rdf-schema#label> "has source channel"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasSourceRecord
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasSourceRecord> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasSourceRecord> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/sosa/Observation> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasSourceRecord> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalRecord> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasSourceRecord> <http://www.w3.org/2000/01/rdf-schema#comment> "Links an observation to the physiological record from which it was derived."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasSourceRecord> <http://www.w3.org/2000/01/rdf-schema#label> "has source record"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasStressCondition
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasStressCondition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasStressCondition> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Activity> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasStressCondition> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/StressCondition> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasStressCondition> <http://www.w3.org/2000/01/rdf-schema#comment> "Links an activity or experimental phase to the stress condition represented during that phase."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasStressCondition> <http://www.w3.org/2000/01/rdf-schema#label> "has stress condition"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/isAnnotatedInRecord
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/isAnnotatedInRecord> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/isAnnotatedInRecord> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Activity> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/isAnnotatedInRecord> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AnnotationRecord> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/isAnnotatedInRecord> <http://www.w3.org/2000/01/rdf-schema#comment> "Links an activity or experimental segment to the annotation record in which it is annotated."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/isAnnotatedInRecord> <http://www.w3.org/2000/01/rdf-schema#label> "is annotated by record"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/isCausedBy
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/isCausedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/isCausedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2002/07/owl#Thing> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/isCausedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Stressor> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/isCausedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Links an entity to a stressor that causes or contributes to it."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/isCausedBy> <http://www.w3.org/2000/01/rdf-schema#label> "is caused by"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/isPhysiologicalRecordOf
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/isPhysiologicalRecordOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/isPhysiologicalRecordOf> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalRecord> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/isPhysiologicalRecordOf> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Subject> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/isPhysiologicalRecordOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a physiological record to the study subject from whom its measurements were collected."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/isPhysiologicalRecordOf> <http://www.w3.org/2000/01/rdf-schema#label> "is physiological record of"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/isSignalChannelOf
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/isSignalChannelOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/isSignalChannelOf> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SignalChannel> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/isSignalChannelOf> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalRecord> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/isSignalChannelOf> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a signal channel to its physiological record."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/isSignalChannelOf> <http://www.w3.org/2000/01/rdf-schema#label> "is signal channel of"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/madeAnnotationRecord
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/madeAnnotationRecord> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/madeAnnotationRecord> <http://www.w3.org/2002/07/owl#inverseOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/wasMadeByObserver> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/madeAnnotationRecord> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/HumanObserver> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/madeAnnotationRecord> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AnnotationRecord> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/madeAnnotationRecord> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a human observer to an annotation record made by that observer."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/madeAnnotationRecord> <http://www.w3.org/2000/01/rdf-schema#label> "made annotation record"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/madeByBiomarkerAssay
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/madeByBiomarkerAssay> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/madeByBiomarkerAssay> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/sosa/Observation> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/madeByBiomarkerAssay> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/BiomarkerAssay> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/madeByBiomarkerAssay> <http://www.w3.org/2000/01/rdf-schema#comment> "Links an observation to the biomarker assay by which it was made."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/madeByBiomarkerAssay> <http://www.w3.org/2000/01/rdf-schema#label> "made by biomarker assay"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/madeByObserver
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/madeByObserver> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/madeByObserver> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/sosa/Observation> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/madeByObserver> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/HumanObserver> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/madeByObserver> <http://www.w3.org/2000/01/rdf-schema#comment> "Links an observation to the human observer by whom it was made."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/madeByObserver> <http://www.w3.org/2000/01/rdf-schema#label> "made by observer"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/observedDuringActivity
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/observedDuringActivity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/observedDuringActivity> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/sosa/Observation> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/observedDuringActivity> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Activity> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/observedDuringActivity> <http://www.w3.org/2000/01/rdf-schema#comment> "Links an observation to the activity or experimental phase during which it was made."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/observedDuringActivity> <http://www.w3.org/2000/01/rdf-schema#label> "observed during activity"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/representsObservableProperty
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/representsObservableProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/representsObservableProperty> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SignalChannel> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/representsObservableProperty> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/sosa/ObservableProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/representsObservableProperty> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a signal channel to the observable property represented by the channel."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/representsObservableProperty> <http://www.w3.org/2000/01/rdf-schema#label> "represents observable property"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/usesUnit
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/usesUnit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/usesUnit> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SignalChannel> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/usesUnit> <http://www.w3.org/2000/01/rdf-schema#range> <http://qudt.org/schema/qudt/Unit> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/usesUnit> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a signal channel to the unit used for the values represented by that channel."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/usesUnit> <http://www.w3.org/2000/01/rdf-schema#label> "uses unit"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/wasMadeByObserver
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/wasMadeByObserver> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/wasMadeByObserver> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AnnotationRecord> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/wasMadeByObserver> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/HumanObserver> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/wasMadeByObserver> <http://www.w3.org/2000/01/rdf-schema#comment> "Links an annotation record to the human observer by whom it was made."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/wasMadeByObserver> <http://www.w3.org/2000/01/rdf-schema#label> "was made by observer"@en .
+# 
+# http://www.w3.org/ns/sosa/hosts
+<http://www.w3.org/ns/sosa/hosts> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/sosa/Platform> .
+<http://www.w3.org/ns/sosa/hosts> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/sosa/Sensor> .
+# 
+# http://www.w3.org/ns/sosa/isHostedBy
+<http://www.w3.org/ns/sosa/isHostedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/sosa/Sensor> .
+<http://www.w3.org/ns/sosa/isHostedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/sosa/Platform> .
+# 
+# http://www.w3.org/ns/sosa/isObservedBy
+<http://www.w3.org/ns/sosa/isObservedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/sosa/ObservableProperty> .
+<http://www.w3.org/ns/sosa/isObservedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/sosa/Sensor> .
+# 
+# http://www.w3.org/ns/sosa/madeBySensor
+<http://www.w3.org/ns/sosa/madeBySensor> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/sosa/Observation> .
+<http://www.w3.org/ns/sosa/madeBySensor> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/sosa/Sensor> .
+# 
+# http://www.w3.org/ns/sosa/madeObservation
+<http://www.w3.org/ns/sosa/madeObservation> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/sosa/Sensor> .
+<http://www.w3.org/ns/sosa/madeObservation> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/sosa/Observation> .
+# 
+# http://www.w3.org/ns/sosa/observes
+<http://www.w3.org/ns/sosa/observes> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/sosa/Sensor> .
+<http://www.w3.org/ns/sosa/observes> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/ns/sosa/ObservableProperty> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/age
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/age> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/age> <http://www.w3.org/2000/01/rdf-schema#domain> <https://schema.org/Person> .
+<https://schema.org/Person> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/age> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#int> .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAnnotationTimeStamp
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAnnotationTimeStamp> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAnnotationTimeStamp> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AnnotationRecord> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAnnotationTimeStamp> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTimeStamp> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAnnotationTimeStamp> <http://www.w3.org/2000/01/rdf-schema#comment> "Timestamp associated with an Annotation Record made by a Human Observer during a stress experiment" .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAnnotationTimeStamp> <http://www.w3.org/2000/01/rdf-schema#label> "has annotation time stamp" .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAssayTimeStamp
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAssayTimeStamp> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAssayTimeStamp> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/BiomarkerAssay> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAssayTimeStamp> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTimeStamp> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAssayTimeStamp> <http://www.w3.org/2000/01/rdf-schema#comment> "Timestamp indicating when a biomarker assay was performed or recorded." .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAssayTimeStamp> <http://www.w3.org/2000/01/rdf-schema#label> "has assay time stamp" .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasChannelName
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasChannelName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasChannelName> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SignalChannel> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasChannelName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasChannelName> <http://www.w3.org/2000/01/rdf-schema#comment> "Name of a signal channel."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasChannelName> <http://www.w3.org/2000/01/rdf-schema#label> "has channel name"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasDescription
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasDescription> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasDescription> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Activity> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasDescription> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasDescription> <http://www.w3.org/2000/01/rdf-schema#label> "has Description"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasFileFormat
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasFileFormat> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasFileFormat> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalRecord> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasFileFormat> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasFileFormat> <http://www.w3.org/2000/01/rdf-schema#label> "has file format"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasFileName
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasFileName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasFileName> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalRecord> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasFileName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasFileName> <http://www.w3.org/2000/01/rdf-schema#label> "has file name"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasIntensity
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasIntensity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasIntensity> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Activity> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasIntensity> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasIntensity> <http://www.w3.org/2000/01/rdf-schema#comment> "Qualitative intensity of an activity or experimental phase, for example low, moderate, or high."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasIntensity> <http://www.w3.org/2000/01/rdf-schema#label> "has intensity"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasNote
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasNote> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasNote> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AnnotationRecord> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasNote> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasNote> <http://www.w3.org/2000/01/rdf-schema#comment> "A note associated with an annotation record made by a human observer during a stress experiment."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasNote> <http://www.w3.org/2000/01/rdf-schema#label> "has note"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasNumberOfChannels
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasNumberOfChannels> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasNumberOfChannels> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalRecord> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasNumberOfChannels> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasNumberOfChannels> <http://www.w3.org/2000/01/rdf-schema#comment> "Number of signal channels in a physiological record."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasNumberOfChannels> <http://www.w3.org/2000/01/rdf-schema#label> "has number of channels"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasNumberOfSamples
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasNumberOfSamples> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasNumberOfSamples> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalRecord> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasNumberOfSamples> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasNumberOfSamples> <http://www.w3.org/2000/01/rdf-schema#comment> "Number of samples in a physiological record."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasNumberOfSamples> <http://www.w3.org/2000/01/rdf-schema#label> "has number of samples"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasReference
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasReference> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasReference> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Activity> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasReference> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#anyURI> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasReference> <http://www.w3.org/2000/01/rdf-schema#label> "has Reference"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasSamplingFrequency
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasSamplingFrequency> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasSamplingFrequency> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SignalChannel> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasSamplingFrequency> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasSamplingFrequency> <http://www.w3.org/2000/01/rdf-schema#comment> "Sampling frequency of a signal channel."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasSamplingFrequency> <http://www.w3.org/2000/01/rdf-schema#label> "has sampling frequency"@en .
+# 
+# http://www.w3.org/ns/sosa/resultTime
+<http://www.w3.org/ns/sosa/resultTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.w3.org/ns/sosa/resultTime> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/ns/sosa/Observation> .
+<http://www.w3.org/ns/sosa/resultTime> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dateTime> .
+<http://www.w3.org/ns/sosa/resultTime> <http://www.w3.org/2000/01/rdf-schema#comment> "The instant of time when an observation was completed and its result became available."@en .
+<http://www.w3.org/ns/sosa/resultTime> <http://www.w3.org/2000/01/rdf-schema#label> "result time"@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://qudt.org/schema/qudt/Unit
+<http://qudt.org/schema/qudt/Unit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AccelerationX
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AccelerationX> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AccelerationX> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AccelerationX> <http://www.w3.org/2000/01/rdf-schema#comment> "Acceleration along the x-axis as a physiological or movement-related observable property."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AccelerationX> <http://www.w3.org/2000/01/rdf-schema#label> "AccelerationX"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AccelerationY
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AccelerationY> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AccelerationY> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AccelerationY> <http://www.w3.org/2000/01/rdf-schema#comment> "Acceleration along the y-axis as a physiological or movement-related observable property."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AccelerationY> <http://www.w3.org/2000/01/rdf-schema#label> "AccelerationY"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AccelerationZ
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AccelerationZ> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AccelerationZ> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AccelerationZ> <http://www.w3.org/2000/01/rdf-schema#comment> "Acceleration along the z-axis as a physiological or movement-related observable property."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AccelerationZ> <http://www.w3.org/2000/01/rdf-schema#label> "AccelerationZ"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Accelerometer
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Accelerometer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Accelerometer> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/MotionSensor> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Accelerometer> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid1 .
+_:genid1 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AccelerationX> .
+_:genid1 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/observes> .
+_:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Accelerometer> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid2 .
+_:genid2 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AccelerationY> .
+_:genid2 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/observes> .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Accelerometer> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid3 .
+_:genid3 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AccelerationZ> .
+_:genid3 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/observes> .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Accelerometer> <http://www.w3.org/2000/01/rdf-schema#comment> "A three-axis motion sensor used to measure acceleration along the x, y, and z axes."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Accelerometer> <http://www.w3.org/2000/01/rdf-schema#label> "Accelerometer"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Activity
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Activity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Activity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid4 .
+_:genid4 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.w3.org/2006/time#Interval> .
+_:genid4 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/2006/time#hasTime> .
+_:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Activity> <http://www.w3.org/2000/01/rdf-schema#comment> "An activity or experimental phase with a temporal extent that can provide context for observations in a stress experiment."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Activity> <http://www.w3.org/2000/01/rdf-schema#label> "Activity"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AcuteStressor
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AcuteStressor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AcuteStressor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Stressor> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AcuteStressor> <http://www.w3.org/2000/01/rdf-schema#label> "Acute Stressor"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AnnotationRecord
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AnnotationRecord> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AnnotationRecord> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Thing> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AnnotationRecord> <http://www.w3.org/2000/01/rdf-schema#comment> "A file or record containing annotations for phases in a stress experiment. Its temporal context can be represented using time:hasTime with an OWL-Time instant or interval."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AnnotationRecord> <http://www.w3.org/2000/01/rdf-schema#label> "AnnotationRecord"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AudioSensor
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AudioSensor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AudioSensor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/sosa/Sensor> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AudioSensor> <http://www.w3.org/2000/01/rdf-schema#comment> "An audio-based sensor that can produce acoustic or speech-related observations in stress experiments."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AudioSensor> <http://www.w3.org/2000/01/rdf-schema#label> "Audio Sensor"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Baseline
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Baseline> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Baseline> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Activity> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Baseline> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid5 .
+_:genid5 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/BaselineCondition> .
+_:genid5 <http://www.w3.org/2002/07/owl#onProperty> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasStressCondition> .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Baseline> <http://www.w3.org/2000/01/rdf-schema#comment> "An initial no-stress reference phase that usually occurs before stress-inducing phases."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Baseline> <http://www.w3.org/2000/01/rdf-schema#label> "Baseline"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/BaselineCondition
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/BaselineCondition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/BaselineCondition> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/NoStressCondition> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/BaselineCondition> <http://www.w3.org/2000/01/rdf-schema#comment> "A no-stress condition representing an initial baseline or reference state before stress-inducing phases."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/BaselineCondition> <http://www.w3.org/2000/01/rdf-schema#label> "Baseline Condition"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/BehavioralProperty
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/BehavioralProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/BehavioralProperty> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/sosa/ObservableProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/BehavioralProperty> <http://www.w3.org/2000/01/rdf-schema#label> "Behavioral Property"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/BiomarkerAssay
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/BiomarkerAssay> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/BiomarkerAssay> <http://www.w3.org/2000/01/rdf-schema#comment> "A biomarker assay, such as a blood sample analysis for cortisol or adrenaline. Its temporal context can be represented using time:hasTime with an OWL-Time instant or interval."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/BiomarkerAssay> <http://www.w3.org/2000/01/rdf-schema#label> "Biomarker Assay"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/BloodOxygenSaturation
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/BloodOxygenSaturation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/BloodOxygenSaturation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/BloodOxygenSaturation> <http://www.w3.org/2000/01/rdf-schema#comment> "Peripheral oxygen saturation as a physiological observable property."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/BloodOxygenSaturation> <http://www.w3.org/2000/01/rdf-schema#label> "BloodOxygenSaturation"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/CameraSensor
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/CameraSensor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/CameraSensor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/sosa/Sensor> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/CameraSensor> <http://www.w3.org/2000/01/rdf-schema#comment> "A camera-based sensor that can produce visual observations in stress experiments."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/CameraSensor> <http://www.w3.org/2000/01/rdf-schema#label> "Camera Sensor"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/ChronicStressor
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/ChronicStressor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/ChronicStressor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Stressor> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/ChronicStressor> <http://www.w3.org/2000/01/rdf-schema#label> "Chronic Stressor"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/CognitiveStressPhase
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/CognitiveStressPhase> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/CognitiveStressPhase> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Activity> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/CognitiveStressPhase> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid6 .
+_:genid6 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/CognitiveStressor> .
+_:genid6 <http://www.w3.org/2002/07/owl#onProperty> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAssociatedStressor> .
+_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/CognitiveStressPhase> <http://www.w3.org/2000/01/rdf-schema#comment> "A phase labeled as cognitive stress."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/CognitiveStressPhase> <http://www.w3.org/2000/01/rdf-schema#label> "Cognitive Stress Phase"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/CognitiveStressor
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/CognitiveStressor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/CognitiveStressor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AcuteStressor> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/CognitiveStressor> <http://www.w3.org/2000/01/rdf-schema#comment> "An acute stressor associated with cognitive stress tasks or phases."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/CognitiveStressor> <http://www.w3.org/2000/01/rdf-schema#label> "Cognitive Stressor"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/EDASensor
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/EDASensor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/EDASensor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalSensor> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/EDASensor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid7 .
+_:genid7 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/ElectrodermalActivity> .
+_:genid7 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/observes> .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/EDASensor> <http://www.w3.org/2000/01/rdf-schema#comment> "A physiological sensor used to measure electrodermal activity."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/EDASensor> <http://www.w3.org/2000/01/rdf-schema#label> "EDA Sensor"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/ElectrodermalActivity
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/ElectrodermalActivity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/ElectrodermalActivity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/ElectrodermalActivity> <http://www.w3.org/2000/01/rdf-schema#comment> "Electrodermal activity as a physiological observable property."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/ElectrodermalActivity> <http://www.w3.org/2000/01/rdf-schema#label> "ElectrodermalActivity"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Environment
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Environment> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Environment> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/sosa/FeatureOfInterest> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Environment> <http://www.w3.org/2000/01/rdf-schema#comment> "An environment that is prevailing to an experimental segment that can provide context for observations in a stress experiment." .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Environment> <http://www.w3.org/2000/01/rdf-schema#label> "Environment"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/EnvironmentalProperty
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/EnvironmentalProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/EnvironmentalProperty> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/sosa/ObservableProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/EnvironmentalProperty> <http://www.w3.org/2000/01/rdf-schema#label> "Environmental Property"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/ExperimenterObserver
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/ExperimenterObserver> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/ExperimenterObserver> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/HumanObserver> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/ExperimenterObserver> <http://www.w3.org/2000/01/rdf-schema#comment> "An experimenter who records observations during a stress experiment."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/ExperimenterObserver> <http://www.w3.org/2000/01/rdf-schema#label> "Experiment Observer"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Gesture
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Gesture> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Gesture> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/BehavioralProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Gesture> <http://www.w3.org/2000/01/rdf-schema#comment> "Gestures a subjects does while being observed" .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Gesture> <http://www.w3.org/2000/01/rdf-schema#label> "Gesture" .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/GyroSensor
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/GyroSensor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/GyroSensor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/MotionSensor> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/GyroSensor> <http://www.w3.org/2000/01/rdf-schema#comment> "A motion sensor used to measure angular velocity or rotation."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/GyroSensor> <http://www.w3.org/2000/01/rdf-schema#label> "GyroSensor"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/HeartRate
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/HeartRate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/HeartRate> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/HeartRate> <http://www.w3.org/2000/01/rdf-schema#comment> "Heart rate as a physiological observable property."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/HeartRate> <http://www.w3.org/2000/01/rdf-schema#label> "HeartRate"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/HeartRateVariability
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/HeartRateVariability> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/HeartRateVariability> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/HeartRateVariability> <http://www.w3.org/2000/01/rdf-schema#comment> "Heart rate variability as a physiological observable property that can be derived from heart-rate or inter-beat interval data."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/HeartRateVariability> <http://www.w3.org/2000/01/rdf-schema#label> "HeartRateVariability"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/HumanObserver
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/HumanObserver> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/HumanObserver> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/sosa/Sensor> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/HumanObserver> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/Person> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/HumanObserver> <http://www.w3.org/2000/01/rdf-schema#comment> "A human observer acting as a SOSA sensor by documenting visible or contextual observations during a stress experiment."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/HumanObserver> <http://www.w3.org/2000/01/rdf-schema#label> "Human Observer"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Humidity
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Humidity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Humidity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/EnvironmentalProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Humidity> <http://www.w3.org/2000/01/rdf-schema#comment> "An environmental property describing humidity, which may influence perceived stress."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Humidity> <http://www.w3.org/2000/01/rdf-schema#label> "Humidity"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Magnetometer
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Magnetometer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Magnetometer> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/MotionSensor> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Magnetometer> <http://www.w3.org/2000/01/rdf-schema#comment> "A motion-related sensor used to measure magnetic field direction or orientation."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Magnetometer> <http://www.w3.org/2000/01/rdf-schema#label> "Magnetometer"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Microphone
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Microphone> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Microphone> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AudioSensor> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Microphone> <http://www.w3.org/2000/01/rdf-schema#comment> "A microphone used as an audio sensor in a stress experiment."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Microphone> <http://www.w3.org/2000/01/rdf-schema#label> "Microphone"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/MotionSensor
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/MotionSensor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/MotionSensor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/sosa/Sensor> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/MotionSensor> <http://www.w3.org/2000/01/rdf-schema#comment> "A sensor used to measure movement, orientation, or inertial motion."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/MotionSensor> <http://www.w3.org/2000/01/rdf-schema#label> "Motion Sensor"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/NoStressCondition
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/NoStressCondition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/NoStressCondition> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/StressCondition> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/NoStressCondition> <http://www.w3.org/2002/07/owl#disjointWith> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Stressor> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/NoStressCondition> <http://www.w3.org/2000/01/rdf-schema#comment> "A condition in which no stressor is present or intended."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/NoStressCondition> <http://www.w3.org/2000/01/rdf-schema#label> "No Stress Condition"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/OutsideTemperature
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/OutsideTemperature> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/OutsideTemperature> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/EnvironmentalProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/OutsideTemperature> <http://www.w3.org/2000/01/rdf-schema#comment> "An environmental property describing outside or ambient temperature, which may influence perceived stress."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/OutsideTemperature> <http://www.w3.org/2000/01/rdf-schema#label> "Outside Temperature"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PPGSensor
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PPGSensor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PPGSensor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalSensor> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PPGSensor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid8 .
+_:genid8 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/BloodOxygenSaturation> .
+_:genid8 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/observes> .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PPGSensor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid9 .
+_:genid9 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/HeartRate> .
+_:genid9 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/observes> .
+_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PPGSensor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid10 .
+_:genid10 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/HeartRateVariability> .
+_:genid10 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/observes> .
+_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PPGSensor> <http://www.w3.org/2000/01/rdf-schema#comment> "A physiological sensor based on photoplethysmography that is used in the ontology to observe heart rate, heart rate variability, and blood oxygen saturation."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PPGSensor> <http://www.w3.org/2000/01/rdf-schema#label> "PPG Sensor"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysicalStressPhase
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysicalStressPhase> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysicalStressPhase> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Activity> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysicalStressPhase> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid11 .
+_:genid11 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysicalStressor> .
+_:genid11 <http://www.w3.org/2002/07/owl#onProperty> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAssociatedStressor> .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysicalStressPhase> <http://www.w3.org/2000/01/rdf-schema#comment> "A phase labeled as physical stress."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysicalStressPhase> <http://www.w3.org/2000/01/rdf-schema#label> "Physical Stress Phase"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysicalStressor
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysicalStressor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysicalStressor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AcuteStressor> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysicalStressor> <http://www.w3.org/2000/01/rdf-schema#comment> "An acute stressor associated with physical stress tasks or phases."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysicalStressor> <http://www.w3.org/2000/01/rdf-schema#label> "Physical Stressor"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalProperty
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalProperty> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/sosa/ObservableProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalProperty> <http://www.w3.org/2000/01/rdf-schema#label> "Physiological Property"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalRecord
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalRecord> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalRecord> <http://www.w3.org/2000/01/rdf-schema#comment> "A data record containing one or more physiological or wearable signal channels."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalRecord> <http://www.w3.org/2000/01/rdf-schema#label> "Physiological Record"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalSensor
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalSensor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalSensor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/sosa/Sensor> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalSensor> <http://www.w3.org/2000/01/rdf-schema#comment> "A sensor used to measure physiological properties or bodily signals."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalSensor> <http://www.w3.org/2000/01/rdf-schema#label> "Physiological Sensor"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/RelaxationCondition
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/RelaxationCondition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/RelaxationCondition> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/NoStressCondition> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/RelaxationCondition> <http://www.w3.org/2000/01/rdf-schema#comment> "A no-stress condition representing relaxation or recovery between stress-inducing phases."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/RelaxationCondition> <http://www.w3.org/2000/01/rdf-schema#label> "Relaxation Condition"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/RelaxationPhase
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/RelaxationPhase> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/RelaxationPhase> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Activity> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/RelaxationPhase> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid12 .
+_:genid12 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/RelaxationCondition> .
+_:genid12 <http://www.w3.org/2002/07/owl#onProperty> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasStressCondition> .
+_:genid12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/RelaxationPhase> <http://www.w3.org/2000/01/rdf-schema#comment> "A no-stress relaxation or recovery phase that can occur between stress-inducing phases."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/RelaxationPhase> <http://www.w3.org/2000/01/rdf-schema#label> "Relaxation Phase"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SignalChannel
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SignalChannel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SignalChannel> <http://www.w3.org/2000/01/rdf-schema#comment> "A single signal channel within a physiological or wearable data record. Its measurement unit can be represented with usesUnit."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SignalChannel> <http://www.w3.org/2000/01/rdf-schema#label> "Signal Channel"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SkinTemperature
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SkinTemperature> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SkinTemperature> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalProperty> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SkinTemperature> <http://www.w3.org/2000/01/rdf-schema#comment> "Skin or body-surface temperature as a physiological observable property."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SkinTemperature> <http://www.w3.org/2000/01/rdf-schema#label> "SkinTemperature"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SocioEvaluativePhase
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SocioEvaluativePhase> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SocioEvaluativePhase> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Activity> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SocioEvaluativePhase> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid13 .
+_:genid13 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SocioEvaluativeStressor> .
+_:genid13 <http://www.w3.org/2002/07/owl#onProperty> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAssociatedStressor> .
+_:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SocioEvaluativePhase> <http://www.w3.org/2000/01/rdf-schema#comment> "A phase labeled as socio-evaluative stress."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SocioEvaluativePhase> <http://www.w3.org/2000/01/rdf-schema#label> "Socio-Evaluative Stress Phase"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SocioEvaluativeStressor
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SocioEvaluativeStressor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SocioEvaluativeStressor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AcuteStressor> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SocioEvaluativeStressor> <http://www.w3.org/2000/01/rdf-schema#comment> "An acute stressor associated with socio-evaluative stress tasks or phases."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SocioEvaluativeStressor> <http://www.w3.org/2000/01/rdf-schema#label> "Socio-Evaluative Stressor"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/StressCondition
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/StressCondition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/StressCondition> <http://www.w3.org/2000/01/rdf-schema#comment> "A condition describing whether stress is induced, absent, or represented by a specific stressor context."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/StressCondition> <http://www.w3.org/2000/01/rdf-schema#label> "Stress Condition"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Stressor
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Stressor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Stressor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/StressCondition> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Stressor> <http://www.w3.org/2000/01/rdf-schema#comment> "A condition, event, stimulus, or situation that can induce stress."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Stressor> <http://www.w3.org/2000/01/rdf-schema#label> "Stressor"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Subject
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Subject> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Subject> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/sosa/FeatureOfInterest> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Subject> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://schema.org/Person> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Subject> <http://www.w3.org/2000/01/rdf-schema#comment> "A study subject represented as a person and as the feature of interest of observations made during a stress experiment."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Subject> <http://www.w3.org/2000/01/rdf-schema#label> "Subject"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/TemperatureSensor
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/TemperatureSensor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/TemperatureSensor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalSensor> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/TemperatureSensor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid14 .
+_:genid14 <http://www.w3.org/2002/07/owl#someValuesFrom> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SkinTemperature> .
+_:genid14 <http://www.w3.org/2002/07/owl#onProperty> <http://www.w3.org/ns/sosa/observes> .
+_:genid14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/TemperatureSensor> <http://www.w3.org/2000/01/rdf-schema#comment> "A physiological sensor used to measure skin or body-surface temperature."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/TemperatureSensor> <http://www.w3.org/2000/01/rdf-schema#label> "Temperature Sensor"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/TimeSeriesObservation
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/TimeSeriesObservation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/TimeSeriesObservation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/sosa/Observation> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/TimeSeriesObservation> <http://www.w3.org/2000/01/rdf-schema#comment> "An observation derived from a physiological time-series signal. Its temporal context can be represented using sosa:phenomenonTime and sosa:resultTime with OWL-Time instants or intervals."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/TimeSeriesObservation> <http://www.w3.org/2000/01/rdf-schema#label> "TimeSeriesObservation"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/VideoCamera
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/VideoCamera> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/VideoCamera> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/CameraSensor> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/VideoCamera> <http://www.w3.org/2000/01/rdf-schema#comment> "A video camera used as a visual sensor in a stress experiment."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/VideoCamera> <http://www.w3.org/2000/01/rdf-schema#label> "Video Camera"@en .
+# 
+# http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/WearableDevice
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/WearableDevice> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/WearableDevice> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/sosa/Platform> .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/WearableDevice> <http://www.w3.org/2000/01/rdf-schema#comment> "A wearable platform that can host physiological or motion sensors."@en .
+<http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/WearableDevice> <http://www.w3.org/2000/01/rdf-schema#label> "Wearable Device"@en .
+# 
+# https://schema.org/Person
+# 
+# Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
