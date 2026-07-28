@@ -24,7 +24,7 @@ The ontology models, among others:
 - observations and time-series observations
 - annotations and biomarker assays
 
-### Competency Questions
+### CQs
 
 This folder contains the competency questions used to evaluate the ontology.
 
@@ -53,52 +53,10 @@ The sample data consist of example datasets from three subjects and were used to
 
 The purpose of including these files is to document the input basis used during the AI-supported ontology generation process and to make the comparative evaluation more transparent.
 
-### Graphical Representations
 
-This folder contains graphical module representations of the WISDOM-Stress ontology.
+## Ontology Editors
 
-The visualizations are intended to support the understanding of the ontology structure and show how the main modules of the ontology are connected. They provide an overview of central classes, subclass hierarchies, and selected relationships between relevant ontology components.
-
-## Purpose of the Repository
-
-The repository documents the development and evaluation of the WISDOM-Stress ontology. It provides the ontology file itself as well as supporting materials used during the evaluation process.
-
-The repository serves as a transparent documentation basis for:
-
-- ontology development
-- competency-question-based evaluation
-- technical and conceptual validation
-- comparison with AI-generated ontology variants
-- graphical representation of ontology modules
-- documentation of selected AI input material
-
-## Evaluation Approach
-
-The ontology was evaluated using multiple complementary approaches.
-
-First, the ontology was checked for logical consistency using a reasoner in Protégé. This step was used to identify modelling inconsistencies and improve the conceptual structure of the ontology.
-
-Second, the ontology was evaluated using competency questions. The competency questions define requirements that the ontology should be able to represent or answer. An evaluation matrix was created to document the coverage of these questions.
-
-Third, selected competency questions were technically validated using SPARQL queries. This step was used to test whether relevant ontology structures can be queried explicitly.
-
-Finally, WISDOM-Stress was compared with four AI-generated ontologies to assess differences in modelling scope, structure, granularity, and domain alignment. For two of these AI-generated ontologies, selected subject-based sample datasets were used as part of the input material.
-
-## Technologies
-
-The ontology and evaluation material are based on Semantic Web technologies and related tools:
-
-- OWL
-- RDF
-- Turtle
-- SPARQL
-- Protégé
-- SOSA/SSN concepts
-- Graphical ontology visualization
-
-## Author
-
-Lennart Mack
+Lennart Mackert, Simon Burbach, Paul Schreiber, Maria Maleshkova
 
 ## License
 
