@@ -102,4 +102,4 @@ Lennart Mack
 
 ## License
 
-No license has been specified yet.
+All resources are licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International.
