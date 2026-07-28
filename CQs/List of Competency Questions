@@ -1,0 +1,79 @@
+CQ1: Which stress-related conditions can be distinguished?
+
+CQ2: What types of stressors can be described?
+
+CQ3: Which short-term stressors can occur in a stress-related setting?
+
+CQ4: Which conditions describe baseline or recovery states?
+
+CQ5: Which activities or experimental phases can be described?
+
+CQ6: Which activity is linked to which stress condition?
+
+CQ7: Which stressor is associated with a specific activity phase?
+
+CQ8: What information can be used to describe an activity?
+
+CQ9: Which roles can a person take in the model?
+
+CQ10: What information can be stored about a subject?
+
+CQ11: Which sensor types can be used for stress-related measurements?
+
+CQ12: Which physiological sensors are included?
+
+CQ13: Which sensors can capture movement-related information?
+
+CQ14: Which device or platform can be used as a measurement platform?
+
+CQ15: Which properties can a heart rate sensor measure?
+
+CQ16: What can be measured by an EDA sensor?
+
+CQ17: What can be measured by a SpO2 sensor?
+
+CQ18: What can be measured by a temperature sensor?
+
+CQ19: Which acceleration-related properties can be captured by an accelerometer?
+
+CQ20: Which categories of measurable properties are distinguished?
+
+CQ21: Which physiological properties can be measured?
+
+CQ22: Which behavioral indicators can be described?
+
+CQ23: Which environmental factors can be captured?
+
+CQ24: What environmental information can be assigned to an environment?
+
+CQ25: What metadata can be stored for a physiological record?
+
+CQ26: How can a physiological record be connected to its signal channels?
+
+CQ27: What information can be stored for a signal channel?
+
+CQ28: How can a signal channel indicate what it measures?
+
+CQ29: Which types of observations can be described?
+
+CQ30: What temporal information can be assigned to a time-series observation?
+
+CQ31: How can an observation be traced back to its source data?
+
+CQ32: How can an observation be assigned to the activity during which it was made?
+
+CQ33: How can measurements be linked back to the activity in which they occurred?
+
+CQ34: What information can be stored in an annotation?
+
+CQ35: How can an annotation be assigned to an activity or phase?
+
+CQ36: How can an observer be connected to an annotation?
+
+CQ37: How can a human observer be identified as the source of an observation?
+
+CQ38: How can biomarker assays be described?
+
+CQ39: How can an observation be linked to a biomarker assay?
+
+CQ40: When can the time of a biomarker assay be documented?

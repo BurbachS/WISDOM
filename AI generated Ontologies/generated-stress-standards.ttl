@@ -1,0 +1,932 @@
+@prefix : <http://example.org/generated-stress-standards#> .
+@prefix stress: <http://example.org/generated-stress-standards#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix schema: <https://schema.org/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+
+<http://example.org/generated-stress-standards>
+    a owl:Ontology ;
+    rdfs:label "Generated Standards-Based Stress Experiment Ontology"@en ;
+    rdfs:comment "An OWL 2 ontology for representing human stress in wearable- and sensor-based stress experiment data. The ontology reuses SOSA/SSN for sensors, observations, platforms, samples, observable properties, procedures, and results, and schema.org for human participants compatible with Person and Patient."@en ;
+    owl:versionInfo "1.0.0" ;
+    owl:imports
+        <http://www.w3.org/ns/sosa/> ,
+        <http://www.w3.org/ns/ssn/> ,
+        <https://schema.org/> .
+
+#################################################################
+# Core human and experiment classes
+#################################################################
+
+stress:HumanParticipant
+    a owl:Class ;
+    rdfs:subClassOf schema:Person ;
+    rdfs:label "Human participant"@en ;
+    rdfs:comment "A human person who participates in a wearable- or sensor-based stress experiment."@en .
+
+stress:PatientParticipant
+    a owl:Class ;
+    rdfs:subClassOf
+        stress:HumanParticipant ,
+        schema:Patient ;
+    rdfs:label "Patient participant"@en ;
+    rdfs:comment "A human participant represented as a patient where patient-level description is appropriate."@en .
+
+stress:StressExperiment
+    a owl:Class ;
+    rdfs:label "Stress experiment"@en ;
+    rdfs:comment "A study, session, or protocol-driven experimental activity in which sensor-based data are collected from human participants in order to represent stress-related phenomena."@en ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty stress:hasParticipant ;
+        owl:someValuesFrom stress:HumanParticipant
+    ] .
+
+stress:ExperimentSession
+    a owl:Class ;
+    rdfs:label "Experiment session"@en ;
+    rdfs:comment "A concrete temporal execution of a stress experiment for one or more participants."@en ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty stress:isSessionOf ;
+        owl:someValuesFrom stress:StressExperiment
+    ] .
+
+stress:ExperimentalCondition
+    a owl:Class ;
+    rdfs:label "Experimental condition"@en ;
+    rdfs:comment "A condition or phase under which observations are collected during a stress experiment, such as a baseline condition, stress exposure condition, or recovery condition."@en .
+
+stress:BaselineCondition
+    a owl:Class ;
+    rdfs:subClassOf stress:ExperimentalCondition ;
+    rdfs:label "Baseline condition"@en ;
+    rdfs:comment "An experimental condition intended to represent a participant's non-stress or reference state before or between stress-related measurements."@en .
+
+stress:StressExposureCondition
+    a owl:Class ;
+    rdfs:subClassOf stress:ExperimentalCondition ;
+    rdfs:label "Stress exposure condition"@en ;
+    rdfs:comment "An experimental condition intended to induce, elicit, or capture stress-related responses."@en .
+
+stress:RecoveryCondition
+    a owl:Class ;
+    rdfs:subClassOf stress:ExperimentalCondition ;
+    rdfs:label "Recovery condition"@en ;
+    rdfs:comment "An experimental condition intended to capture physiological, behavioral, or subjective recovery after stress exposure."@en .
+
+stress:StressInducingTask
+    a owl:Class ;
+    rdfs:label "Stress-inducing task"@en ;
+    rdfs:comment "A task or stimulus used within an experiment to elicit or study stress-related responses."@en .
+
+stress:WearablePlatform
+    a owl:Class ;
+    rdfs:subClassOf sosa:Platform ;
+    rdfs:label "Wearable platform"@en ;
+    rdfs:comment "A wearable device or body-worn platform that hosts one or more sensors used to collect stress-related data."@en .
+
+stress:BodyLocation
+    a owl:Class ;
+    rdfs:label "Body location"@en ;
+    rdfs:comment "A location on or relative to the human body where a wearable platform or sensor is placed."@en .
+
+#################################################################
+# SOSA/SSN-aligned sensing classes
+#################################################################
+
+stress:WearableSensor
+    a owl:Class ;
+    rdfs:subClassOf sosa:Sensor ;
+    rdfs:label "Wearable sensor"@en ;
+    rdfs:comment "A sensor worn by or attached to a human participant for observing stress-related physiological, behavioral, or contextual properties."@en .
+
+stress:PhysiologicalSensor
+    a owl:Class ;
+    rdfs:subClassOf stress:WearableSensor ;
+    rdfs:label "Physiological sensor"@en ;
+    rdfs:comment "A wearable sensor that observes physiological properties relevant to stress experiment data."@en .
+
+stress:BehavioralSensor
+    a owl:Class ;
+    rdfs:subClassOf stress:WearableSensor ;
+    rdfs:label "Behavioral sensor"@en ;
+    rdfs:comment "A wearable sensor that observes behavioral or movement-related properties relevant to stress experiment data."@en .
+
+stress:ContextSensor
+    a owl:Class ;
+    rdfs:subClassOf stress:WearableSensor ;
+    rdfs:label "Context sensor"@en ;
+    rdfs:comment "A sensor that observes contextual properties relevant to the interpretation of wearable stress experiment data."@en .
+
+stress:ElectrodermalActivitySensor
+    a owl:Class ;
+    rdfs:subClassOf stress:PhysiologicalSensor ;
+    rdfs:label "Electrodermal activity sensor"@en ;
+    rdfs:comment "A wearable physiological sensor that observes electrodermal activity or related skin conductance properties."@en .
+
+stress:HeartActivitySensor
+    a owl:Class ;
+    rdfs:subClassOf stress:PhysiologicalSensor ;
+    rdfs:label "Heart activity sensor"@en ;
+    rdfs:comment "A wearable physiological sensor that observes heart-related properties such as heart rate or heart rate variability."@en .
+
+stress:TemperatureSensor
+    a owl:Class ;
+    rdfs:subClassOf stress:PhysiologicalSensor ;
+    rdfs:label "Temperature sensor"@en ;
+    rdfs:comment "A wearable physiological sensor that observes body or skin temperature."@en .
+
+stress:MotionSensor
+    a owl:Class ;
+    rdfs:subClassOf stress:BehavioralSensor ;
+    rdfs:label "Motion sensor"@en ;
+    rdfs:comment "A wearable sensor that observes movement-related properties such as acceleration or activity."@en .
+
+stress:StressObservation
+    a owl:Class ;
+    rdfs:subClassOf
+        sosa:Observation ,
+        [
+            a owl:Restriction ;
+            owl:onProperty sosa:hasFeatureOfInterest ;
+            owl:someValuesFrom stress:HumanParticipant
+        ] ,
+        [
+            a owl:Restriction ;
+            owl:onProperty sosa:observedProperty ;
+            owl:someValuesFrom stress:StressRelatedObservableProperty
+        ] ;
+    rdfs:label "Stress observation"@en ;
+    rdfs:comment "A SOSA observation of a stress-related observable property associated with a human participant."@en .
+
+stress:PhysiologicalObservation
+    a owl:Class ;
+    rdfs:subClassOf stress:StressObservation ;
+    rdfs:label "Physiological observation"@en ;
+    rdfs:comment "A stress observation of a physiological property measured from a human participant."@en .
+
+stress:BehavioralObservation
+    a owl:Class ;
+    rdfs:subClassOf stress:StressObservation ;
+    rdfs:label "Behavioral observation"@en ;
+    rdfs:comment "A stress observation of a behavioral or movement-related property measured from or about a human participant."@en .
+
+stress:ContextObservation
+    a owl:Class ;
+    rdfs:subClassOf stress:StressObservation ;
+    rdfs:label "Context observation"@en ;
+    rdfs:comment "A stress observation of a contextual property relevant to interpreting participant stress data."@en .
+
+stress:StressAssessment
+    a owl:Class ;
+    rdfs:subClassOf stress:StressObservation ;
+    rdfs:label "Stress assessment"@en ;
+    rdfs:comment "An observation or assessment whose observed property concerns the participant's stress state, stress level, or stress label."@en .
+
+stress:SensorSample
+    a owl:Class ;
+    rdfs:subClassOf sosa:Sample ;
+    rdfs:label "Sensor sample"@en ;
+    rdfs:comment "A SOSA sample created or used in sensor-based stress data collection."@en .
+
+stress:ParticipantDataSample
+    a owl:Class ;
+    rdfs:subClassOf
+        stress:SensorSample ,
+        [
+            a owl:Restriction ;
+            owl:onProperty sosa:isSampleOf ;
+            owl:someValuesFrom stress:HumanParticipant
+        ] ;
+    rdfs:label "Participant data sample"@en ;
+    rdfs:comment "A sample of data derived from or representing a human participant in a stress experiment."@en .
+
+stress:ObservationWindow
+    a owl:Class ;
+    rdfs:subClassOf time:TemporalEntity ;
+    rdfs:label "Observation window"@en ;
+    rdfs:comment "A temporal window over which one or more sensor observations or derived stress features are computed."@en .
+
+stress:MeasurementProcedure
+    a owl:Class ;
+    rdfs:subClassOf sosa:Procedure ;
+    rdfs:label "Measurement procedure"@en ;
+    rdfs:comment "A SOSA procedure describing how a wearable or sensor-based observation is made."@en .
+
+stress:StressAssessmentProcedure
+    a owl:Class ;
+    rdfs:subClassOf stress:MeasurementProcedure ;
+    rdfs:label "Stress assessment procedure"@en ;
+    rdfs:comment "A procedure used to assess or derive a participant's stress state, stress level, or stress-related label."@en .
+
+stress:SensorResult
+    a owl:Class ;
+    rdfs:subClassOf sosa:Result ;
+    rdfs:label "Sensor result"@en ;
+    rdfs:comment "A SOSA result produced by a stress-related sensor observation."@en .
+
+stress:NumericSensorResult
+    a owl:Class ;
+    rdfs:subClassOf stress:SensorResult ;
+    rdfs:label "Numeric sensor result"@en ;
+    rdfs:comment "A sensor result represented by one or more numeric values."@en .
+
+stress:CategoricalSensorResult
+    a owl:Class ;
+    rdfs:subClassOf stress:SensorResult ;
+    rdfs:label "Categorical sensor result"@en ;
+    rdfs:comment "A sensor result represented by a category, class, or label."@en .
+
+stress:StressLabelResult
+    a owl:Class ;
+    rdfs:subClassOf stress:CategoricalSensorResult ;
+    rdfs:label "Stress label result"@en ;
+    rdfs:comment "A categorical result indicating an assessed or annotated stress state."@en .
+
+#################################################################
+# Observable properties
+#################################################################
+
+stress:StressRelatedObservableProperty
+    a owl:Class ;
+    rdfs:subClassOf sosa:ObservableProperty ;
+    rdfs:label "Stress-related observable property"@en ;
+    rdfs:comment "A SOSA observable property relevant to representing human stress in wearable- and sensor-based experiment data."@en .
+
+stress:PhysiologicalObservableProperty
+    a owl:Class ;
+    rdfs:subClassOf stress:StressRelatedObservableProperty ;
+    rdfs:label "Physiological observable property"@en ;
+    rdfs:comment "A stress-related observable property concerning physiological state or response."@en .
+
+stress:BehavioralObservableProperty
+    a owl:Class ;
+    rdfs:subClassOf stress:StressRelatedObservableProperty ;
+    rdfs:label "Behavioral observable property"@en ;
+    rdfs:comment "A stress-related observable property concerning movement, behavior, or activity."@en .
+
+stress:ContextualObservableProperty
+    a owl:Class ;
+    rdfs:subClassOf stress:StressRelatedObservableProperty ;
+    rdfs:label "Contextual observable property"@en ;
+    rdfs:comment "A stress-related observable property concerning contextual circumstances relevant to stress data interpretation."@en .
+
+stress:StressStateProperty
+    a owl:Class ;
+    rdfs:subClassOf stress:StressRelatedObservableProperty ;
+    rdfs:label "Stress state property"@en ;
+    rdfs:comment "An observable property representing a participant's stress state, stress level, or stress category."@en .
+
+stress:ElectrodermalActivity
+    a owl:Class ;
+    rdfs:subClassOf stress:PhysiologicalObservableProperty ;
+    rdfs:label "Electrodermal activity"@en ;
+    rdfs:comment "A physiological observable property representing electrodermal activity or skin conductance response."@en .
+
+stress:HeartRate
+    a owl:Class ;
+    rdfs:subClassOf stress:PhysiologicalObservableProperty ;
+    rdfs:label "Heart rate"@en ;
+    rdfs:comment "A physiological observable property representing the rate of cardiac activity."@en .
+
+stress:HeartRateVariability
+    a owl:Class ;
+    rdfs:subClassOf stress:PhysiologicalObservableProperty ;
+    rdfs:label "Heart rate variability"@en ;
+    rdfs:comment "A physiological observable property representing variability in intervals between heartbeats."@en .
+
+stress:SkinTemperature
+    a owl:Class ;
+    rdfs:subClassOf stress:PhysiologicalObservableProperty ;
+    rdfs:label "Skin temperature"@en ;
+    rdfs:comment "A physiological observable property representing temperature at or near the skin surface."@en .
+
+stress:MovementActivity
+    a owl:Class ;
+    rdfs:subClassOf stress:BehavioralObservableProperty ;
+    rdfs:label "Movement activity"@en ;
+    rdfs:comment "A behavioral observable property representing participant movement or physical activity."@en .
+
+stress:Acceleration
+    a owl:Class ;
+    rdfs:subClassOf stress:BehavioralObservableProperty ;
+    rdfs:label "Acceleration"@en ;
+    rdfs:comment "A behavioral observable property representing acceleration measured by a wearable motion sensor."@en .
+
+stress:AmbientContext
+    a owl:Class ;
+    rdfs:subClassOf stress:ContextualObservableProperty ;
+    rdfs:label "Ambient context"@en ;
+    rdfs:comment "A contextual observable property representing environmental context relevant to stress data interpretation."@en .
+
+stress:ExperimentalConditionProperty
+    a owl:Class ;
+    rdfs:subClassOf stress:ContextualObservableProperty ;
+    rdfs:label "Experimental condition property"@en ;
+    rdfs:comment "A contextual observable property representing the condition or phase under which an observation was collected."@en .
+
+#################################################################
+# Stress state and annotation classes
+#################################################################
+
+stress:StressState
+    a owl:Class ;
+    rdfs:label "Stress state"@en ;
+    rdfs:comment "A conceptual state describing whether or how a human participant is considered stressed in the context of a stress experiment."@en .
+
+stress:NonStressState
+    a owl:Class ;
+    rdfs:subClassOf stress:StressState ;
+    rdfs:label "Non-stress state"@en ;
+    rdfs:comment "A stress state indicating that a participant is treated as not stressed in a given experimental context."@en .
+
+stress:StressStateClass
+    a owl:Class ;
+    rdfs:subClassOf stress:StressState ;
+    rdfs:label "Stress state class"@en ;
+    rdfs:comment "A stress state indicating that a participant is treated as stressed in a given experimental context."@en .
+
+stress:UnknownStressState
+    a owl:Class ;
+    rdfs:subClassOf stress:StressState ;
+    rdfs:label "Unknown stress state"@en ;
+    rdfs:comment "A stress state indicating that the participant's stress state is unknown, unassigned, or not determined."@en .
+
+stress:StressAnnotation
+    a owl:Class ;
+    rdfs:label "Stress annotation"@en ;
+    rdfs:comment "An annotation associating an observation, sample, or observation window with a stress state, stress label, or experimental condition."@en ;
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty stress:annotatesParticipant ;
+        owl:someValuesFrom stress:HumanParticipant
+    ] .
+
+stress:SelfReportAnnotation
+    a owl:Class ;
+    rdfs:subClassOf stress:StressAnnotation ;
+    rdfs:label "Self-report annotation"@en ;
+    rdfs:comment "A stress annotation based on information reported by the participant."@en .
+
+stress:ProtocolAnnotation
+    a owl:Class ;
+    rdfs:subClassOf stress:StressAnnotation ;
+    rdfs:label "Protocol annotation"@en ;
+    rdfs:comment "A stress annotation derived from the experimental protocol, condition, or task structure."@en .
+
+stress:DerivedStressFeature
+    a owl:Class ;
+    rdfs:label "Derived stress feature"@en ;
+    rdfs:comment "A feature computed from one or more observations or samples for use in stress analysis or assessment."@en .
+
+stress:PhysiologicalFeature
+    a owl:Class ;
+    rdfs:subClassOf stress:DerivedStressFeature ;
+    rdfs:label "Physiological feature"@en ;
+    rdfs:comment "A derived stress feature computed from physiological observations."@en .
+
+stress:BehavioralFeature
+    a owl:Class ;
+    rdfs:subClassOf stress:DerivedStressFeature ;
+    rdfs:label "Behavioral feature"@en ;
+    rdfs:comment "A derived stress feature computed from behavioral or movement observations."@en .
+
+stress:FeatureExtractionProcedure
+    a owl:Class ;
+    rdfs:subClassOf sosa:Procedure ;
+    rdfs:label "Feature extraction procedure"@en ;
+    rdfs:comment "A procedure for deriving stress-related features from sensor observations or samples."@en .
+
+#################################################################
+# Object properties
+#################################################################
+
+stress:hasParticipant
+    a owl:ObjectProperty ;
+    rdfs:domain stress:StressExperiment ;
+    rdfs:range stress:HumanParticipant ;
+    rdfs:label "has participant"@en ;
+    rdfs:comment "Relates a stress experiment to a human participant involved in it."@en .
+
+stress:participatesIn
+    a owl:ObjectProperty ;
+    owl:inverseOf stress:hasParticipant ;
+    rdfs:domain stress:HumanParticipant ;
+    rdfs:range stress:StressExperiment ;
+    rdfs:label "participates in"@en ;
+    rdfs:comment "Relates a human participant to a stress experiment in which the participant is involved."@en .
+
+stress:hasSession
+    a owl:ObjectProperty ;
+    rdfs:domain stress:StressExperiment ;
+    rdfs:range stress:ExperimentSession ;
+    rdfs:label "has session"@en ;
+    rdfs:comment "Relates a stress experiment to an experimental session."@en .
+
+stress:isSessionOf
+    a owl:ObjectProperty ;
+    owl:inverseOf stress:hasSession ;
+    rdfs:domain stress:ExperimentSession ;
+    rdfs:range stress:StressExperiment ;
+    rdfs:label "is session of"@en ;
+    rdfs:comment "Relates an experimental session to the stress experiment it instantiates."@en .
+
+stress:sessionParticipant
+    a owl:ObjectProperty ;
+    rdfs:domain stress:ExperimentSession ;
+    rdfs:range stress:HumanParticipant ;
+    rdfs:label "session participant"@en ;
+    rdfs:comment "Relates an experimental session to a human participant observed during that session."@en .
+
+stress:hasExperimentalCondition
+    a owl:ObjectProperty ;
+    rdfs:domain stress:ExperimentSession ;
+    rdfs:range stress:ExperimentalCondition ;
+    rdfs:label "has experimental condition"@en ;
+    rdfs:comment "Relates an experimental session to a condition or phase in which observations are collected."@en .
+
+stress:hasStressInducingTask
+    a owl:ObjectProperty ;
+    rdfs:domain stress:ExperimentalCondition ;
+    rdfs:range stress:StressInducingTask ;
+    rdfs:label "has stress-inducing task"@en ;
+    rdfs:comment "Relates an experimental condition to a stress-inducing task used in that condition."@en .
+
+stress:observationInSession
+    a owl:ObjectProperty ;
+    rdfs:domain stress:StressObservation ;
+    rdfs:range stress:ExperimentSession ;
+    rdfs:label "observation in session"@en ;
+    rdfs:comment "Relates a stress observation to the experimental session in which it was made."@en .
+
+stress:observationDuringCondition
+    a owl:ObjectProperty ;
+    rdfs:domain stress:StressObservation ;
+    rdfs:range stress:ExperimentalCondition ;
+    rdfs:label "observation during condition"@en ;
+    rdfs:comment "Relates a stress observation to the experimental condition under which it was collected."@en .
+
+stress:hasObservationWindow
+    a owl:ObjectProperty ;
+    rdfs:domain stress:StressObservation ;
+    rdfs:range stress:ObservationWindow ;
+    rdfs:label "has observation window"@en ;
+    rdfs:comment "Relates a stress observation to the temporal window over which it applies."@en .
+
+stress:placedOnBodyLocation
+    a owl:ObjectProperty ;
+    rdfs:domain stress:WearablePlatform ;
+    rdfs:range stress:BodyLocation ;
+    rdfs:label "placed on body location"@en ;
+    rdfs:comment "Relates a wearable platform to the participant body location where it is placed."@en .
+
+stress:wornBy
+    a owl:ObjectProperty ;
+    rdfs:domain stress:WearablePlatform ;
+    rdfs:range stress:HumanParticipant ;
+    rdfs:label "worn by"@en ;
+    rdfs:comment "Relates a wearable platform to the human participant who wears it."@en .
+
+stress:wearsPlatform
+    a owl:ObjectProperty ;
+    owl:inverseOf stress:wornBy ;
+    rdfs:domain stress:HumanParticipant ;
+    rdfs:range stress:WearablePlatform ;
+    rdfs:label "wears platform"@en ;
+    rdfs:comment "Relates a human participant to a wearable platform worn by that participant."@en .
+
+stress:hasStressState
+    a owl:ObjectProperty ;
+    rdfs:domain stress:StressAssessment ;
+    rdfs:range stress:StressState ;
+    rdfs:label "has stress state"@en ;
+    rdfs:comment "Relates a stress assessment to the stress state assigned or inferred by that assessment."@en .
+
+stress:annotationStressState
+    a owl:ObjectProperty ;
+    rdfs:domain stress:StressAnnotation ;
+    rdfs:range stress:StressState ;
+    rdfs:label "annotation stress state"@en ;
+    rdfs:comment "Relates a stress annotation to the stress state it records."@en .
+
+stress:annotationCondition
+    a owl:ObjectProperty ;
+    rdfs:domain stress:StressAnnotation ;
+    rdfs:range stress:ExperimentalCondition ;
+    rdfs:label "annotation condition"@en ;
+    rdfs:comment "Relates a stress annotation to the experimental condition it records or supports."@en .
+
+stress:annotatesParticipant
+    a owl:ObjectProperty ;
+    rdfs:domain stress:StressAnnotation ;
+    rdfs:range stress:HumanParticipant ;
+    rdfs:label "annotates participant"@en ;
+    rdfs:comment "Relates a stress annotation to the participant it describes."@en .
+
+stress:annotatesObservation
+    a owl:ObjectProperty ;
+    rdfs:domain stress:StressAnnotation ;
+    rdfs:range stress:StressObservation ;
+    rdfs:label "annotates observation"@en ;
+    rdfs:comment "Relates a stress annotation to a stress observation it describes."@en .
+
+stress:annotatesSample
+    a owl:ObjectProperty ;
+    rdfs:domain stress:StressAnnotation ;
+    rdfs:range stress:ParticipantDataSample ;
+    rdfs:label "annotates sample"@en ;
+    rdfs:comment "Relates a stress annotation to a participant data sample it describes."@en .
+
+stress:computedFromObservation
+    a owl:ObjectProperty ;
+    rdfs:domain stress:DerivedStressFeature ;
+    rdfs:range stress:StressObservation ;
+    rdfs:label "computed from observation"@en ;
+    rdfs:comment "Relates a derived stress feature to one or more observations from which it was computed."@en .
+
+stress:computedFromSample
+    a owl:ObjectProperty ;
+    rdfs:domain stress:DerivedStressFeature ;
+    rdfs:range stress:ParticipantDataSample ;
+    rdfs:label "computed from sample"@en ;
+    rdfs:comment "Relates a derived stress feature to one or more participant data samples from which it was computed."@en .
+
+stress:computedForWindow
+    a owl:ObjectProperty ;
+    rdfs:domain stress:DerivedStressFeature ;
+    rdfs:range stress:ObservationWindow ;
+    rdfs:label "computed for window"@en ;
+    rdfs:comment "Relates a derived stress feature to the observation window for which it was computed."@en .
+
+stress:computedByProcedure
+    a owl:ObjectProperty ;
+    rdfs:domain stress:DerivedStressFeature ;
+    rdfs:range stress:FeatureExtractionProcedure ;
+    rdfs:label "computed by procedure"@en ;
+    rdfs:comment "Relates a derived stress feature to the feature extraction procedure that produced it."@en .
+
+stress:featureOfParticipant
+    a owl:ObjectProperty ;
+    rdfs:domain stress:DerivedStressFeature ;
+    rdfs:range stress:HumanParticipant ;
+    rdfs:label "feature of participant"@en ;
+    rdfs:comment "Relates a derived stress feature to the human participant it describes."@en .
+
+#################################################################
+# SOSA/SSN property reuse alignments
+#################################################################
+
+sosa:hasFeatureOfInterest
+    a owl:ObjectProperty .
+
+sosa:madeBySensor
+    a owl:ObjectProperty .
+
+sosa:madeObservation
+    a owl:ObjectProperty .
+
+sosa:observedProperty
+    a owl:ObjectProperty .
+
+sosa:hasResult
+    a owl:ObjectProperty .
+
+sosa:usedProcedure
+    a owl:ObjectProperty .
+
+sosa:hosts
+    a owl:ObjectProperty .
+
+sosa:isHostedBy
+    a owl:ObjectProperty .
+
+sosa:isSampleOf
+    a owl:ObjectProperty .
+
+sosa:phenomenonTime
+    a owl:ObjectProperty .
+
+sosa:resultTime
+    a owl:DatatypeProperty .
+
+#################################################################
+# Data properties
+#################################################################
+
+stress:participantIdentifier
+    a owl:DatatypeProperty ;
+    rdfs:domain stress:HumanParticipant ;
+    rdfs:range xsd:string ;
+    rdfs:label "participant identifier"@en ;
+    rdfs:comment "A local, pseudonymous, or study-specific identifier for a human participant."@en .
+
+stress:experimentIdentifier
+    a owl:DatatypeProperty ;
+    rdfs:domain stress:StressExperiment ;
+    rdfs:range xsd:string ;
+    rdfs:label "experiment identifier"@en ;
+    rdfs:comment "A local or study-specific identifier for a stress experiment."@en .
+
+stress:sessionIdentifier
+    a owl:DatatypeProperty ;
+    rdfs:domain stress:ExperimentSession ;
+    rdfs:range xsd:string ;
+    rdfs:label "session identifier"@en ;
+    rdfs:comment "A local or study-specific identifier for an experimental session."@en .
+
+stress:conditionIdentifier
+    a owl:DatatypeProperty ;
+    rdfs:domain stress:ExperimentalCondition ;
+    rdfs:range xsd:string ;
+    rdfs:label "condition identifier"@en ;
+    rdfs:comment "A local or protocol-specific identifier for an experimental condition."@en .
+
+stress:startDateTime
+    a owl:DatatypeProperty ;
+    rdfs:domain time:TemporalEntity ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "start date time"@en ;
+    rdfs:comment "The start date and time of a temporal entity such as a session or observation window."@en .
+
+stress:endDateTime
+    a owl:DatatypeProperty ;
+    rdfs:domain time:TemporalEntity ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "end date time"@en ;
+    rdfs:comment "The end date and time of a temporal entity such as a session or observation window."@en .
+
+stress:numericValue
+    a owl:DatatypeProperty ;
+    rdfs:domain stress:NumericSensorResult ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "numeric value"@en ;
+    rdfs:comment "A numeric value recorded in a sensor result."@en .
+
+stress:categoricalValue
+    a owl:DatatypeProperty ;
+    rdfs:domain stress:CategoricalSensorResult ;
+    rdfs:range xsd:string ;
+    rdfs:label "categorical value"@en ;
+    rdfs:comment "A categorical value, class, or label recorded in a sensor result."@en .
+
+stress:unit
+    a owl:DatatypeProperty ;
+    rdfs:domain stress:SensorResult ;
+    rdfs:range xsd:string ;
+    rdfs:label "unit"@en ;
+    rdfs:comment "A textual unit or unit code associated with a sensor result."@en .
+
+stress:samplingFrequency
+    a owl:DatatypeProperty ;
+    rdfs:domain stress:WearableSensor ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "sampling frequency"@en ;
+    rdfs:comment "The sampling frequency of a wearable sensor, expressed as a numeric value."@en .
+
+stress:samplingFrequencyUnit
+    a owl:DatatypeProperty ;
+    rdfs:domain stress:WearableSensor ;
+    rdfs:range xsd:string ;
+    rdfs:label "sampling frequency unit"@en ;
+    rdfs:comment "The unit used for the sampling frequency of a wearable sensor."@en .
+
+stress:deviceIdentifier
+    a owl:DatatypeProperty ;
+    rdfs:domain stress:WearablePlatform ;
+    rdfs:range xsd:string ;
+    rdfs:label "device identifier"@en ;
+    rdfs:comment "A local, manufacturer, or study-specific identifier for a wearable platform."@en .
+
+stress:sensorIdentifier
+    a owl:DatatypeProperty ;
+    rdfs:domain stress:WearableSensor ;
+    rdfs:range xsd:string ;
+    rdfs:label "sensor identifier"@en ;
+    rdfs:comment "A local, manufacturer, or study-specific identifier for a wearable sensor."@en .
+
+stress:featureValue
+    a owl:DatatypeProperty ;
+    rdfs:domain stress:DerivedStressFeature ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "feature value"@en ;
+    rdfs:comment "A numeric value of a derived stress feature."@en .
+
+stress:featureName
+    a owl:DatatypeProperty ;
+    rdfs:domain stress:DerivedStressFeature ;
+    rdfs:range xsd:string ;
+    rdfs:label "feature name"@en ;
+    rdfs:comment "A name or label for a derived stress feature."@en .
+
+stress:confidence
+    a owl:DatatypeProperty ;
+    rdfs:domain stress:StressAssessment ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "confidence"@en ;
+    rdfs:comment "A numeric confidence score associated with a stress assessment."@en .
+
+stress:annotationSource
+    a owl:DatatypeProperty ;
+    rdfs:domain stress:StressAnnotation ;
+    rdfs:range xsd:string ;
+    rdfs:label "annotation source"@en ;
+    rdfs:comment "A textual description of the source of a stress annotation, such as a self-report, protocol rule, or derived label."@en .
+
+stress:annotationTimestamp
+    a owl:DatatypeProperty ;
+    rdfs:domain stress:StressAnnotation ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "annotation timestamp"@en ;
+    rdfs:comment "The date and time at which a stress annotation was created or assigned."@en .
+
+#################################################################
+# Additional semantic restrictions
+#################################################################
+
+stress:WearablePlatform
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty sosa:hosts ;
+        owl:someValuesFrom stress:WearableSensor
+    ] .
+
+stress:WearableSensor
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty sosa:isHostedBy ;
+        owl:someValuesFrom stress:WearablePlatform
+    ] .
+
+stress:ElectrodermalActivitySensor
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty ssn:forProperty ;
+        owl:someValuesFrom stress:ElectrodermalActivity
+    ] .
+
+stress:HeartActivitySensor
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty ssn:forProperty ;
+        owl:someValuesFrom stress:PhysiologicalObservableProperty
+    ] .
+
+stress:TemperatureSensor
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty ssn:forProperty ;
+        owl:someValuesFrom stress:SkinTemperature
+    ] .
+
+stress:MotionSensor
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty ssn:forProperty ;
+        owl:someValuesFrom stress:BehavioralObservableProperty
+    ] .
+
+stress:PhysiologicalObservation
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty sosa:observedProperty ;
+        owl:someValuesFrom stress:PhysiologicalObservableProperty
+    ] .
+
+stress:BehavioralObservation
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty sosa:observedProperty ;
+        owl:someValuesFrom stress:BehavioralObservableProperty
+    ] .
+
+stress:ContextObservation
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty sosa:observedProperty ;
+        owl:someValuesFrom stress:ContextualObservableProperty
+    ] .
+
+stress:StressAssessment
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty sosa:observedProperty ;
+        owl:someValuesFrom stress:StressStateProperty
+    ] ,
+    [
+        a owl:Restriction ;
+        owl:onProperty stress:hasStressState ;
+        owl:someValuesFrom stress:StressState
+    ] .
+
+stress:NumericSensorResult
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty stress:numericValue ;
+        owl:someValuesFrom xsd:decimal
+    ] .
+
+stress:CategoricalSensorResult
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty stress:categoricalValue ;
+        owl:someValuesFrom xsd:string
+    ] .
+
+stress:DerivedStressFeature
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty stress:featureOfParticipant ;
+        owl:someValuesFrom stress:HumanParticipant
+    ] ,
+    [
+        a owl:Restriction ;
+        owl:onProperty stress:computedForWindow ;
+        owl:someValuesFrom stress:ObservationWindow
+    ] .
+
+stress:ObservationWindow
+    rdfs:subClassOf [
+        a owl:Restriction ;
+        owl:onProperty stress:startDateTime ;
+        owl:someValuesFrom xsd:dateTime
+    ] .
+
+#################################################################
+# Representative controlled individuals
+#################################################################
+
+stress:electrodermalActivity
+    a stress:ElectrodermalActivity ;
+    rdfs:label "electrodermal activity"@en ;
+    rdfs:comment "Representative individual for the electrodermal activity observable property."@en .
+
+stress:heartRate
+    a stress:HeartRate ;
+    rdfs:label "heart rate"@en ;
+    rdfs:comment "Representative individual for the heart rate observable property."@en .
+
+stress:heartRateVariability
+    a stress:HeartRateVariability ;
+    rdfs:label "heart rate variability"@en ;
+    rdfs:comment "Representative individual for the heart rate variability observable property."@en .
+
+stress:skinTemperature
+    a stress:SkinTemperature ;
+    rdfs:label "skin temperature"@en ;
+    rdfs:comment "Representative individual for the skin temperature observable property."@en .
+
+stress:movementActivity
+    a stress:MovementActivity ;
+    rdfs:label "movement activity"@en ;
+    rdfs:comment "Representative individual for the movement activity observable property."@en .
+
+stress:acceleration
+    a stress:Acceleration ;
+    rdfs:label "acceleration"@en ;
+    rdfs:comment "Representative individual for the acceleration observable property."@en .
+
+stress:ambientContext
+    a stress:AmbientContext ;
+    rdfs:label "ambient context"@en ;
+    rdfs:comment "Representative individual for ambient contextual observable properties."@en .
+
+stress:stressStateProperty
+    a stress:StressStateProperty ;
+    rdfs:label "stress state property"@en ;
+    rdfs:comment "Representative individual for the observable property of participant stress state."@en .
+
+stress:nonStressState
+    a stress:NonStressState ;
+    rdfs:label "non-stress state"@en ;
+    rdfs:comment "Representative individual for a non-stress state label."@en .
+
+stress:stressState
+    a stress:StressStateClass ;
+    rdfs:label "stress state"@en ;
+    rdfs:comment "Representative individual for a stress state label."@en .
+
+stress:unknownStressState
+    a stress:UnknownStressState ;
+    rdfs:label "unknown stress state"@en ;
+    rdfs:comment "Representative individual for an unknown stress state label."@en .
+
+stress:wrist
+    a stress:BodyLocation ;
+    rdfs:label "wrist"@en ;
+    rdfs:comment "Representative body location for wrist-worn wearable platforms."@en .
+
+stress:chest
+    a stress:BodyLocation ;
+    rdfs:label "chest"@en ;
+    rdfs:comment "Representative body location for chest-worn wearable platforms."@en .
+
+stress:finger
+    a stress:BodyLocation ;
+    rdfs:label "finger"@en ;
+    rdfs:comment "Representative body location for finger-worn or finger-attached sensors."@en .

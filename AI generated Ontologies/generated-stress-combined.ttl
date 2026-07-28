@@ -1,0 +1,1454 @@
+@base <http://example.org/generated-stress-combined#> .
+@prefix : <http://example.org/generated-stress-combined#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sosa: <https://www.w3.org/ns/sosa/> .
+@prefix ssn: <https://www.w3.org/ns/ssn/> .
+@prefix schema: <https://schema.org/> .
+
+<http://example.org/generated-stress-combined>
+    a owl:Ontology ;
+    rdfs:label "Generated combined wearable stress experiment ontology"@en ;
+    rdfs:comment "OWL 2 ontology for human stress in wearable- and sensor-based stress experiment data. It combines SOSA/SSN-style observation modeling, schema.org-compatible persons, competency-question-driven concepts, and WFDB-like example records for acceleration, temperature, EDA, SpO2, and heart rate."@en ;
+    owl:versionInfo "1.0.1" .
+
+#################################################################
+# Core classes
+#################################################################
+
+:HumanParticipant a owl:Class ; rdfs:subClassOf schema:Person, sosa:FeatureOfInterest ; rdfs:label "Human participant"@en ; rdfs:comment "A human person participating in a stress experiment."@en .
+:Subject a owl:Class ; rdfs:subClassOf :HumanParticipant, [ a owl:Restriction ; owl:onProperty :hasRole ; owl:someValuesFrom :SubjectRole ] ; rdfs:label "Subject"@en ; rdfs:comment "A participant whose physiological, movement, behavioral, or contextual data are collected."@en .
+:PatientSubject a owl:Class ; rdfs:subClassOf :Subject, schema:Patient ; rdfs:label "Patient subject"@en ; rdfs:comment "A subject represented compatibly with schema.org Patient where a patient-oriented interpretation is needed."@en .
+:Observer a owl:Class ; rdfs:subClassOf :HumanParticipant, [ a owl:Restriction ; owl:onProperty :hasRole ; owl:someValuesFrom :ObserverRole ] ; rdfs:label "Observer"@en ; rdfs:comment "A human source of annotations or human observations."@en .
+:PersonRole a owl:Class ; rdfs:label "Person role"@en ; rdfs:comment "A role taken by a person in a stress experiment."@en .
+:SubjectRole a owl:Class ; rdfs:subClassOf :PersonRole ; rdfs:label "Subject role"@en ; rdfs:comment "Role of a measured person."@en .
+:ObserverRole a owl:Class ; rdfs:subClassOf :PersonRole ; rdfs:label "Observer role"@en ; rdfs:comment "Role of a person producing an annotation or human observation."@en .
+:ExperimenterRole a owl:Class ; rdfs:subClassOf :ObserverRole ; rdfs:label "Experimenter role"@en ; rdfs:comment "Role of a person conducting or supervising an experiment."@en .
+
+:StressExperiment a owl:Class ; rdfs:subClassOf sosa:Procedure ; rdfs:label "Stress experiment"@en ; rdfs:comment "A procedure organizing stress-related phases, stressors, sensors, observations, and annotations."@en .
+:ExperimentSession a owl:Class ; rdfs:label "Experiment session"@en ; rdfs:comment "A concrete session of a subject in a stress experiment."@en .
+:ExperimentalActivity a owl:Class ; rdfs:label "Experimental activity"@en ; rdfs:comment "An activity or phase during which data are collected."@en .
+:ExperimentalPhase a owl:Class ; rdfs:subClassOf :ExperimentalActivity ; rdfs:label "Experimental phase"@en ; rdfs:comment "A temporally delimited phase of a stress experiment."@en .
+:RelaxPhase a owl:Class ; rdfs:subClassOf :ExperimentalPhase, [ a owl:Restriction ; owl:onProperty :hasStressCondition ; owl:hasValue :relaxCondition ] ; rdfs:label "Relax phase"@en ; rdfs:comment "A phase annotated as relaxation, baseline, or recovery."@en .
+:PhysicalStressPhase a owl:Class ; rdfs:subClassOf :ExperimentalPhase, [ a owl:Restriction ; owl:onProperty :hasStressCondition ; owl:hasValue :physicalStressCondition ], [ a owl:Restriction ; owl:onProperty :hasStressor ; owl:someValuesFrom :PhysicalStressor ] ; rdfs:label "Physical stress phase"@en ; rdfs:comment "A phase associated with physical stress."@en .
+:EmotionalStressPhase a owl:Class ; rdfs:subClassOf :ExperimentalPhase, [ a owl:Restriction ; owl:onProperty :hasStressCondition ; owl:hasValue :emotionalStressCondition ], [ a owl:Restriction ; owl:onProperty :hasStressor ; owl:someValuesFrom :EmotionalStressor ] ; rdfs:label "Emotional stress phase"@en ; rdfs:comment "A phase associated with emotional stress."@en .
+:CognitiveStressPhase a owl:Class ; rdfs:subClassOf :ExperimentalPhase, [ a owl:Restriction ; owl:onProperty :hasStressCondition ; owl:hasValue :cognitiveStressCondition ], [ a owl:Restriction ; owl:onProperty :hasStressor ; owl:someValuesFrom :CognitiveStressor ] ; rdfs:label "Cognitive stress phase"@en ; rdfs:comment "A phase associated with cognitive stress."@en .
+
+:StressRelatedCondition a owl:Class ; rdfs:label "Stress-related condition"@en ; rdfs:comment "A condition describing a subject's stress-related state."@en .
+:StressCondition a owl:Class ; rdfs:subClassOf :StressRelatedCondition ; rdfs:label "Stress condition"@en ; rdfs:comment "A condition representing stress exposure or response."@en .
+:ShortTermStressCondition a owl:Class ; rdfs:subClassOf :StressCondition ; rdfs:label "Short-term stress condition"@en ; rdfs:comment "An acute stress condition during a bounded phase."@en .
+:PhysicalStressCondition a owl:Class ; rdfs:subClassOf :ShortTermStressCondition ; rdfs:label "Physical stress condition"@en ; rdfs:comment "A short-term stress condition involving physical load."@en .
+:EmotionalStressCondition a owl:Class ; rdfs:subClassOf :ShortTermStressCondition ; rdfs:label "Emotional stress condition"@en ; rdfs:comment "A short-term stress condition involving emotional stimulation."@en .
+:CognitiveStressCondition a owl:Class ; rdfs:subClassOf :ShortTermStressCondition ; rdfs:label "Cognitive stress condition"@en ; rdfs:comment "A short-term stress condition involving cognitive demand."@en .
+:NonStressCondition a owl:Class ; rdfs:subClassOf :StressRelatedCondition ; rdfs:label "Non-stress condition"@en ; rdfs:comment "A condition not primarily characterized by stress exposure."@en .
+:RelaxCondition a owl:Class ; rdfs:subClassOf :NonStressCondition ; rdfs:label "Relax condition"@en ; rdfs:comment "A relaxed condition."@en .
+:BaselineCondition a owl:Class ; rdfs:subClassOf :NonStressCondition ; rdfs:label "Baseline condition"@en ; rdfs:comment "A reference condition before or between stress phases."@en .
+:RecoveryCondition a owl:Class ; rdfs:subClassOf :NonStressCondition ; rdfs:label "Recovery condition"@en ; rdfs:comment "A condition representing recovery after stress exposure."@en .
+
+:Stressor a owl:Class ; rdfs:label "Stressor"@en ; rdfs:comment "A stimulus, task, or contextual factor associated with stress."@en .
+:ShortTermStressor a owl:Class ; rdfs:subClassOf :Stressor ; rdfs:label "Short-term stressor"@en ; rdfs:comment "A bounded stressor occurring during an activity phase."@en .
+:PhysicalStressor a owl:Class ; rdfs:subClassOf :ShortTermStressor ; rdfs:label "Physical stressor"@en ; rdfs:comment "A stressor involving physical load or movement."@en .
+:EmotionalStressor a owl:Class ; rdfs:subClassOf :ShortTermStressor ; rdfs:label "Emotional stressor"@en ; rdfs:comment "A stressor involving emotional stimulation."@en .
+:CognitiveStressor a owl:Class ; rdfs:subClassOf :ShortTermStressor ; rdfs:label "Cognitive stressor"@en ; rdfs:comment "A stressor involving cognitive demand."@en .
+
+:SensorType a owl:Class ; rdfs:label "Sensor type"@en ; rdfs:comment "A sensor category used for stress-related measurements."@en .
+:PhysiologicalSensor a owl:Class ; rdfs:subClassOf sosa:Sensor ; rdfs:label "Physiological sensor"@en ; rdfs:comment "A sensor observing physiological properties."@en .
+:MovementSensor a owl:Class ; rdfs:subClassOf sosa:Sensor ; rdfs:label "Movement sensor"@en ; rdfs:comment "A sensor observing movement-related properties."@en .
+:HeartRateSensor a owl:Class ; rdfs:subClassOf :PhysiologicalSensor, [ a owl:Restriction ; owl:onProperty sosa:observes ; owl:hasValue :heartRate ] ; rdfs:label "Heart rate sensor"@en ; rdfs:comment "A sensor measuring heart rate."@en .
+:EDASensor a owl:Class ; rdfs:subClassOf :PhysiologicalSensor, [ a owl:Restriction ; owl:onProperty sosa:observes ; owl:hasValue :electrodermalActivity ] ; rdfs:label "EDA sensor"@en ; rdfs:comment "A sensor measuring electrodermal activity."@en .
+:SpO2Sensor a owl:Class ; rdfs:subClassOf :PhysiologicalSensor, [ a owl:Restriction ; owl:onProperty sosa:observes ; owl:hasValue :bloodOxygenSaturation ] ; rdfs:label "SpO2 sensor"@en ; rdfs:comment "A sensor measuring peripheral oxygen saturation."@en .
+:TemperatureSensor a owl:Class ; rdfs:subClassOf :PhysiologicalSensor, [ a owl:Restriction ; owl:onProperty sosa:observes ; owl:hasValue :skinTemperature ] ; rdfs:label "Temperature sensor"@en ; rdfs:comment "A sensor measuring skin or body temperature."@en .
+:Accelerometer a owl:Class ; rdfs:subClassOf :MovementSensor ; rdfs:label "Accelerometer"@en ; rdfs:comment "A movement sensor measuring acceleration-related properties."@en .
+:MeasurementPlatform a owl:Class ; rdfs:subClassOf sosa:Platform ; rdfs:label "Measurement platform"@en ; rdfs:comment "A device or platform hosting sensors."@en .
+:WearableDevice a owl:Class ; rdfs:subClassOf :MeasurementPlatform ; rdfs:label "Wearable device"@en ; rdfs:comment "A measurement platform worn by a human participant."@en .
+
+:MeasurableProperty a owl:Class ; rdfs:subClassOf sosa:ObservableProperty ; rdfs:label "Measurable property"@en ; rdfs:comment "A property that can be observed or measured."@en .
+:PhysiologicalProperty a owl:Class ; rdfs:subClassOf :MeasurableProperty ; rdfs:label "Physiological property"@en ; rdfs:comment "A measurable body property relevant to stress."@en .
+:MovementProperty a owl:Class ; rdfs:subClassOf :MeasurableProperty ; rdfs:label "Movement property"@en ; rdfs:comment "A measurable property describing movement or acceleration."@en .
+:BehavioralIndicator a owl:Class ; rdfs:subClassOf :MeasurableProperty ; rdfs:label "Behavioral indicator"@en ; rdfs:comment "A measurable or annotatable behavioral indicator."@en .
+:EnvironmentalProperty a owl:Class ; rdfs:subClassOf :MeasurableProperty ; rdfs:label "Environmental property"@en ; rdfs:comment "A measurable contextual property of an environment."@en .
+
+:PhysiologicalRecord a owl:Class ; rdfs:label "Physiological record"@en ; rdfs:comment "A WFDB-like record containing signal channels and metadata."@en .
+:SignalChannel a owl:Class ; rdfs:label "Signal channel"@en ; rdfs:comment "A named signal stream in a physiological record."@en .
+:SourceDataFile a owl:Class ; rdfs:label "Source data file"@en ; rdfs:comment "A file storing raw signals, metadata, or annotations."@en .
+:HeaderFile a owl:Class ; rdfs:subClassOf :SourceDataFile ; rdfs:label "Header file"@en ; rdfs:comment "A source file containing record and channel metadata."@en .
+:SignalDataFile a owl:Class ; rdfs:subClassOf :SourceDataFile ; rdfs:label "Signal data file"@en ; rdfs:comment "A source file containing sampled signal values."@en .
+:AnnotationFile a owl:Class ; rdfs:subClassOf :SourceDataFile ; rdfs:label "Annotation file"@en ; rdfs:comment "A source file containing phase or condition annotations."@en .
+
+:StressObservation a owl:Class ; rdfs:subClassOf sosa:Observation ; rdfs:label "Stress observation"@en ; rdfs:comment "An observation made in a stress-related experimental context."@en .
+:TimeSeriesObservation a owl:Class ; rdfs:subClassOf :StressObservation, [ a owl:Restriction ; owl:onProperty :hasSourceRecord ; owl:someValuesFrom :PhysiologicalRecord ], [ a owl:Restriction ; owl:onProperty :hasSignalChannel ; owl:someValuesFrom :SignalChannel ] ; rdfs:label "Time-series observation"@en ; rdfs:comment "An observation derived from a time-indexed signal channel."@en .
+:PhysiologicalObservation a owl:Class ; rdfs:subClassOf :TimeSeriesObservation ; rdfs:label "Physiological observation"@en ; rdfs:comment "A time-series observation of a physiological property."@en .
+:MovementObservation a owl:Class ; rdfs:subClassOf :TimeSeriesObservation ; rdfs:label "Movement observation"@en ; rdfs:comment "A time-series observation of a movement-related property."@en .
+:EnvironmentalObservation a owl:Class ; rdfs:subClassOf :StressObservation ; rdfs:label "Environmental observation"@en ; rdfs:comment "An observation of an environmental property."@en .
+:HumanObservation a owl:Class ; rdfs:subClassOf :StressObservation ; rdfs:label "Human observation"@en ; rdfs:comment "An observation whose source is a human observer."@en .
+:StressAnnotation a owl:Class ; rdfs:label "Stress annotation"@en ; rdfs:comment "An annotation assigning labels, stress conditions, or phase information to data."@en .
+:Environment a owl:Class ; rdfs:subClassOf sosa:FeatureOfInterest ; rdfs:label "Environment"@en ; rdfs:comment "The environmental context of a stress experiment."@en .
+:BiomarkerAssay a owl:Class ; rdfs:subClassOf sosa:Procedure ; rdfs:label "Biomarker assay"@en ; rdfs:comment "An assay procedure used to measure a stress-related biomarker."@en .
+:BiomarkerObservation a owl:Class ; rdfs:subClassOf :StressObservation, [ a owl:Restriction ; owl:onProperty :basedOnAssay ; owl:someValuesFrom :BiomarkerAssay ] ; rdfs:label "Biomarker observation"@en ; rdfs:comment "An observation linked to a biomarker assay."@en .
+:BiologicalSample a owl:Class ; rdfs:subClassOf sosa:Sample ; rdfs:label "Biological sample"@en ; rdfs:comment "A sample taken from a participant for biomarker assay purposes."@en .
+
+#################################################################
+# Object properties
+#################################################################
+
+:hasRole a owl:ObjectProperty ; rdfs:domain schema:Person ; rdfs:range :PersonRole ; rdfs:label "has role"@en ; rdfs:comment "Connects a person to a role."@en .
+:hasSession a owl:ObjectProperty ; rdfs:domain :HumanParticipant ; rdfs:range :ExperimentSession ; rdfs:label "has session"@en ; rdfs:comment "Connects a participant to an experiment session."@en .
+:hasSubject a owl:ObjectProperty ; rdfs:domain :ExperimentSession ; rdfs:range :Subject ; rdfs:label "has subject"@en ; rdfs:comment "Connects a session to the measured subject."@en .
+:usesProcedure a owl:ObjectProperty ; rdfs:domain :ExperimentSession ; rdfs:range :StressExperiment ; rdfs:label "uses procedure"@en ; rdfs:comment "Connects a session to the experiment procedure used."@en .
+:hasActivity a owl:ObjectProperty ; rdfs:domain :ExperimentSession ; rdfs:range :ExperimentalActivity ; rdfs:label "has activity"@en ; rdfs:comment "Connects a session to an activity or phase."@en .
+:nextActivity a owl:ObjectProperty ; rdfs:domain :ExperimentalActivity ; rdfs:range :ExperimentalActivity ; rdfs:label "next activity"@en ; rdfs:comment "Connects a phase to its subsequent phase."@en .
+:hasStressCondition a owl:ObjectProperty ; rdfs:domain :ExperimentalActivity ; rdfs:range :StressRelatedCondition ; rdfs:label "has stress condition"@en ; rdfs:comment "Assigns a stress-related condition to an activity."@en .
+:hasStressor a owl:ObjectProperty ; rdfs:domain :ExperimentalActivity ; rdfs:range :Stressor ; rdfs:label "has stressor"@en ; rdfs:comment "Assigns a stressor to an activity."@en .
+:performedBy a owl:ObjectProperty ; rdfs:domain :ExperimentalActivity ; rdfs:range :Subject ; rdfs:label "performed by"@en ; rdfs:comment "Connects an activity to the subject experiencing it."@en .
+:hostedOnPlatform a owl:ObjectProperty ; rdfs:subPropertyOf sosa:isHostedBy ; rdfs:domain sosa:Sensor ; rdfs:range sosa:Platform ; rdfs:label "hosted on platform"@en ; rdfs:comment "Connects a sensor to its platform."@en .
+:recordedForSubject a owl:ObjectProperty ; rdfs:domain :PhysiologicalRecord ; rdfs:range :Subject ; rdfs:label "recorded for subject"@en ; rdfs:comment "Connects a record to the represented subject."@en .
+:hasSignalChannel a owl:ObjectProperty ; rdfs:domain [ a owl:Class ; owl:unionOf ( :PhysiologicalRecord :TimeSeriesObservation ) ] ; rdfs:range :SignalChannel ; rdfs:label "has signal channel"@en ; rdfs:comment "Connects a record or observation to a signal channel."@en .
+:channelMeasures a owl:ObjectProperty ; rdfs:domain :SignalChannel ; rdfs:range :MeasurableProperty ; rdfs:label "channel measures"@en ; rdfs:comment "Specifies the measured property of a signal channel."@en .
+:recordMeasuredBy a owl:ObjectProperty ; rdfs:domain :PhysiologicalRecord ; rdfs:range sosa:Sensor ; rdfs:label "record measured by"@en ; rdfs:comment "Connects a record to sensors involved in producing it."@en .
+:hasSourceDataFile a owl:ObjectProperty ; rdfs:domain [ a owl:Class ; owl:unionOf ( :PhysiologicalRecord :StressAnnotation :StressObservation ) ] ; rdfs:range :SourceDataFile ; rdfs:label "has source data file"@en ; rdfs:comment "Connects a record, annotation, or observation to a source file."@en .
+:hasSourceRecord a owl:ObjectProperty ; rdfs:domain sosa:Observation ; rdfs:range :PhysiologicalRecord ; rdfs:label "has source record"@en ; rdfs:comment "Connects an observation to its source record."@en .
+:observedDuringActivity a owl:ObjectProperty ; rdfs:domain sosa:Observation ; rdfs:range :ExperimentalActivity ; rdfs:label "observed during activity"@en ; rdfs:comment "Connects an observation to the activity during which it was made."@en .
+:annotatesActivity a owl:ObjectProperty ; rdfs:domain :StressAnnotation ; rdfs:range :ExperimentalActivity ; rdfs:label "annotates activity"@en ; rdfs:comment "Connects an annotation to the activity it describes."@en .
+:annotatesCondition a owl:ObjectProperty ; rdfs:domain :StressAnnotation ; rdfs:range :StressRelatedCondition ; rdfs:label "annotates condition"@en ; rdfs:comment "Connects an annotation to a stress-related condition."@en .
+:hasObserver a owl:ObjectProperty ; rdfs:domain [ a owl:Class ; owl:unionOf ( :StressAnnotation :HumanObservation ) ] ; rdfs:range :Observer ; rdfs:label "has observer"@en ; rdfs:comment "Connects an annotation or human observation to its human source."@en .
+:hasEnvironment a owl:ObjectProperty ; rdfs:domain [ a owl:Class ; owl:unionOf ( :ExperimentSession :ExperimentalActivity ) ] ; rdfs:range :Environment ; rdfs:label "has environment"@en ; rdfs:comment "Connects a session or activity to its environment."@en .
+:basedOnAssay a owl:ObjectProperty ; rdfs:domain :BiomarkerObservation ; rdfs:range :BiomarkerAssay ; rdfs:label "based on assay"@en ; rdfs:comment "Connects a biomarker observation to its assay procedure."@en .
+:assayUsesSample a owl:ObjectProperty ; rdfs:domain :BiomarkerAssay ; rdfs:range :BiologicalSample ; rdfs:label "assay uses sample"@en ; rdfs:comment "Connects a biomarker assay to the biological sample used."@en .
+
+#################################################################
+# Data properties
+#################################################################
+
+:subjectIdentifier a owl:DatatypeProperty ; rdfs:domain :Subject ; rdfs:range xsd:string ; rdfs:label "subject identifier"@en ; rdfs:comment "Identifier of a subject in the dataset."@en .
+:ageYears a owl:DatatypeProperty ; rdfs:domain :Subject ; rdfs:range xsd:integer ; rdfs:label "age in years"@en ; rdfs:comment "Subject age in years."@en .
+:genderCode a owl:DatatypeProperty ; rdfs:domain :Subject ; rdfs:range xsd:string ; rdfs:label "gender code"@en ; rdfs:comment "Dataset-provided gender code."@en .
+:heightCm a owl:DatatypeProperty ; rdfs:domain :Subject ; rdfs:range xsd:decimal ; rdfs:label "height in centimetres"@en ; rdfs:comment "Subject height in centimetres."@en .
+:weightKg a owl:DatatypeProperty ; rdfs:domain :Subject ; rdfs:range xsd:decimal ; rdfs:label "weight in kilograms"@en ; rdfs:comment "Subject weight in kilograms."@en .
+:activityLabel a owl:DatatypeProperty ; rdfs:domain :ExperimentalActivity ; rdfs:range xsd:string ; rdfs:label "activity label"@en ; rdfs:comment "Dataset or annotation label of an activity."@en .
+:sequenceIndex a owl:DatatypeProperty ; rdfs:domain :ExperimentalActivity ; rdfs:range xsd:integer ; rdfs:label "sequence index"@en ; rdfs:comment "Ordinal position of an activity."@en .
+:startSampleIndex a owl:DatatypeProperty ; rdfs:domain [ a owl:Class ; owl:unionOf ( :ExperimentalActivity :StressAnnotation :TimeSeriesObservation ) ] ; rdfs:range xsd:integer ; rdfs:label "start sample index"@en ; rdfs:comment "Sample index at which an entity starts."@en .
+:endSampleIndex a owl:DatatypeProperty ; rdfs:domain [ a owl:Class ; owl:unionOf ( :ExperimentalActivity :StressAnnotation :TimeSeriesObservation ) ] ; rdfs:range xsd:integer ; rdfs:label "end sample index"@en ; rdfs:comment "Sample index at which an entity ends."@en .
+:startTime a owl:DatatypeProperty ; rdfs:domain [ a owl:Class ; owl:unionOf ( :ExperimentalActivity :StressAnnotation :BiomarkerAssay :TimeSeriesObservation ) ] ; rdfs:range xsd:dateTime ; rdfs:label "start time"@en ; rdfs:comment "Start time when available."@en .
+:endTime a owl:DatatypeProperty ; rdfs:domain [ a owl:Class ; owl:unionOf ( :ExperimentalActivity :StressAnnotation :TimeSeriesObservation ) ] ; rdfs:range xsd:dateTime ; rdfs:label "end time"@en ; rdfs:comment "End time when available."@en .
+:recordName a owl:DatatypeProperty ; rdfs:domain :PhysiologicalRecord ; rdfs:range xsd:string ; rdfs:label "record name"@en ; rdfs:comment "Name of a physiological record."@en .
+:signalCount a owl:DatatypeProperty ; rdfs:domain :PhysiologicalRecord ; rdfs:range xsd:integer ; rdfs:label "signal count"@en ; rdfs:comment "Number of signal channels."@en .
+:recordSamplingFrequency a owl:DatatypeProperty ; rdfs:domain :PhysiologicalRecord ; rdfs:range xsd:decimal ; rdfs:label "record sampling frequency"@en ; rdfs:comment "Sampling frequency in hertz."@en .
+:sampleCount a owl:DatatypeProperty ; rdfs:domain :PhysiologicalRecord ; rdfs:range xsd:integer ; rdfs:label "sample count"@en ; rdfs:comment "Number of samples in a record."@en .
+:channelName a owl:DatatypeProperty ; rdfs:domain :SignalChannel ; rdfs:range xsd:string ; rdfs:label "channel name"@en ; rdfs:comment "Name of a signal channel."@en .
+:channelUnit a owl:DatatypeProperty ; rdfs:domain :SignalChannel ; rdfs:range xsd:string ; rdfs:label "channel unit"@en ; rdfs:comment "Unit string of a signal channel."@en .
+:adcGain a owl:DatatypeProperty ; rdfs:domain :SignalChannel ; rdfs:range xsd:decimal ; rdfs:label "ADC gain"@en ; rdfs:comment "Analog-to-digital conversion gain."@en .
+:adcBaseline a owl:DatatypeProperty ; rdfs:domain :SignalChannel ; rdfs:range xsd:integer ; rdfs:label "ADC baseline"@en ; rdfs:comment "Baseline value specified for a channel."@en .
+:adcResolution a owl:DatatypeProperty ; rdfs:domain :SignalChannel ; rdfs:range xsd:integer ; rdfs:label "ADC resolution"@en ; rdfs:comment "ADC resolution in bits."@en .
+:initialValue a owl:DatatypeProperty ; rdfs:domain :SignalChannel ; rdfs:range xsd:integer ; rdfs:label "initial value"@en ; rdfs:comment "Initial sample value from the header."@en .
+:checksum a owl:DatatypeProperty ; rdfs:domain :SignalChannel ; rdfs:range xsd:integer ; rdfs:label "checksum"@en ; rdfs:comment "Channel checksum."@en .
+:wfdbFormat a owl:DatatypeProperty ; rdfs:domain :SignalChannel ; rdfs:range xsd:string ; rdfs:label "WFDB format"@en ; rdfs:comment "WFDB signal storage format."@en .
+:fileName a owl:DatatypeProperty ; rdfs:domain :SourceDataFile ; rdfs:range xsd:string ; rdfs:label "file name"@en ; rdfs:comment "Name of a source data file."@en .
+:filePath a owl:DatatypeProperty ; rdfs:domain :SourceDataFile ; rdfs:range xsd:string ; rdfs:label "file path"@en ; rdfs:comment "Path of a source data file."@en .
+:fileExtension a owl:DatatypeProperty ; rdfs:domain :SourceDataFile ; rdfs:range xsd:string ; rdfs:label "file extension"@en ; rdfs:comment "Extension such as hea, dat, or atr."@en .
+:annotationLabel a owl:DatatypeProperty ; rdfs:domain :StressAnnotation ; rdfs:range xsd:string ; rdfs:label "annotation label"@en ; rdfs:comment "Text label stored in an annotation."@en .
+:biomarkerName a owl:DatatypeProperty ; rdfs:domain :BiomarkerAssay ; rdfs:range xsd:string ; rdfs:label "biomarker name"@en ; rdfs:comment "Name of a biomarker measured by an assay."@en .
+:assayTime a owl:DatatypeProperty ; rdfs:domain :BiomarkerAssay ; rdfs:range xsd:dateTime ; rdfs:label "assay time"@en ; rdfs:comment "Time at which a biomarker assay was performed."@en .
+:environmentDescription a owl:DatatypeProperty ; rdfs:domain :Environment ; rdfs:range xsd:string ; rdfs:label "environment description"@en ; rdfs:comment "Textual environmental information."@en .
+
+#################################################################
+# Controlled individuals
+#################################################################
+
+:subjectRole a owl:NamedIndividual, :SubjectRole ; rdfs:label "subject role"@en .
+:observerRole a owl:NamedIndividual, :ObserverRole ; rdfs:label "observer role"@en .
+:experimenterRole a owl:NamedIndividual, :ExperimenterRole ; rdfs:label "experimenter role"@en .
+:relaxCondition a owl:NamedIndividual, :RelaxCondition, :BaselineCondition, :RecoveryCondition ; rdfs:label "relax condition"@en ; rdfs:comment "Condition corresponding to Relax annotations."@en .
+:physicalStressCondition a owl:NamedIndividual, :PhysicalStressCondition ; rdfs:label "physical stress condition"@en .
+:emotionalStressCondition a owl:NamedIndividual, :EmotionalStressCondition ; rdfs:label "emotional stress condition"@en .
+:cognitiveStressCondition a owl:NamedIndividual, :CognitiveStressCondition ; rdfs:label "cognitive stress condition"@en .
+:physicalLoadStressor a owl:NamedIndividual, :PhysicalStressor ; rdfs:label "physical load stressor"@en .
+:emotionalStimulusStressor a owl:NamedIndividual, :EmotionalStressor ; rdfs:label "emotional stimulus stressor"@en .
+:cognitiveTaskStressor a owl:NamedIndividual, :CognitiveStressor ; rdfs:label "cognitive task stressor"@en .
+:heartRate a owl:NamedIndividual, :PhysiologicalProperty ; rdfs:label "heart rate"@en ; rdfs:comment "Heart rate measured in beats per minute."@en .
+:electrodermalActivity a owl:NamedIndividual, :PhysiologicalProperty ; rdfs:label "electrodermal activity"@en ; rdfs:comment "EDA signal."@en .
+:bloodOxygenSaturation a owl:NamedIndividual, :PhysiologicalProperty ; rdfs:label "SpO2"@en ; rdfs:comment "Peripheral blood oxygen saturation."@en .
+:skinTemperature a owl:NamedIndividual, :PhysiologicalProperty ; rdfs:label "skin temperature"@en ; rdfs:comment "Skin or body temperature."@en .
+:accelerationX a owl:NamedIndividual, :MovementProperty ; rdfs:label "acceleration x-axis"@en .
+:accelerationY a owl:NamedIndividual, :MovementProperty ; rdfs:label "acceleration y-axis"@en .
+:accelerationZ a owl:NamedIndividual, :MovementProperty ; rdfs:label "acceleration z-axis"@en .
+:bodyMovement a owl:NamedIndividual, :BehavioralIndicator ; rdfs:label "body movement"@en .
+:ambientTemperature a owl:NamedIndividual, :EnvironmentalProperty ; rdfs:label "ambient temperature"@en .
+:ambientHumidity a owl:NamedIndividual, :EnvironmentalProperty ; rdfs:label "ambient humidity"@en .
+:ambientNoise a owl:NamedIndividual, :EnvironmentalProperty ; rdfs:label "ambient noise"@en .
+
+:wearableStressPlatform a owl:NamedIndividual, :WearableDevice ; rdfs:label "wearable stress measurement platform"@en ; rdfs:comment "Wearable platform hosting the example sensors."@en .
+:accelerometerSensor a owl:NamedIndividual, :Accelerometer ; rdfs:label "accelerometer sensor"@en ; sosa:observes :accelerationX, :accelerationY, :accelerationZ ; :hostedOnPlatform :wearableStressPlatform .
+:edaSensor a owl:NamedIndividual, :EDASensor ; rdfs:label "EDA sensor"@en ; sosa:observes :electrodermalActivity ; :hostedOnPlatform :wearableStressPlatform .
+:temperatureSensor a owl:NamedIndividual, :TemperatureSensor ; rdfs:label "temperature sensor"@en ; sosa:observes :skinTemperature ; :hostedOnPlatform :wearableStressPlatform .
+:spo2Sensor a owl:NamedIndividual, :SpO2Sensor ; rdfs:label "SpO2 sensor"@en ; sosa:observes :bloodOxygenSaturation ; :hostedOnPlatform :wearableStressPlatform .
+:heartRateSensor a owl:NamedIndividual, :HeartRateSensor ; rdfs:label "heart rate sensor"@en ; sosa:observes :heartRate ; :hostedOnPlatform :wearableStressPlatform .
+
+:wearableStressExperimentProcedure a owl:NamedIndividual, :StressExperiment ; rdfs:label "wearable stress experiment procedure"@en ; rdfs:comment "Procedure with repeated relax phases and physical, emotional, and cognitive stress phases."@en .
+:humanExperimenter a owl:NamedIndividual, :Observer ; rdfs:label "human experimenter"@en ; :hasRole :experimenterRole .
+:defaultLaboratoryEnvironment a owl:NamedIndividual, :Environment ; rdfs:label "default laboratory environment"@en ; :environmentDescription "Experimental environment for wearable stress measurement; detailed environmental values were not provided in the source files." .
+
+#################################################################
+# Dataset subjects
+#################################################################
+
+:Subject1 a owl:NamedIndividual, :Subject ;
+    rdfs:label "Subject 1"@en ;
+    :subjectIdentifier "Subject1" ;
+    :ageYears 30 ;
+    :genderCode "M" ;
+    :heightCm 177 ;
+    :weightKg 94 ;
+    :hasRole :subjectRole ;
+    :hasSession :Subject1_Session .
+
+:Subject2 a owl:NamedIndividual, :Subject ;
+    rdfs:label "Subject 2"@en ;
+    :subjectIdentifier "Subject2" ;
+    :ageYears 28 ;
+    :genderCode "M" ;
+    :heightCm 172 ;
+    :weightKg 68 ;
+    :hasRole :subjectRole ;
+    :hasSession :Subject2_Session .
+
+:Subject3 a owl:NamedIndividual, :Subject ;
+    rdfs:label "Subject 3"@en ;
+    :subjectIdentifier "Subject3" ;
+    :ageYears 28 ;
+    :genderCode "M" ;
+    :heightCm 177 ;
+    :weightKg 91 ;
+    :hasRole :subjectRole ;
+    :hasSession :Subject3_Session .
+
+:Subject4 a owl:NamedIndividual, :Subject ;
+    rdfs:label "Subject 4"@en ;
+    :subjectIdentifier "Subject4" ;
+    :ageYears 22 ;
+    :genderCode "M" ;
+    :heightCm 167 ;
+    :weightKg 58 ;
+    :hasRole :subjectRole ;
+    :hasSession :Subject4_Session .
+
+#################################################################
+# Sessions and activity phases
+#################################################################
+
+:Subject1_Session a owl:NamedIndividual, :ExperimentSession ;
+    rdfs:label "Subject 1 session"@en ;
+    :hasSubject :Subject1 ;
+    :usesProcedure :wearableStressExperimentProcedure ;
+    :hasEnvironment :defaultLaboratoryEnvironment ;
+    :hasActivity :Subject1_Relax_1, :Subject1_PhysicalStress, :Subject1_Relax_2, :Subject1_EmotionalStress_1, :Subject1_CognitiveStress, :Subject1_Relax_3, :Subject1_EmotionalStress_2, :Subject1_Relax_4 .
+
+:Subject1_Relax_1 a owl:NamedIndividual, :RelaxPhase ;
+    :performedBy :Subject1 ;
+    :activityLabel "Relax" ;
+    :sequenceIndex 1 ;
+    :hasStressCondition :relaxCondition ;
+    :nextActivity :Subject1_PhysicalStress .
+
+:Subject1_PhysicalStress a owl:NamedIndividual, :PhysicalStressPhase ;
+    :performedBy :Subject1 ;
+    :activityLabel "PhysicalStress" ;
+    :sequenceIndex 2 ;
+    :hasStressCondition :physicalStressCondition ;
+    :hasStressor :physicalLoadStressor ;
+    :nextActivity :Subject1_Relax_2 .
+
+:Subject1_Relax_2 a owl:NamedIndividual, :RelaxPhase ;
+    :performedBy :Subject1 ;
+    :activityLabel "Relax" ;
+    :sequenceIndex 3 ;
+    :hasStressCondition :relaxCondition ;
+    :nextActivity :Subject1_EmotionalStress_1 .
+
+:Subject1_EmotionalStress_1 a owl:NamedIndividual, :EmotionalStressPhase ;
+    :performedBy :Subject1 ;
+    :activityLabel "EmotionalStress" ;
+    :sequenceIndex 4 ;
+    :hasStressCondition :emotionalStressCondition ;
+    :hasStressor :emotionalStimulusStressor ;
+    :nextActivity :Subject1_CognitiveStress .
+
+:Subject1_CognitiveStress a owl:NamedIndividual, :CognitiveStressPhase ;
+    :performedBy :Subject1 ;
+    :activityLabel "CognitiveStress" ;
+    :sequenceIndex 5 ;
+    :hasStressCondition :cognitiveStressCondition ;
+    :hasStressor :cognitiveTaskStressor ;
+    :nextActivity :Subject1_Relax_3 .
+
+:Subject1_Relax_3 a owl:NamedIndividual, :RelaxPhase ;
+    :performedBy :Subject1 ;
+    :activityLabel "Relax" ;
+    :sequenceIndex 6 ;
+    :hasStressCondition :relaxCondition ;
+    :nextActivity :Subject1_EmotionalStress_2 .
+
+:Subject1_EmotionalStress_2 a owl:NamedIndividual, :EmotionalStressPhase ;
+    :performedBy :Subject1 ;
+    :activityLabel "EmotionalStress" ;
+    :sequenceIndex 7 ;
+    :hasStressCondition :emotionalStressCondition ;
+    :hasStressor :emotionalStimulusStressor ;
+    :nextActivity :Subject1_Relax_4 .
+
+:Subject1_Relax_4 a owl:NamedIndividual, :RelaxPhase ;
+    :performedBy :Subject1 ;
+    :activityLabel "Relax" ;
+    :sequenceIndex 8 ;
+    :hasStressCondition :relaxCondition .
+
+:Subject2_Session a owl:NamedIndividual, :ExperimentSession ;
+    rdfs:label "Subject 2 session"@en ;
+    :hasSubject :Subject2 ;
+    :usesProcedure :wearableStressExperimentProcedure ;
+    :hasEnvironment :defaultLaboratoryEnvironment ;
+    :hasActivity :Subject2_Relax_1, :Subject2_PhysicalStress, :Subject2_Relax_2, :Subject2_EmotionalStress_1, :Subject2_CognitiveStress, :Subject2_Relax_3, :Subject2_EmotionalStress_2, :Subject2_Relax_4 .
+
+:Subject2_Relax_1 a owl:NamedIndividual, :RelaxPhase ;
+    :performedBy :Subject2 ;
+    :activityLabel "Relax" ;
+    :sequenceIndex 1 ;
+    :hasStressCondition :relaxCondition ;
+    :nextActivity :Subject2_PhysicalStress .
+
+:Subject2_PhysicalStress a owl:NamedIndividual, :PhysicalStressPhase ;
+    :performedBy :Subject2 ;
+    :activityLabel "PhysicalStress" ;
+    :sequenceIndex 2 ;
+    :hasStressCondition :physicalStressCondition ;
+    :hasStressor :physicalLoadStressor ;
+    :nextActivity :Subject2_Relax_2 .
+
+:Subject2_Relax_2 a owl:NamedIndividual, :RelaxPhase ;
+    :performedBy :Subject2 ;
+    :activityLabel "Relax" ;
+    :sequenceIndex 3 ;
+    :hasStressCondition :relaxCondition ;
+    :nextActivity :Subject2_EmotionalStress_1 .
+
+:Subject2_EmotionalStress_1 a owl:NamedIndividual, :EmotionalStressPhase ;
+    :performedBy :Subject2 ;
+    :activityLabel "EmotionalStress" ;
+    :sequenceIndex 4 ;
+    :hasStressCondition :emotionalStressCondition ;
+    :hasStressor :emotionalStimulusStressor ;
+    :nextActivity :Subject2_CognitiveStress .
+
+:Subject2_CognitiveStress a owl:NamedIndividual, :CognitiveStressPhase ;
+    :performedBy :Subject2 ;
+    :activityLabel "CognitiveStress" ;
+    :sequenceIndex 5 ;
+    :hasStressCondition :cognitiveStressCondition ;
+    :hasStressor :cognitiveTaskStressor ;
+    :nextActivity :Subject2_Relax_3 .
+
+:Subject2_Relax_3 a owl:NamedIndividual, :RelaxPhase ;
+    :performedBy :Subject2 ;
+    :activityLabel "Relax" ;
+    :sequenceIndex 6 ;
+    :hasStressCondition :relaxCondition ;
+    :nextActivity :Subject2_EmotionalStress_2 .
+
+:Subject2_EmotionalStress_2 a owl:NamedIndividual, :EmotionalStressPhase ;
+    :performedBy :Subject2 ;
+    :activityLabel "EmotionalStress" ;
+    :sequenceIndex 7 ;
+    :hasStressCondition :emotionalStressCondition ;
+    :hasStressor :emotionalStimulusStressor ;
+    :nextActivity :Subject2_Relax_4 .
+
+:Subject2_Relax_4 a owl:NamedIndividual, :RelaxPhase ;
+    :performedBy :Subject2 ;
+    :activityLabel "Relax" ;
+    :sequenceIndex 8 ;
+    :hasStressCondition :relaxCondition .
+
+:Subject3_Session a owl:NamedIndividual, :ExperimentSession ;
+    rdfs:label "Subject 3 session"@en ;
+    :hasSubject :Subject3 ;
+    :usesProcedure :wearableStressExperimentProcedure ;
+    :hasEnvironment :defaultLaboratoryEnvironment ;
+    :hasActivity :Subject3_Relax_1, :Subject3_PhysicalStress, :Subject3_Relax_2, :Subject3_EmotionalStress_1, :Subject3_CognitiveStress, :Subject3_Relax_3, :Subject3_EmotionalStress_2, :Subject3_Relax_4 .
+
+:Subject3_Relax_1 a owl:NamedIndividual, :RelaxPhase ;
+    :performedBy :Subject3 ;
+    :activityLabel "Relax" ;
+    :sequenceIndex 1 ;
+    :hasStressCondition :relaxCondition ;
+    :nextActivity :Subject3_PhysicalStress .
+
+:Subject3_PhysicalStress a owl:NamedIndividual, :PhysicalStressPhase ;
+    :performedBy :Subject3 ;
+    :activityLabel "PhysicalStress" ;
+    :sequenceIndex 2 ;
+    :hasStressCondition :physicalStressCondition ;
+    :hasStressor :physicalLoadStressor ;
+    :nextActivity :Subject3_Relax_2 .
+
+:Subject3_Relax_2 a owl:NamedIndividual, :RelaxPhase ;
+    :performedBy :Subject3 ;
+    :activityLabel "Relax" ;
+    :sequenceIndex 3 ;
+    :hasStressCondition :relaxCondition ;
+    :nextActivity :Subject3_EmotionalStress_1 .
+
+:Subject3_EmotionalStress_1 a owl:NamedIndividual, :EmotionalStressPhase ;
+    :performedBy :Subject3 ;
+    :activityLabel "EmotionalStress" ;
+    :sequenceIndex 4 ;
+    :hasStressCondition :emotionalStressCondition ;
+    :hasStressor :emotionalStimulusStressor ;
+    :nextActivity :Subject3_CognitiveStress .
+
+:Subject3_CognitiveStress a owl:NamedIndividual, :CognitiveStressPhase ;
+    :performedBy :Subject3 ;
+    :activityLabel "CognitiveStress" ;
+    :sequenceIndex 5 ;
+    :hasStressCondition :cognitiveStressCondition ;
+    :hasStressor :cognitiveTaskStressor ;
+    :nextActivity :Subject3_Relax_3 .
+
+:Subject3_Relax_3 a owl:NamedIndividual, :RelaxPhase ;
+    :performedBy :Subject3 ;
+    :activityLabel "Relax" ;
+    :sequenceIndex 6 ;
+    :hasStressCondition :relaxCondition ;
+    :nextActivity :Subject3_EmotionalStress_2 .
+
+:Subject3_EmotionalStress_2 a owl:NamedIndividual, :EmotionalStressPhase ;
+    :performedBy :Subject3 ;
+    :activityLabel "EmotionalStress" ;
+    :sequenceIndex 7 ;
+    :hasStressCondition :emotionalStressCondition ;
+    :hasStressor :emotionalStimulusStressor ;
+    :nextActivity :Subject3_Relax_4 .
+
+:Subject3_Relax_4 a owl:NamedIndividual, :RelaxPhase ;
+    :performedBy :Subject3 ;
+    :activityLabel "Relax" ;
+    :sequenceIndex 8 ;
+    :hasStressCondition :relaxCondition .
+
+:Subject4_Session a owl:NamedIndividual, :ExperimentSession ;
+    rdfs:label "Subject 4 session"@en ;
+    :hasSubject :Subject4 ;
+    :usesProcedure :wearableStressExperimentProcedure ;
+    :hasEnvironment :defaultLaboratoryEnvironment ;
+    :hasActivity :Subject4_Relax_1, :Subject4_PhysicalStress, :Subject4_Relax_2, :Subject4_EmotionalStress_1, :Subject4_CognitiveStress, :Subject4_Relax_3, :Subject4_EmotionalStress_2, :Subject4_Relax_4 .
+
+:Subject4_Relax_1 a owl:NamedIndividual, :RelaxPhase ;
+    :performedBy :Subject4 ;
+    :activityLabel "Relax" ;
+    :sequenceIndex 1 ;
+    :hasStressCondition :relaxCondition ;
+    :nextActivity :Subject4_PhysicalStress .
+
+:Subject4_PhysicalStress a owl:NamedIndividual, :PhysicalStressPhase ;
+    :performedBy :Subject4 ;
+    :activityLabel "PhysicalStress" ;
+    :sequenceIndex 2 ;
+    :hasStressCondition :physicalStressCondition ;
+    :hasStressor :physicalLoadStressor ;
+    :nextActivity :Subject4_Relax_2 .
+
+:Subject4_Relax_2 a owl:NamedIndividual, :RelaxPhase ;
+    :performedBy :Subject4 ;
+    :activityLabel "Relax" ;
+    :sequenceIndex 3 ;
+    :hasStressCondition :relaxCondition ;
+    :nextActivity :Subject4_EmotionalStress_1 .
+
+:Subject4_EmotionalStress_1 a owl:NamedIndividual, :EmotionalStressPhase ;
+    :performedBy :Subject4 ;
+    :activityLabel "EmotionalStress" ;
+    :sequenceIndex 4 ;
+    :hasStressCondition :emotionalStressCondition ;
+    :hasStressor :emotionalStimulusStressor ;
+    :nextActivity :Subject4_CognitiveStress .
+
+:Subject4_CognitiveStress a owl:NamedIndividual, :CognitiveStressPhase ;
+    :performedBy :Subject4 ;
+    :activityLabel "CognitiveStress" ;
+    :sequenceIndex 5 ;
+    :hasStressCondition :cognitiveStressCondition ;
+    :hasStressor :cognitiveTaskStressor ;
+    :nextActivity :Subject4_Relax_3 .
+
+:Subject4_Relax_3 a owl:NamedIndividual, :RelaxPhase ;
+    :performedBy :Subject4 ;
+    :activityLabel "Relax" ;
+    :sequenceIndex 6 ;
+    :hasStressCondition :relaxCondition ;
+    :nextActivity :Subject4_EmotionalStress_2 .
+
+:Subject4_EmotionalStress_2 a owl:NamedIndividual, :EmotionalStressPhase ;
+    :performedBy :Subject4 ;
+    :activityLabel "EmotionalStress" ;
+    :sequenceIndex 7 ;
+    :hasStressCondition :emotionalStressCondition ;
+    :hasStressor :emotionalStimulusStressor ;
+    :nextActivity :Subject4_Relax_4 .
+
+:Subject4_Relax_4 a owl:NamedIndividual, :RelaxPhase ;
+    :performedBy :Subject4 ;
+    :activityLabel "Relax" ;
+    :sequenceIndex 8 ;
+    :hasStressCondition :relaxCondition .
+
+#################################################################
+# Source data files
+#################################################################
+
+:Subject1_AccTempEDA_atr a owl:NamedIndividual, :AnnotationFile ; :fileName "Subject1_AccTempEDA.atr" ; :filePath "/mnt/data/Subject1_AccTempEDA.atr" ; :fileExtension "atr" .
+:Subject1_AccTempEDA_dat a owl:NamedIndividual, :SignalDataFile ; :fileName "Subject1_AccTempEDA.dat" ; :filePath "/mnt/data/Subject1_AccTempEDA.dat" ; :fileExtension "dat" .
+:Subject1_AccTempEDA_hea a owl:NamedIndividual, :HeaderFile ; :fileName "Subject1_AccTempEDA.hea" ; :filePath "/mnt/data/Subject1_AccTempEDA.hea" ; :fileExtension "hea" .
+:Subject1_SpO2HR_dat a owl:NamedIndividual, :SignalDataFile ; :fileName "Subject1_SpO2HR.dat" ; :filePath "/mnt/data/Subject1_SpO2HR.dat" ; :fileExtension "dat" .
+:Subject1_SpO2HR_hea a owl:NamedIndividual, :HeaderFile ; :fileName "Subject1_SpO2HR.hea" ; :filePath "/mnt/data/Subject1_SpO2HR.hea" ; :fileExtension "hea" .
+:Subject2_AccTempEDA_atr a owl:NamedIndividual, :AnnotationFile ; :fileName "Subject2_AccTempEDA.atr" ; :filePath "/mnt/data/Subject2_AccTempEDA.atr" ; :fileExtension "atr" .
+:Subject2_AccTempEDA_dat a owl:NamedIndividual, :SignalDataFile ; :fileName "Subject2_AccTempEDA.dat" ; :filePath "/mnt/data/Subject2_AccTempEDA.dat" ; :fileExtension "dat" .
+:Subject2_AccTempEDA_hea a owl:NamedIndividual, :HeaderFile ; :fileName "Subject2_AccTempEDA.hea" ; :filePath "/mnt/data/Subject2_AccTempEDA.hea" ; :fileExtension "hea" .
+:Subject2_SpO2HR_dat a owl:NamedIndividual, :SignalDataFile ; :fileName "Subject2_SpO2HR.dat" ; :filePath "/mnt/data/Subject2_SpO2HR.dat" ; :fileExtension "dat" .
+:Subject2_SpO2HR_hea a owl:NamedIndividual, :HeaderFile ; :fileName "Subject2_SpO2HR.hea" ; :filePath "/mnt/data/Subject2_SpO2HR.hea" ; :fileExtension "hea" .
+:Subject3_AccTempEDA_atr a owl:NamedIndividual, :AnnotationFile ; :fileName "Subject3_AccTempEDA.atr" ; :filePath "/mnt/data/Subject3_AccTempEDA.atr" ; :fileExtension "atr" .
+:Subject3_AccTempEDA_dat a owl:NamedIndividual, :SignalDataFile ; :fileName "Subject3_AccTempEDA.dat" ; :filePath "/mnt/data/Subject3_AccTempEDA.dat" ; :fileExtension "dat" .
+:Subject3_AccTempEDA_hea a owl:NamedIndividual, :HeaderFile ; :fileName "Subject3_AccTempEDA.hea" ; :filePath "/mnt/data/Subject3_AccTempEDA.hea" ; :fileExtension "hea" .
+:Subject3_SpO2HR_dat a owl:NamedIndividual, :SignalDataFile ; :fileName "Subject3_SpO2HR.dat" ; :filePath "/mnt/data/Subject3_SpO2HR.dat" ; :fileExtension "dat" .
+:Subject3_SpO2HR_hea a owl:NamedIndividual, :HeaderFile ; :fileName "Subject3_SpO2HR.hea" ; :filePath "/mnt/data/Subject3_SpO2HR.hea" ; :fileExtension "hea" .
+:Subject4_AccTempEDA_atr a owl:NamedIndividual, :AnnotationFile ; :fileName "Subject4_AccTempEDA.atr" ; :filePath "/mnt/data/Subject4_AccTempEDA.atr" ; :fileExtension "atr" .
+:Subject4_AccTempEDA_hea a owl:NamedIndividual, :HeaderFile ; :fileName "Subject4_AccTempEDA.hea" ; :filePath "/mnt/data/Subject4_AccTempEDA.hea" ; :fileExtension "hea" .
+:Subject4_SpO2HR_dat a owl:NamedIndividual, :SignalDataFile ; :fileName "Subject4_SpO2HR.dat" ; :filePath "/mnt/data/Subject4_SpO2HR.dat" ; :fileExtension "dat" .
+:Subject4_SpO2HR_hea a owl:NamedIndividual, :HeaderFile ; :fileName "Subject4_SpO2HR.hea" ; :filePath "/mnt/data/Subject4_SpO2HR.hea" ; :fileExtension "hea" .
+
+#################################################################
+# Physiological records and signal channels
+#################################################################
+
+:Subject1_AccTempEDA_Record a owl:NamedIndividual, :PhysiologicalRecord ;
+    rdfs:label "Subject1_AccTempEDA record"@en ;
+    :recordName "Subject1_AccTempEDA" ;
+    :signalCount 5 ;
+    :recordSamplingFrequency 8 ;
+    :sampleCount 18343 ;
+    :recordedForSubject :Subject1 ;
+    :recordMeasuredBy :accelerometerSensor, :edaSensor, :temperatureSensor ;
+    :hasSourceDataFile :Subject1_AccTempEDA_hea, :Subject1_AccTempEDA_dat, :Subject1_AccTempEDA_atr ;
+    :hasSignalChannel :Subject1_AccTempEDA_ax_Channel, :Subject1_AccTempEDA_ay_Channel, :Subject1_AccTempEDA_az_Channel, :Subject1_AccTempEDA_temp_Channel, :Subject1_AccTempEDA_EDA_Channel .
+
+:Subject1_AccTempEDA_ax_Channel a owl:NamedIndividual, :SignalChannel ;
+    :channelName "ax" ;
+    :channelUnit "NU" ;
+    :wfdbFormat "16" ;
+    :adcGain 19679.8798799 ;
+    :adcBaseline -21943 ;
+    :adcResolution 16 ;
+    :initialValue -6986 ;
+    :checksum 17497 ;
+    :channelMeasures :accelerationX .
+
+:Subject1_AccTempEDA_ay_Channel a owl:NamedIndividual, :SignalChannel ;
+    :channelName "ay" ;
+    :channelUnit "NU" ;
+    :wfdbFormat "16" ;
+    :adcGain 24093.3823529 ;
+    :adcBaseline 11082 ;
+    :adcResolution 16 ;
+    :initialValue -9879 ;
+    :checksum 57979 ;
+    :channelMeasures :accelerationY .
+
+:Subject1_AccTempEDA_az_Channel a owl:NamedIndividual, :SignalChannel ;
+    :channelName "az" ;
+    :channelUnit "NU" ;
+    :wfdbFormat "16" ;
+    :adcGain 23239.0070922 ;
+    :adcBaseline 11851 ;
+    :adcResolution 16 ;
+    :initialValue 9527 ;
+    :checksum 2729 ;
+    :channelMeasures :accelerationZ .
+
+:Subject1_AccTempEDA_temp_Channel a owl:NamedIndividual, :SignalChannel ;
+    :channelName "temp" ;
+    :channelUnit "degC" ;
+    :wfdbFormat "16" ;
+    :adcGain 17245.7894737 ;
+    :adcBaseline -551865 ;
+    :adcResolution 16 ;
+    :initialValue -32766 ;
+    :checksum 37954 ;
+    :channelMeasures :skinTemperature .
+
+:Subject1_AccTempEDA_EDA_Channel a owl:NamedIndividual, :SignalChannel ;
+    :channelName "EDA" ;
+    :channelUnit "NU" ;
+    :wfdbFormat "16" ;
+    :adcGain 25361.4551084 ;
+    :adcBaseline -34770 ;
+    :adcResolution 16 ;
+    :initialValue -32664 ;
+    :checksum 31215 ;
+    :channelMeasures :electrodermalActivity .
+
+:Subject1_SpO2HR_Record a owl:NamedIndividual, :PhysiologicalRecord ;
+    rdfs:label "Subject1_SpO2HR record"@en ;
+    :recordName "Subject1_SpO2HR" ;
+    :signalCount 2 ;
+    :recordSamplingFrequency 1 ;
+    :sampleCount 2299 ;
+    :recordedForSubject :Subject1 ;
+    :recordMeasuredBy :heartRateSensor, :spo2Sensor ;
+    :hasSourceDataFile :Subject1_SpO2HR_hea, :Subject1_SpO2HR_dat ;
+    :hasSignalChannel :Subject1_SpO2HR_SpO2_Channel, :Subject1_SpO2HR_hr_Channel .
+
+:Subject1_SpO2HR_SpO2_Channel a owl:NamedIndividual, :SignalChannel ;
+    :channelName "SpO2" ;
+    :channelUnit "%" ;
+    :wfdbFormat "16" ;
+    :adcGain 10922.3333333 ;
+    :adcBaseline -1048544 ;
+    :adcResolution 16 ;
+    :initialValue 10922 ;
+    :checksum 54860 ;
+    :channelMeasures :bloodOxygenSaturation .
+
+:Subject1_SpO2HR_hr_Channel a owl:NamedIndividual, :SignalChannel ;
+    :channelName "hr" ;
+    :channelUnit "bpm" ;
+    :wfdbFormat "16" ;
+    :adcGain 1074.32786885 ;
+    :adcBaseline -103672 ;
+    :adcResolution 16 ;
+    :initialValue -8056 ;
+    :checksum 19971 ;
+    :channelMeasures :heartRate .
+
+:Subject2_AccTempEDA_Record a owl:NamedIndividual, :PhysiologicalRecord ;
+    rdfs:label "Subject2_AccTempEDA record"@en ;
+    :recordName "Subject2_AccTempEDA" ;
+    :signalCount 5 ;
+    :recordSamplingFrequency 8 ;
+    :sampleCount 18327 ;
+    :recordedForSubject :Subject2 ;
+    :recordMeasuredBy :accelerometerSensor, :edaSensor, :temperatureSensor ;
+    :hasSourceDataFile :Subject2_AccTempEDA_hea, :Subject2_AccTempEDA_dat, :Subject2_AccTempEDA_atr ;
+    :hasSignalChannel :Subject2_AccTempEDA_ax_Channel, :Subject2_AccTempEDA_ay_Channel, :Subject2_AccTempEDA_az_Channel, :Subject2_AccTempEDA_temp_Channel, :Subject2_AccTempEDA_EDA_Channel .
+
+:Subject2_AccTempEDA_ax_Channel a owl:NamedIndividual, :SignalChannel ;
+    :channelName "ax" ;
+    :channelUnit "NU" ;
+    :wfdbFormat "16" ;
+    :adcGain 24271.8518519 ;
+    :adcBaseline -11407 ;
+    :adcResolution 16 ;
+    :initialValue 12136 ;
+    :checksum 58216 ;
+    :channelMeasures :accelerationX .
+
+:Subject2_AccTempEDA_ay_Channel a owl:NamedIndividual, :SignalChannel ;
+    :channelName "ay" ;
+    :channelUnit "NU" ;
+    :wfdbFormat "16" ;
+    :adcGain 14759.9099099 ;
+    :adcBaseline 15497 ;
+    :adcResolution 16 ;
+    :initialValue 5607 ;
+    :checksum 21791 ;
+    :channelMeasures :accelerationY .
+
+:Subject2_AccTempEDA_az_Channel a owl:NamedIndividual, :SignalChannel ;
+    :channelName "az" ;
+    :channelUnit "NU" ;
+    :wfdbFormat "16" ;
+    :adcGain 21072.0257235 ;
+    :adcBaseline 11062 ;
+    :adcResolution 16 ;
+    :initialValue 9586 ;
+    :checksum 34329 ;
+    :channelMeasures :accelerationZ .
+
+:Subject2_AccTempEDA_temp_Channel a owl:NamedIndividual, :SignalChannel ;
+    :channelName "temp" ;
+    :channelUnit "degC" ;
+    :wfdbFormat "16" ;
+    :adcGain 10570.0 ;
+    :adcBaseline -336126 ;
+    :adcResolution 16 ;
+    :initialValue -32766 ;
+    :checksum 24958 ;
+    :channelMeasures :skinTemperature .
+
+:Subject2_AccTempEDA_EDA_Channel a owl:NamedIndividual, :SignalChannel ;
+    :channelName "EDA" ;
+    :channelUnit "NU" ;
+    :wfdbFormat "16" ;
+    :adcGain 20718.9377174 ;
+    :adcBaseline -37718 ;
+    :adcResolution 16 ;
+    :initialValue -20769 ;
+    :checksum 2286 ;
+    :channelMeasures :electrodermalActivity .
+
+:Subject2_SpO2HR_Record a owl:NamedIndividual, :PhysiologicalRecord ;
+    rdfs:label "Subject2_SpO2HR record"@en ;
+    :recordName "Subject2_SpO2HR" ;
+    :signalCount 2 ;
+    :recordSamplingFrequency 1 ;
+    :sampleCount 2297 ;
+    :recordedForSubject :Subject2 ;
+    :recordMeasuredBy :heartRateSensor, :spo2Sensor ;
+    :hasSourceDataFile :Subject2_SpO2HR_hea, :Subject2_SpO2HR_dat ;
+    :hasSignalChannel :Subject2_SpO2HR_SpO2_Channel, :Subject2_SpO2HR_hr_Channel .
+
+:Subject2_SpO2HR_SpO2_Channel a owl:NamedIndividual, :SignalChannel ;
+    :channelName "SpO2" ;
+    :channelUnit "%" ;
+    :wfdbFormat "16" ;
+    :adcGain 5957.63636364 ;
+    :adcBaseline -562996 ;
+    :adcResolution 16 ;
+    :initialValue 20852 ;
+    :checksum 56116 ;
+    :channelMeasures :bloodOxygenSaturation .
+
+:Subject2_SpO2HR_hr_Channel a owl:NamedIndividual, :SignalChannel ;
+    :channelName "hr" ;
+    :channelUnit "bpm" ;
+    :wfdbFormat "16" ;
+    :adcGain 1213.59259259 ;
+    :adcBaseline -125000 ;
+    :adcResolution 16 ;
+    :initialValue -15776 ;
+    :checksum 1501 ;
+    :channelMeasures :heartRate .
+
+:Subject3_AccTempEDA_Record a owl:NamedIndividual, :PhysiologicalRecord ;
+    rdfs:label "Subject3_AccTempEDA record"@en ;
+    :recordName "Subject3_AccTempEDA" ;
+    :signalCount 5 ;
+    :recordSamplingFrequency 8 ;
+    :sampleCount 18255 ;
+    :recordedForSubject :Subject3 ;
+    :recordMeasuredBy :accelerometerSensor, :edaSensor, :temperatureSensor ;
+    :hasSourceDataFile :Subject3_AccTempEDA_hea, :Subject3_AccTempEDA_dat, :Subject3_AccTempEDA_atr ;
+    :hasSignalChannel :Subject3_AccTempEDA_ax_Channel, :Subject3_AccTempEDA_ay_Channel, :Subject3_AccTempEDA_az_Channel, :Subject3_AccTempEDA_temp_Channel, :Subject3_AccTempEDA_EDA_Channel .
+
+:Subject3_AccTempEDA_ax_Channel a owl:NamedIndividual, :SignalChannel ;
+    :channelName "ax" ;
+    :channelUnit "NU" ;
+    :wfdbFormat "16" ;
+    :adcGain 29653.3936652 ;
+    :adcBaseline -15271 ;
+    :adcResolution 16 ;
+    :initialValue 16161 ;
+    :checksum 25375 ;
+    :channelMeasures :accelerationX .
+
+:Subject3_AccTempEDA_ay_Channel a owl:NamedIndividual, :SignalChannel ;
+    :channelName "ay" ;
+    :channelUnit "NU" ;
+    :wfdbFormat "16" ;
+    :adcGain 24729.8113208 ;
+    :adcBaseline 9520 ;
+    :adcResolution 16 ;
+    :initialValue -3339 ;
+    :checksum 27018 ;
+    :channelMeasures :accelerationY .
+
+:Subject3_AccTempEDA_az_Channel a owl:NamedIndividual, :SignalChannel ;
+    :channelName "az" ;
+    :channelUnit "NU" ;
+    :wfdbFormat "16" ;
+    :adcGain 24823.4848485 ;
+    :adcBaseline 10674 ;
+    :adcResolution 16 ;
+    :initialValue 7446 ;
+    :checksum 45785 ;
+    :channelMeasures :accelerationZ .
+
+:Subject3_AccTempEDA_temp_Channel a owl:NamedIndividual, :SignalChannel ;
+    :channelName "temp" ;
+    :channelUnit "degC" ;
+    :wfdbFormat "16" ;
+    :adcGain 16803.5897436 ;
+    :adcBaseline -511669 ;
+    :adcResolution 16 ;
+    :initialValue -32766 ;
+    :checksum 64786 ;
+    :channelMeasures :skinTemperature .
+
+:Subject3_AccTempEDA_EDA_Channel a owl:NamedIndividual, :SignalChannel ;
+    :channelName "EDA" ;
+    :channelUnit "NU" ;
+    :wfdbFormat "16" ;
+    :adcGain 10071.3078223 ;
+    :adcBaseline -39403 ;
+    :adcResolution 16 ;
+    :initialValue -32725 ;
+    :checksum 36252 ;
+    :channelMeasures :electrodermalActivity .
+
+:Subject3_SpO2HR_Record a owl:NamedIndividual, :PhysiologicalRecord ;
+    rdfs:label "Subject3_SpO2HR record"@en ;
+    :recordName "Subject3_SpO2HR" ;
+    :signalCount 2 ;
+    :recordSamplingFrequency 1 ;
+    :sampleCount 2288 ;
+    :recordedForSubject :Subject3 ;
+    :recordMeasuredBy :heartRateSensor, :spo2Sensor ;
+    :hasSourceDataFile :Subject3_SpO2HR_hea, :Subject3_SpO2HR_dat ;
+    :hasSignalChannel :Subject3_SpO2HR_SpO2_Channel, :Subject3_SpO2HR_hr_Channel .
+
+:Subject3_SpO2HR_SpO2_Channel a owl:NamedIndividual, :SignalChannel ;
+    :channelName "SpO2" ;
+    :channelUnit "%" ;
+    :wfdbFormat "16" ;
+    :adcGain 8191.75 ;
+    :adcBaseline -770024 ;
+    :adcResolution 16 ;
+    :initialValue 24575 ;
+    :checksum 40616 ;
+    :channelMeasures :bloodOxygenSaturation .
+
+:Subject3_SpO2HR_hr_Channel a owl:NamedIndividual, :SignalChannel ;
+    :channelName "hr" ;
+    :channelUnit "bpm" ;
+    :wfdbFormat "16" ;
+    :adcGain 1260.26923077 ;
+    :adcBaseline -104602 ;
+    :adcResolution 16 ;
+    :initialValue -12602 ;
+    :checksum 11356 ;
+    :channelMeasures :heartRate .
+
+:Subject4_AccTempEDA_Record a owl:NamedIndividual, :PhysiologicalRecord ;
+    rdfs:label "Subject4_AccTempEDA record"@en ;
+    :recordName "Subject4_AccTempEDA" ;
+    :signalCount 5 ;
+    :recordSamplingFrequency 8 ;
+    :sampleCount 18247 ;
+    :recordedForSubject :Subject4 ;
+    :recordMeasuredBy :accelerometerSensor, :edaSensor, :temperatureSensor ;
+    :hasSourceDataFile :Subject4_AccTempEDA_hea, :Subject4_AccTempEDA_atr ;
+    :hasSignalChannel :Subject4_AccTempEDA_ax_Channel, :Subject4_AccTempEDA_ay_Channel, :Subject4_AccTempEDA_az_Channel, :Subject4_AccTempEDA_temp_Channel, :Subject4_AccTempEDA_EDA_Channel .
+
+:Subject4_AccTempEDA_ax_Channel a owl:NamedIndividual, :SignalChannel ;
+    :channelName "ax" ;
+    :channelUnit "NU" ;
+    :wfdbFormat "16" ;
+    :adcGain 18408.4269663 ;
+    :adcBaseline -16199 ;
+    :adcResolution 16 ;
+    :initialValue 2761 ;
+    :checksum 35509 ;
+    :channelMeasures :accelerationX .
+
+:Subject4_AccTempEDA_ay_Channel a owl:NamedIndividual, :SignalChannel ;
+    :channelName "ay" ;
+    :channelUnit "NU" ;
+    :wfdbFormat "16" ;
+    :adcGain 23156.8904594 ;
+    :adcBaseline 10999 ;
+    :adcResolution 16 ;
+    :initialValue -1505 ;
+    :checksum 11530 ;
+    :channelMeasures :accelerationY .
+
+:Subject4_AccTempEDA_az_Channel a owl:NamedIndividual, :SignalChannel ;
+    :channelName "az" ;
+    :channelUnit "NU" ;
+    :wfdbFormat "16" ;
+    :adcGain 20415.576324 ;
+    :adcBaseline 9697 ;
+    :adcResolution 16 ;
+    :initialValue 4388 ;
+    :checksum 24988 ;
+    :channelMeasures :accelerationZ .
+
+:Subject4_AccTempEDA_temp_Channel a owl:NamedIndividual, :SignalChannel ;
+    :channelName "temp" ;
+    :channelUnit "degC" ;
+    :wfdbFormat "16" ;
+    :adcGain 8510.90909091 ;
+    :adcBaseline -252348 ;
+    :adcResolution 16 ;
+    :initialValue -32766 ;
+    :checksum 56640 ;
+    :channelMeasures :skinTemperature .
+
+:Subject4_AccTempEDA_EDA_Channel a owl:NamedIndividual, :SignalChannel ;
+    :channelName "EDA" ;
+    :channelUnit "NU" ;
+    :wfdbFormat "16" ;
+    :adcGain 30652.0112254 ;
+    :adcBaseline -36690 ;
+    :adcResolution 16 ;
+    :initialValue -22252 ;
+    :checksum 63726 ;
+    :channelMeasures :electrodermalActivity .
+
+:Subject4_SpO2HR_Record a owl:NamedIndividual, :PhysiologicalRecord ;
+    rdfs:label "Subject4_SpO2HR record"@en ;
+    :recordName "Subject4_SpO2HR" ;
+    :signalCount 2 ;
+    :recordSamplingFrequency 1 ;
+    :sampleCount 2287 ;
+    :recordedForSubject :Subject4 ;
+    :recordMeasuredBy :heartRateSensor, :spo2Sensor ;
+    :hasSourceDataFile :Subject4_SpO2HR_hea, :Subject4_SpO2HR_dat ;
+    :hasSignalChannel :Subject4_SpO2HR_SpO2_Channel, :Subject4_SpO2HR_hr_Channel .
+
+:Subject4_SpO2HR_SpO2_Channel a owl:NamedIndividual, :SignalChannel ;
+    :channelName "SpO2" ;
+    :channelUnit "%" ;
+    :wfdbFormat "16" ;
+    :adcGain 16383.5 ;
+    :adcBaseline -1605583 ;
+    :adcResolution 16 ;
+    :initialValue 16383 ;
+    :checksum 17757 ;
+    :channelMeasures :bloodOxygenSaturation .
+
+:Subject4_SpO2HR_hr_Channel a owl:NamedIndividual, :SignalChannel ;
+    :channelName "hr" ;
+    :channelUnit "bpm" ;
+    :wfdbFormat "16" ;
+    :adcGain 1110.74576271 ;
+    :adcBaseline -86082 ;
+    :adcResolution 16 ;
+    :initialValue -12772 ;
+    :checksum 20023 ;
+    :channelMeasures :heartRate .
+
+#################################################################
+# Stress annotations
+#################################################################
+
+:Subject1_Annotation_Relax_1 a owl:NamedIndividual, :StressAnnotation ;
+    :annotationLabel "Relax" ;
+    :annotatesActivity :Subject1_Relax_1 ;
+    :annotatesCondition :relaxCondition ;
+    :hasObserver :humanExperimenter ;
+    :hasSourceDataFile :Subject1_AccTempEDA_atr .
+
+:Subject1_Annotation_PhysicalStress a owl:NamedIndividual, :StressAnnotation ;
+    :annotationLabel "PhysicalStress" ;
+    :annotatesActivity :Subject1_PhysicalStress ;
+    :annotatesCondition :physicalStressCondition ;
+    :hasObserver :humanExperimenter ;
+    :hasSourceDataFile :Subject1_AccTempEDA_atr .
+
+:Subject1_Annotation_Relax_2 a owl:NamedIndividual, :StressAnnotation ;
+    :annotationLabel "Relax" ;
+    :annotatesActivity :Subject1_Relax_2 ;
+    :annotatesCondition :relaxCondition ;
+    :hasObserver :humanExperimenter ;
+    :hasSourceDataFile :Subject1_AccTempEDA_atr .
+
+:Subject1_Annotation_EmotionalStress_1 a owl:NamedIndividual, :StressAnnotation ;
+    :annotationLabel "EmotionalStress" ;
+    :annotatesActivity :Subject1_EmotionalStress_1 ;
+    :annotatesCondition :emotionalStressCondition ;
+    :hasObserver :humanExperimenter ;
+    :hasSourceDataFile :Subject1_AccTempEDA_atr .
+
+:Subject1_Annotation_CognitiveStress a owl:NamedIndividual, :StressAnnotation ;
+    :annotationLabel "CognitiveStress" ;
+    :annotatesActivity :Subject1_CognitiveStress ;
+    :annotatesCondition :cognitiveStressCondition ;
+    :hasObserver :humanExperimenter ;
+    :hasSourceDataFile :Subject1_AccTempEDA_atr .
+
+:Subject1_Annotation_Relax_3 a owl:NamedIndividual, :StressAnnotation ;
+    :annotationLabel "Relax" ;
+    :annotatesActivity :Subject1_Relax_3 ;
+    :annotatesCondition :relaxCondition ;
+    :hasObserver :humanExperimenter ;
+    :hasSourceDataFile :Subject1_AccTempEDA_atr .
+
+:Subject1_Annotation_EmotionalStress_2 a owl:NamedIndividual, :StressAnnotation ;
+    :annotationLabel "EmotionalStress" ;
+    :annotatesActivity :Subject1_EmotionalStress_2 ;
+    :annotatesCondition :emotionalStressCondition ;
+    :hasObserver :humanExperimenter ;
+    :hasSourceDataFile :Subject1_AccTempEDA_atr .
+
+:Subject1_Annotation_Relax_4 a owl:NamedIndividual, :StressAnnotation ;
+    :annotationLabel "Relax" ;
+    :annotatesActivity :Subject1_Relax_4 ;
+    :annotatesCondition :relaxCondition ;
+    :hasObserver :humanExperimenter ;
+    :hasSourceDataFile :Subject1_AccTempEDA_atr .
+
+:Subject2_Annotation_Relax_1 a owl:NamedIndividual, :StressAnnotation ;
+    :annotationLabel "Relax" ;
+    :annotatesActivity :Subject2_Relax_1 ;
+    :annotatesCondition :relaxCondition ;
+    :hasObserver :humanExperimenter ;
+    :hasSourceDataFile :Subject2_AccTempEDA_atr .
+
+:Subject2_Annotation_PhysicalStress a owl:NamedIndividual, :StressAnnotation ;
+    :annotationLabel "PhysicalStress" ;
+    :annotatesActivity :Subject2_PhysicalStress ;
+    :annotatesCondition :physicalStressCondition ;
+    :hasObserver :humanExperimenter ;
+    :hasSourceDataFile :Subject2_AccTempEDA_atr .
+
+:Subject2_Annotation_Relax_2 a owl:NamedIndividual, :StressAnnotation ;
+    :annotationLabel "Relax" ;
+    :annotatesActivity :Subject2_Relax_2 ;
+    :annotatesCondition :relaxCondition ;
+    :hasObserver :humanExperimenter ;
+    :hasSourceDataFile :Subject2_AccTempEDA_atr .
+
+:Subject2_Annotation_EmotionalStress_1 a owl:NamedIndividual, :StressAnnotation ;
+    :annotationLabel "EmotionalStress" ;
+    :annotatesActivity :Subject2_EmotionalStress_1 ;
+    :annotatesCondition :emotionalStressCondition ;
+    :hasObserver :humanExperimenter ;
+    :hasSourceDataFile :Subject2_AccTempEDA_atr .
+
+:Subject2_Annotation_CognitiveStress a owl:NamedIndividual, :StressAnnotation ;
+    :annotationLabel "CognitiveStress" ;
+    :annotatesActivity :Subject2_CognitiveStress ;
+    :annotatesCondition :cognitiveStressCondition ;
+    :hasObserver :humanExperimenter ;
+    :hasSourceDataFile :Subject2_AccTempEDA_atr .
+
+:Subject2_Annotation_Relax_3 a owl:NamedIndividual, :StressAnnotation ;
+    :annotationLabel "Relax" ;
+    :annotatesActivity :Subject2_Relax_3 ;
+    :annotatesCondition :relaxCondition ;
+    :hasObserver :humanExperimenter ;
+    :hasSourceDataFile :Subject2_AccTempEDA_atr .
+
+:Subject2_Annotation_EmotionalStress_2 a owl:NamedIndividual, :StressAnnotation ;
+    :annotationLabel "EmotionalStress" ;
+    :annotatesActivity :Subject2_EmotionalStress_2 ;
+    :annotatesCondition :emotionalStressCondition ;
+    :hasObserver :humanExperimenter ;
+    :hasSourceDataFile :Subject2_AccTempEDA_atr .
+
+:Subject2_Annotation_Relax_4 a owl:NamedIndividual, :StressAnnotation ;
+    :annotationLabel "Relax" ;
+    :annotatesActivity :Subject2_Relax_4 ;
+    :annotatesCondition :relaxCondition ;
+    :hasObserver :humanExperimenter ;
+    :hasSourceDataFile :Subject2_AccTempEDA_atr .
+
+:Subject3_Annotation_Relax_1 a owl:NamedIndividual, :StressAnnotation ;
+    :annotationLabel "Relax" ;
+    :annotatesActivity :Subject3_Relax_1 ;
+    :annotatesCondition :relaxCondition ;
+    :hasObserver :humanExperimenter ;
+    :hasSourceDataFile :Subject3_AccTempEDA_atr .
+
+:Subject3_Annotation_PhysicalStress a owl:NamedIndividual, :StressAnnotation ;
+    :annotationLabel "PhysicalStress" ;
+    :annotatesActivity :Subject3_PhysicalStress ;
+    :annotatesCondition :physicalStressCondition ;
+    :hasObserver :humanExperimenter ;
+    :hasSourceDataFile :Subject3_AccTempEDA_atr .
+
+:Subject3_Annotation_Relax_2 a owl:NamedIndividual, :StressAnnotation ;
+    :annotationLabel "Relax" ;
+    :annotatesActivity :Subject3_Relax_2 ;
+    :annotatesCondition :relaxCondition ;
+    :hasObserver :humanExperimenter ;
+    :hasSourceDataFile :Subject3_AccTempEDA_atr .
+
+:Subject3_Annotation_EmotionalStress_1 a owl:NamedIndividual, :StressAnnotation ;
+    :annotationLabel "EmotionalStress" ;
+    :annotatesActivity :Subject3_EmotionalStress_1 ;
+    :annotatesCondition :emotionalStressCondition ;
+    :hasObserver :humanExperimenter ;
+    :hasSourceDataFile :Subject3_AccTempEDA_atr .
+
+:Subject3_Annotation_CognitiveStress a owl:NamedIndividual, :StressAnnotation ;
+    :annotationLabel "CognitiveStress" ;
+    :annotatesActivity :Subject3_CognitiveStress ;
+    :annotatesCondition :cognitiveStressCondition ;
+    :hasObserver :humanExperimenter ;
+    :hasSourceDataFile :Subject3_AccTempEDA_atr .
+
+:Subject3_Annotation_Relax_3 a owl:NamedIndividual, :StressAnnotation ;
+    :annotationLabel "Relax" ;
+    :annotatesActivity :Subject3_Relax_3 ;
+    :annotatesCondition :relaxCondition ;
+    :hasObserver :humanExperimenter ;
+    :hasSourceDataFile :Subject3_AccTempEDA_atr .
+
+:Subject3_Annotation_EmotionalStress_2 a owl:NamedIndividual, :StressAnnotation ;
+    :annotationLabel "EmotionalStress" ;
+    :annotatesActivity :Subject3_EmotionalStress_2 ;
+    :annotatesCondition :emotionalStressCondition ;
+    :hasObserver :humanExperimenter ;
+    :hasSourceDataFile :Subject3_AccTempEDA_atr .
+
+:Subject3_Annotation_Relax_4 a owl:NamedIndividual, :StressAnnotation ;
+    :annotationLabel "Relax" ;
+    :annotatesActivity :Subject3_Relax_4 ;
+    :annotatesCondition :relaxCondition ;
+    :hasObserver :humanExperimenter ;
+    :hasSourceDataFile :Subject3_AccTempEDA_atr .
+
+:Subject4_Annotation_Relax_1 a owl:NamedIndividual, :StressAnnotation ;
+    :annotationLabel "Relax" ;
+    :annotatesActivity :Subject4_Relax_1 ;
+    :annotatesCondition :relaxCondition ;
+    :hasObserver :humanExperimenter ;
+    :hasSourceDataFile :Subject4_AccTempEDA_atr .
+
+:Subject4_Annotation_PhysicalStress a owl:NamedIndividual, :StressAnnotation ;
+    :annotationLabel "PhysicalStress" ;
+    :annotatesActivity :Subject4_PhysicalStress ;
+    :annotatesCondition :physicalStressCondition ;
+    :hasObserver :humanExperimenter ;
+    :hasSourceDataFile :Subject4_AccTempEDA_atr .
+
+:Subject4_Annotation_Relax_2 a owl:NamedIndividual, :StressAnnotation ;
+    :annotationLabel "Relax" ;
+    :annotatesActivity :Subject4_Relax_2 ;
+    :annotatesCondition :relaxCondition ;
+    :hasObserver :humanExperimenter ;
+    :hasSourceDataFile :Subject4_AccTempEDA_atr .
+
+:Subject4_Annotation_EmotionalStress_1 a owl:NamedIndividual, :StressAnnotation ;
+    :annotationLabel "EmotionalStress" ;
+    :annotatesActivity :Subject4_EmotionalStress_1 ;
+    :annotatesCondition :emotionalStressCondition ;
+    :hasObserver :humanExperimenter ;
+    :hasSourceDataFile :Subject4_AccTempEDA_atr .
+
+:Subject4_Annotation_CognitiveStress a owl:NamedIndividual, :StressAnnotation ;
+    :annotationLabel "CognitiveStress" ;
+    :annotatesActivity :Subject4_CognitiveStress ;
+    :annotatesCondition :cognitiveStressCondition ;
+    :hasObserver :humanExperimenter ;
+    :hasSourceDataFile :Subject4_AccTempEDA_atr .
+
+:Subject4_Annotation_Relax_3 a owl:NamedIndividual, :StressAnnotation ;
+    :annotationLabel "Relax" ;
+    :annotatesActivity :Subject4_Relax_3 ;
+    :annotatesCondition :relaxCondition ;
+    :hasObserver :humanExperimenter ;
+    :hasSourceDataFile :Subject4_AccTempEDA_atr .
+
+:Subject4_Annotation_EmotionalStress_2 a owl:NamedIndividual, :StressAnnotation ;
+    :annotationLabel "EmotionalStress" ;
+    :annotatesActivity :Subject4_EmotionalStress_2 ;
+    :annotatesCondition :emotionalStressCondition ;
+    :hasObserver :humanExperimenter ;
+    :hasSourceDataFile :Subject4_AccTempEDA_atr .
+
+:Subject4_Annotation_Relax_4 a owl:NamedIndividual, :StressAnnotation ;
+    :annotationLabel "Relax" ;
+    :annotatesActivity :Subject4_Relax_4 ;
+    :annotatesCondition :relaxCondition ;
+    :hasObserver :humanExperimenter ;
+    :hasSourceDataFile :Subject4_AccTempEDA_atr .
+
+#################################################################
+# Representative time-series observations for all signal channels
+#################################################################
+
+:Subject1_AccTempEDA_ax_Observation a owl:NamedIndividual, :MovementObservation ;
+    rdfs:label "Subject1_AccTempEDA ax time-series observation"@en ;
+    sosa:hasFeatureOfInterest :Subject1 ;
+    sosa:observedProperty :accelerationX ;
+    sosa:madeBySensor :accelerometerSensor ;
+    :hasSourceRecord :Subject1_AccTempEDA_Record ;
+    :hasSignalChannel :Subject1_AccTempEDA_ax_Channel ;
+    :observedDuringActivity :Subject1_PhysicalStress ;
+    :hasSourceDataFile :Subject1_AccTempEDA_dat .
+
+:Subject1_AccTempEDA_ay_Observation a owl:NamedIndividual, :MovementObservation ;
+    rdfs:label "Subject1_AccTempEDA ay time-series observation"@en ;
+    sosa:hasFeatureOfInterest :Subject1 ;
+    sosa:observedProperty :accelerationY ;
+    sosa:madeBySensor :accelerometerSensor ;
+    :hasSourceRecord :Subject1_AccTempEDA_Record ;
+    :hasSignalChannel :Subject1_AccTempEDA_ay_Channel ;
+    :observedDuringActivity :Subject1_PhysicalStress ;
+    :hasSourceDataFile :Subject1_AccTempEDA_dat .
+
+:Subject1_AccTempEDA_az_Observation a owl:NamedIndividual, :MovementObservation ;
+    rdfs:label "Subject1_AccTempEDA az time-series observation"@en ;
+    sosa:hasFeatureOfInterest :Subject1 ;
+    sosa:observedProperty :accelerationZ ;
+    sosa:madeBySensor :accelerometerSensor ;
+    :hasSourceRecord :Subject1_AccTempEDA_Record ;
+    :hasSignalChannel :Subject1_AccTempEDA_az_Channel ;
+    :observedDuringActivity :Subject1_PhysicalStress ;
+    :hasSourceDataFile :Subject1_AccTempEDA_dat .
+
+:Subject1_AccTempEDA_temp_Observation a owl:NamedIndividual, :PhysiologicalObservation ;
+    rdfs:label "Subject1_AccTempEDA temp time-series observation"@en ;
+    sosa:hasFeatureOfInterest :Subject1 ;
+    sosa:observedProperty :skinTemperature ;
+    sosa:madeBySensor :temperatureSensor ;
+    :hasSourceRecord :Subject1_AccTempEDA_Record ;
+    :hasSignalChannel :Subject1_AccTempEDA_temp_Channel ;
+    :observedDuringActivity :Subject1_Relax_1 ;
+    :hasSourceDataFile :Subject1_AccTempEDA_dat .
+
+:Subject1_AccTempEDA_EDA_Observation a owl:NamedIndividual, :PhysiologicalObservation ;
+    rdfs:label "Subject1_AccTempEDA EDA time-series observation"@en ;
+    sosa:hasFeatureOfInterest :Subject1 ;
+    sosa:observedProperty :electrodermalActivity ;
+    sosa:madeBySensor :edaSensor ;
+    :hasSourceRecord :Subject1_AccTempEDA_Record ;
+    :hasSignalChannel :Subject1_AccTempEDA_EDA_Channel ;
+    :observedDuringActivity :Subject1_Relax_1 ;
+    :hasSourceDataFile :Subject1_AccTempEDA_dat .
+
+:Subject1_SpO2HR_SpO2_Observation a owl:NamedIndividual, :PhysiologicalObservation ;
+    rdfs:label "Subject1_SpO2HR SpO2 time-series observation"@en ;
+    sosa:hasFeatureOfInterest :Subject1 ;
+    sosa:observedProperty :bloodOxygenSaturation ;
+    sosa:madeBySensor :spo2Sensor ;
+    :hasSourceRecord :Subject1_SpO2HR_Record ;
+    :hasSignalChannel :Subject1_SpO2HR_SpO2_Channel ;
+    :observedDuringActivity :Subject1_Relax_1 ;
+    :hasSourceDataFile :Subject1_SpO2HR_dat .
+
+:Subject1_SpO2HR_hr_Observation a owl:NamedIndividual, :PhysiologicalObservation ;
+    rdfs:label "Subject1_SpO2HR hr time-series observation"@en ;
+    sosa:hasFeatureOfInterest :Subject1 ;
+    sosa:observedProperty :heartRate ;
+    sosa:madeBySensor :heartRateSensor ;
+    :hasSourceRecord :Subject1_SpO2HR_Record ;
+    :hasSignalChannel :Subject1_SpO2HR_hr_Channel ;
+    :observedDuringActivity :Subject1_Relax_1 ;
+    :hasSourceDataFile :Subject1_SpO2HR_dat .
+
+:Subject2_AccTempEDA_ax_Observation a owl:NamedIndividual, :MovementObservation ;
+    rdfs:label "Subject2_AccTempEDA ax time-series observation"@en ;
+    sosa:hasFeatureOfInterest :Subject2 ;
+    sosa:observedProperty :accelerationX ;
+    sosa:madeBySensor :accelerometerSensor ;
+    :hasSourceRecord :Subject2_AccTempEDA_Record ;
+    :hasSignalChannel :Subject2_AccTempEDA_ax_Channel ;
+    :observedDuringActivity :Subject2_PhysicalStress ;
+    :hasSourceDataFile :Subject2_AccTempEDA_dat .
+
+:Subject2_AccTempEDA_ay_Observation a owl:NamedIndividual, :MovementObservation ;
+    rdfs:label "Subject2_AccTempEDA ay time-series observation"@en ;
+    sosa:hasFeatureOfInterest :Subject2 ;
+    sosa:observedProperty :accelerationY ;
+    sosa:madeBySensor :accelerometerSensor ;
+    :hasSourceRecord :Subject2_AccTempEDA_Record ;
+    :hasSignalChannel :Subject2_AccTempEDA_ay_Channel ;
+    :observedDuringActivity :Subject2_PhysicalStress ;
+    :hasSourceDataFile :Subject2_AccTempEDA_dat .
+
+:Subject2_AccTempEDA_az_Observation a owl:NamedIndividual, :MovementObservation ;
+    rdfs:label "Subject2_AccTempEDA az time-series observation"@en ;
+    sosa:hasFeatureOfInterest :Subject2 ;
+    sosa:observedProperty :accelerationZ ;
+    sosa:madeBySensor :accelerometerSensor ;
+    :hasSourceRecord :Subject2_AccTempEDA_Record ;
+    :hasSignalChannel :Subject2_AccTempEDA_az_Channel ;
+    :observedDuringActivity :Subject2_PhysicalStress ;
+    :hasSourceDataFile :Subject2_AccTempEDA_dat .
+
+:Subject2_AccTempEDA_temp_Observation a owl:NamedIndividual, :PhysiologicalObservation ;
+    rdfs:label "Subject2_AccTempEDA temp time-series observation"@en ;
+    sosa:hasFeatureOfInterest :Subject2 ;
+    sosa:observedProperty :skinTemperature ;
+    sosa:madeBySensor :temperatureSensor ;
+    :hasSourceRecord :Subject2_AccTempEDA_Record ;
+    :hasSignalChannel :Subject2_AccTempEDA_temp_Channel ;
+    :observedDuringActivity :Subject2_Relax_1 ;
+    :hasSourceDataFile :Subject2_AccTempEDA_dat .
+
+:Subject2_AccTempEDA_EDA_Observation a owl:NamedIndividual, :PhysiologicalObservation ;
+    rdfs:label "Subject2_AccTempEDA EDA time-series observation"@en ;
+    sosa:hasFeatureOfInterest :Subject2 ;
+    sosa:observedProperty :electrodermalActivity ;
+    sosa:madeBySensor :edaSensor ;
+    :hasSourceRecord :Subject2_AccTempEDA_Record ;
+    :hasSignalChannel :Subject2_AccTempEDA_EDA_Channel ;
+    :observedDuringActivity :Subject2_Relax_1 ;
+    :hasSourceDataFile :Subject2_AccTempEDA_dat .
+
+:Subject2_SpO2HR_SpO2_Observation a owl:NamedIndividual, :PhysiologicalObservation ;
+    rdfs:label "Subject2_SpO2HR SpO2 time-series observation"@en ;
+    sosa:hasFeatureOfInterest :Subject2 ;
+    sosa:observedProperty :bloodOxygenSaturation ;
+    sosa:madeBySensor :spo2Sensor ;
+    :hasSourceRecord :Subject2_SpO2HR_Record ;
+    :hasSignalChannel :Subject2_SpO2HR_SpO2_Channel ;
+    :observedDuringActivity :Subject2_Relax_1 ;
+    :hasSourceDataFile :Subject2_SpO2HR_dat .
+
+:Subject2_SpO2HR_hr_Observation a owl:NamedIndividual, :PhysiologicalObservation ;
+    rdfs:label "Subject2_SpO2HR hr time-series observation"@en ;
+    sosa:hasFeatureOfInterest :Subject2 ;
+    sosa:observedProperty :heartRate ;
+    sosa:madeBySensor :heartRateSensor ;
+    :hasSourceRecord :Subject2_SpO2HR_Record ;
+    :hasSignalChannel :Subject2_SpO2HR_hr_Channel ;
+    :observedDuringActivity :Subject2_Relax_1 ;
+    :hasSourceDataFile :Subject2_SpO2HR_dat .
+
+:Subject3_AccTempEDA_ax_Observation a owl:NamedIndividual, :MovementObservation ;
+    rdfs:label "Subject3_AccTempEDA ax time-series observation"@en ;
+    sosa:hasFeatureOfInterest :Subject3 ;
+    sosa:observedProperty :accelerationX ;
+    sosa:madeBySensor :accelerometerSensor ;
+    :hasSourceRecord :Subject3_AccTempEDA_Record ;
+    :hasSignalChannel :Subject3_AccTempEDA_ax_Channel ;
+    :observedDuringActivity :Subject3_PhysicalStress ;
+    :hasSourceDataFile :Subject3_AccTempEDA_dat .
+
+:Subject3_AccTempEDA_ay_Observation a owl:NamedIndividual, :MovementObservation ;
+    rdfs:label "Subject3_AccTempEDA ay time-series observation"@en ;
+    sosa:hasFeatureOfInterest :Subject3 ;
+    sosa:observedProperty :accelerationY ;
+    sosa:madeBySensor :accelerometerSensor ;
+    :hasSourceRecord :Subject3_AccTempEDA_Record ;
+    :hasSignalChannel :Subject3_AccTempEDA_ay_Channel ;
+    :observedDuringActivity :Subject3_PhysicalStress ;
+    :hasSourceDataFile :Subject3_AccTempEDA_dat .
+
+:Subject3_AccTempEDA_az_Observation a owl:NamedIndividual, :MovementObservation ;
+    rdfs:label "Subject3_AccTempEDA az time-series observation"@en ;
+    sosa:hasFeatureOfInterest :Subject3 ;
+    sosa:observedProperty :accelerationZ ;
+    sosa:madeBySensor :accelerometerSensor ;
+    :hasSourceRecord :Subject3_AccTempEDA_Record ;
+    :hasSignalChannel :Subject3_AccTempEDA_az_Channel ;
+    :observedDuringActivity :Subject3_PhysicalStress ;
+    :hasSourceDataFile :Subject3_AccTempEDA_dat .
+
+:Subject3_AccTempEDA_temp_Observation a owl:NamedIndividual, :PhysiologicalObservation ;
+    rdfs:label "Subject3_AccTempEDA temp time-series observation"@en ;
+    sosa:hasFeatureOfInterest :Subject3 ;
+    sosa:observedProperty :skinTemperature ;
+    sosa:madeBySensor :temperatureSensor ;
+    :hasSourceRecord :Subject3_AccTempEDA_Record ;
+    :hasSignalChannel :Subject3_AccTempEDA_temp_Channel ;
+    :observedDuringActivity :Subject3_Relax_1 ;
+    :hasSourceDataFile :Subject3_AccTempEDA_dat .
+
+:Subject3_AccTempEDA_EDA_Observation a owl:NamedIndividual, :PhysiologicalObservation ;
+    rdfs:label "Subject3_AccTempEDA EDA time-series observation"@en ;
+    sosa:hasFeatureOfInterest :Subject3 ;
+    sosa:observedProperty :electrodermalActivity ;
+    sosa:madeBySensor :edaSensor ;
+    :hasSourceRecord :Subject3_AccTempEDA_Record ;
+    :hasSignalChannel :Subject3_AccTempEDA_EDA_Channel ;
+    :observedDuringActivity :Subject3_Relax_1 ;
+    :hasSourceDataFile :Subject3_AccTempEDA_dat .
+
+:Subject3_SpO2HR_SpO2_Observation a owl:NamedIndividual, :PhysiologicalObservation ;
+    rdfs:label "Subject3_SpO2HR SpO2 time-series observation"@en ;
+    sosa:hasFeatureOfInterest :Subject3 ;
+    sosa:observedProperty :bloodOxygenSaturation ;
+    sosa:madeBySensor :spo2Sensor ;
+    :hasSourceRecord :Subject3_SpO2HR_Record ;
+    :hasSignalChannel :Subject3_SpO2HR_SpO2_Channel ;
+    :observedDuringActivity :Subject3_Relax_1 ;
+    :hasSourceDataFile :Subject3_SpO2HR_dat .
+
+:Subject3_SpO2HR_hr_Observation a owl:NamedIndividual, :PhysiologicalObservation ;
+    rdfs:label "Subject3_SpO2HR hr time-series observation"@en ;
+    sosa:hasFeatureOfInterest :Subject3 ;
+    sosa:observedProperty :heartRate ;
+    sosa:madeBySensor :heartRateSensor ;
+    :hasSourceRecord :Subject3_SpO2HR_Record ;
+    :hasSignalChannel :Subject3_SpO2HR_hr_Channel ;
+    :observedDuringActivity :Subject3_Relax_1 ;
+    :hasSourceDataFile :Subject3_SpO2HR_dat .
+
+:Subject4_AccTempEDA_ax_Observation a owl:NamedIndividual, :MovementObservation ;
+    rdfs:label "Subject4_AccTempEDA ax time-series observation"@en ;
+    sosa:hasFeatureOfInterest :Subject4 ;
+    sosa:observedProperty :accelerationX ;
+    sosa:madeBySensor :accelerometerSensor ;
+    :hasSourceRecord :Subject4_AccTempEDA_Record ;
+    :hasSignalChannel :Subject4_AccTempEDA_ax_Channel ;
+    :observedDuringActivity :Subject4_PhysicalStress .
+
+:Subject4_AccTempEDA_ay_Observation a owl:NamedIndividual, :MovementObservation ;
+    rdfs:label "Subject4_AccTempEDA ay time-series observation"@en ;
+    sosa:hasFeatureOfInterest :Subject4 ;
+    sosa:observedProperty :accelerationY ;
+    sosa:madeBySensor :accelerometerSensor ;
+    :hasSourceRecord :Subject4_AccTempEDA_Record ;
+    :hasSignalChannel :Subject4_AccTempEDA_ay_Channel ;
+    :observedDuringActivity :Subject4_PhysicalStress .
+
+:Subject4_AccTempEDA_az_Observation a owl:NamedIndividual, :MovementObservation ;
+    rdfs:label "Subject4_AccTempEDA az time-series observation"@en ;
+    sosa:hasFeatureOfInterest :Subject4 ;
+    sosa:observedProperty :accelerationZ ;
+    sosa:madeBySensor :accelerometerSensor ;
+    :hasSourceRecord :Subject4_AccTempEDA_Record ;
+    :hasSignalChannel :Subject4_AccTempEDA_az_Channel ;
+    :observedDuringActivity :Subject4_PhysicalStress .
+
+:Subject4_AccTempEDA_temp_Observation a owl:NamedIndividual, :PhysiologicalObservation ;
+    rdfs:label "Subject4_AccTempEDA temp time-series observation"@en ;
+    sosa:hasFeatureOfInterest :Subject4 ;
+    sosa:observedProperty :skinTemperature ;
+    sosa:madeBySensor :temperatureSensor ;
+    :hasSourceRecord :Subject4_AccTempEDA_Record ;
+    :hasSignalChannel :Subject4_AccTempEDA_temp_Channel ;
+    :observedDuringActivity :Subject4_Relax_1 .
+
+:Subject4_AccTempEDA_EDA_Observation a owl:NamedIndividual, :PhysiologicalObservation ;
+    rdfs:label "Subject4_AccTempEDA EDA time-series observation"@en ;
+    sosa:hasFeatureOfInterest :Subject4 ;
+    sosa:observedProperty :electrodermalActivity ;
+    sosa:madeBySensor :edaSensor ;
+    :hasSourceRecord :Subject4_AccTempEDA_Record ;
+    :hasSignalChannel :Subject4_AccTempEDA_EDA_Channel ;
+    :observedDuringActivity :Subject4_Relax_1 .
+
+:Subject4_SpO2HR_SpO2_Observation a owl:NamedIndividual, :PhysiologicalObservation ;
+    rdfs:label "Subject4_SpO2HR SpO2 time-series observation"@en ;
+    sosa:hasFeatureOfInterest :Subject4 ;
+    sosa:observedProperty :bloodOxygenSaturation ;
+    sosa:madeBySensor :spo2Sensor ;
+    :hasSourceRecord :Subject4_SpO2HR_Record ;
+    :hasSignalChannel :Subject4_SpO2HR_SpO2_Channel ;
+    :observedDuringActivity :Subject4_Relax_1 ;
+    :hasSourceDataFile :Subject4_SpO2HR_dat .
+
+:Subject4_SpO2HR_hr_Observation a owl:NamedIndividual, :PhysiologicalObservation ;
+    rdfs:label "Subject4_SpO2HR hr time-series observation"@en ;
+    sosa:hasFeatureOfInterest :Subject4 ;
+    sosa:observedProperty :heartRate ;
+    sosa:madeBySensor :heartRateSensor ;
+    :hasSourceRecord :Subject4_SpO2HR_Record ;
+    :hasSignalChannel :Subject4_SpO2HR_hr_Channel ;
+    :observedDuringActivity :Subject4_Relax_1 ;
+    :hasSourceDataFile :Subject4_SpO2HR_dat .
+
+#################################################################
+# Biomarker assay representation pattern
+#################################################################
+
+:ExampleSalivaryCortisolSample a owl:NamedIndividual, :BiologicalSample ;
+    rdfs:label "example salivary cortisol sample"@en ;
+    sosa:isSampleOf :Subject1 .
+
+:ExampleCortisolAssay a owl:NamedIndividual, :BiomarkerAssay ;
+    rdfs:label "example cortisol assay"@en ;
+    :biomarkerName "cortisol" ;
+    :assayUsesSample :ExampleSalivaryCortisolSample ;
+    rdfs:comment "Example pattern showing how a biomarker assay can be represented when assay data are available."@en .
+
+:ExampleCortisolObservation a owl:NamedIndividual, :BiomarkerObservation ;
+    rdfs:label "example cortisol observation"@en ;
+    sosa:hasFeatureOfInterest :Subject1 ;
+    :basedOnAssay :ExampleCortisolAssay ;
+    :observedDuringActivity :Subject1_PhysicalStress ;
+    rdfs:comment "Example pattern showing how an observation can be linked to a biomarker assay."@en .

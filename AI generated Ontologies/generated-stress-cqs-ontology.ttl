@@ -1,0 +1,1329 @@
+@prefix : <http://example.org/generated-stress-cqs#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix schema: <https://schema.org/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+
+<http://example.org/generated-stress-cqs>
+    a owl:Ontology ;
+    owl:versionIRI <http://example.org/generated-stress-cqs/1.0.0> ;
+    rdfs:label "Generated Stress Competency Question Ontology"@en ;
+    rdfs:comment "An OWL 2 ontology for representing human stress in wearable- and sensor-based stress experiment data, derived from competency questions concerning stress conditions, stressors, activities, subjects, sensors, measurable properties, records, signal channels, observations, annotations, observers, and biomarker assays."@en ;
+    owl:imports <http://www.w3.org/ns/sosa/> ,
+                <http://www.w3.org/ns/ssn/> ;
+    owl:versionInfo "1.0.0" .
+
+#################################################################
+# Annotation properties
+#################################################################
+
+:competencyQuestion
+    a owl:AnnotationProperty ;
+    rdfs:label "competency question"@en ;
+    rdfs:comment "References a competency question that motivates an ontology element."@en .
+
+#################################################################
+# Core experiment and activity classes
+#################################################################
+
+:StressExperiment
+    a owl:Class ;
+    rdfs:subClassOf schema:Event ;
+    rdfs:label "Stress experiment"@en ;
+    rdfs:comment "An experimental event in which human stress-related conditions, activities, sensor measurements, annotations, or biomarker assays are documented."@en ;
+    :competencyQuestion "CQ5, CQ6, CQ7, CQ29, CQ31, CQ32, CQ33, CQ34, CQ38"@en .
+
+:Activity
+    a owl:Class ;
+    rdfs:subClassOf schema:Action ,
+        [
+            a owl:Restriction ;
+            owl:onProperty :hasActivityStartTime ;
+            owl:someValuesFrom xsd:dateTime
+        ] ;
+    rdfs:label "Activity"@en ;
+    rdfs:comment "A temporally bounded action or task carried out in a stress-related experimental setting."@en ;
+    :competencyQuestion "CQ5, CQ6, CQ7, CQ8, CQ32, CQ33, CQ35"@en .
+
+:ExperimentalPhase
+    a owl:Class ;
+    rdfs:subClassOf :Activity ;
+    rdfs:label "Experimental phase"@en ;
+    rdfs:comment "A phase of a stress experiment, such as baseline, stress induction, or recovery."@en ;
+    :competencyQuestion "CQ5, CQ6, CQ7, CQ35"@en .
+
+:BaselinePhase
+    a owl:Class ;
+    rdfs:subClassOf :ExperimentalPhase ,
+        [
+            a owl:Restriction ;
+            owl:onProperty :linkedStressCondition ;
+            owl:someValuesFrom :BaselineCondition
+        ] ;
+    rdfs:label "Baseline phase"@en ;
+    rdfs:comment "An experimental phase representing a baseline state before or between stress-related activities."@en ;
+    :competencyQuestion "CQ4, CQ5, CQ6"@en .
+
+:StressInductionPhase
+    a owl:Class ;
+    rdfs:subClassOf :ExperimentalPhase ,
+        [
+            a owl:Restriction ;
+            owl:onProperty :linkedStressCondition ;
+            owl:someValuesFrom :StressCondition
+        ] ,
+        [
+            a owl:Restriction ;
+            owl:onProperty :hasAssociatedStressor ;
+            owl:someValuesFrom :Stressor
+        ] ;
+    rdfs:label "Stress induction phase"@en ;
+    rdfs:comment "An experimental phase in which one or more stressors are associated with the activity."@en ;
+    :competencyQuestion "CQ5, CQ6, CQ7"@en .
+
+:RecoveryPhase
+    a owl:Class ;
+    rdfs:subClassOf :ExperimentalPhase ,
+        [
+            a owl:Restriction ;
+            owl:onProperty :linkedStressCondition ;
+            owl:someValuesFrom :RecoveryCondition
+        ] ;
+    rdfs:label "Recovery phase"@en ;
+    rdfs:comment "An experimental phase representing recovery after exposure to a stressor or stress condition."@en ;
+    :competencyQuestion "CQ4, CQ5, CQ6"@en .
+
+:CognitiveTask
+    a owl:Class ;
+    rdfs:subClassOf :Activity ;
+    rdfs:label "Cognitive task"@en ;
+    rdfs:comment "An activity involving mental workload or cognitive demand."@en ;
+    :competencyQuestion "CQ5, CQ7"@en .
+
+:PhysicalTask
+    a owl:Class ;
+    rdfs:subClassOf :Activity ;
+    rdfs:label "Physical task"@en ;
+    rdfs:comment "An activity involving bodily movement or physical effort."@en ;
+    :competencyQuestion "CQ5, CQ7, CQ22"@en .
+
+:SocialInteractionTask
+    a owl:Class ;
+    rdfs:subClassOf :Activity ;
+    rdfs:label "Social interaction task"@en ;
+    rdfs:comment "An activity involving interaction with another person or an evaluator."@en ;
+    :competencyQuestion "CQ5, CQ7"@en .
+
+#################################################################
+# Stress conditions and stressors
+#################################################################
+
+:StressRelatedCondition
+    a owl:Class ;
+    rdfs:label "Stress-related condition"@en ;
+    rdfs:comment "A condition used to describe the stress-related state assigned to an activity, phase, subject, annotation, or observation."@en ;
+    :competencyQuestion "CQ1, CQ4, CQ6"@en .
+
+:StressCondition
+    a owl:Class ;
+    rdfs:subClassOf :StressRelatedCondition ;
+    rdfs:label "Stress condition"@en ;
+    rdfs:comment "A condition indicating that stress is present or induced."@en ;
+    :competencyQuestion "CQ1, CQ6"@en .
+
+:AcuteStressCondition
+    a owl:Class ;
+    rdfs:subClassOf :StressCondition ;
+    rdfs:label "Acute stress condition"@en ;
+    rdfs:comment "A short-term stress condition associated with an immediate stressor or experimental challenge."@en ;
+    :competencyQuestion "CQ1, CQ3"@en .
+
+:NoStressCondition
+    a owl:Class ;
+    rdfs:subClassOf :StressRelatedCondition ;
+    rdfs:label "No-stress condition"@en ;
+    rdfs:comment "A condition indicating the absence of stress in the modeled experimental context."@en ;
+    :competencyQuestion "CQ1, CQ4"@en .
+
+:BaselineCondition
+    a owl:Class ;
+    rdfs:subClassOf :NoStressCondition ;
+    rdfs:label "Baseline condition"@en ;
+    rdfs:comment "A condition describing a baseline state used for comparison with stress or recovery phases."@en ;
+    :competencyQuestion "CQ4, CQ6"@en .
+
+:RecoveryCondition
+    a owl:Class ;
+    rdfs:subClassOf :StressRelatedCondition ;
+    rdfs:label "Recovery condition"@en ;
+    rdfs:comment "A condition describing a recovery state after stressor exposure."@en ;
+    :competencyQuestion "CQ4, CQ6"@en .
+
+:Stressor
+    a owl:Class ;
+    rdfs:label "Stressor"@en ;
+    rdfs:comment "A stimulus, demand, or contextual factor associated with an activity phase that may elicit stress."@en ;
+    :competencyQuestion "CQ2, CQ3, CQ7"@en .
+
+:ShortTermStressor
+    a owl:Class ;
+    rdfs:subClassOf :Stressor ;
+    rdfs:label "Short-term stressor"@en ;
+    rdfs:comment "A stressor occurring over a limited period within a stress-related setting."@en ;
+    :competencyQuestion "CQ3, CQ7"@en .
+
+:CognitiveStressor
+    a owl:Class ;
+    rdfs:subClassOf :ShortTermStressor ;
+    rdfs:label "Cognitive stressor"@en ;
+    rdfs:comment "A short-term stressor based on mental workload, attention, calculation, memory, or decision demand."@en ;
+    :competencyQuestion "CQ2, CQ3"@en .
+
+:PhysicalStressor
+    a owl:Class ;
+    rdfs:subClassOf :ShortTermStressor ;
+    rdfs:label "Physical stressor"@en ;
+    rdfs:comment "A short-term stressor based on physical effort or bodily activation."@en ;
+    :competencyQuestion "CQ2, CQ3"@en .
+
+:SocialStressor
+    a owl:Class ;
+    rdfs:subClassOf :ShortTermStressor ;
+    rdfs:label "Social stressor"@en ;
+    rdfs:comment "A short-term stressor involving social evaluation, interaction, or performance pressure."@en ;
+    :competencyQuestion "CQ2, CQ3"@en .
+
+:EnvironmentalStressor
+    a owl:Class ;
+    rdfs:subClassOf :ShortTermStressor ;
+    rdfs:label "Environmental stressor"@en ;
+    rdfs:comment "A short-term stressor arising from environmental factors such as noise, light, or ambient temperature."@en ;
+    :competencyQuestion "CQ2, CQ3, CQ23, CQ24"@en .
+
+#################################################################
+# Persons and roles
+#################################################################
+
+:PersonRole
+    a owl:Class ;
+    rdfs:label "Person role"@en ;
+    rdfs:comment "A role that a person can take in the stress experiment model."@en ;
+    :competencyQuestion "CQ9"@en .
+
+:SubjectRole
+    a owl:Class ;
+    rdfs:subClassOf :PersonRole ;
+    rdfs:label "Subject role"@en ;
+    rdfs:comment "The role of a person whose stress-related data are collected."@en ;
+    :competencyQuestion "CQ9, CQ10"@en .
+
+:ObserverRole
+    a owl:Class ;
+    rdfs:subClassOf :PersonRole ;
+    rdfs:label "Observer role"@en ;
+    rdfs:comment "The role of a person who observes, annotates, or provides human-originated observations."@en ;
+    :competencyQuestion "CQ9, CQ36, CQ37"@en .
+
+:ExperimenterRole
+    a owl:Class ;
+    rdfs:subClassOf :PersonRole ;
+    rdfs:label "Experimenter role"@en ;
+    rdfs:comment "The role of a person who conducts or manages a stress experiment."@en ;
+    :competencyQuestion "CQ9"@en .
+
+:Subject
+    a owl:Class ;
+    rdfs:subClassOf schema:Person ,
+        [
+            a owl:Restriction ;
+            owl:onProperty :hasRole ;
+            owl:someValuesFrom :SubjectRole
+        ] ;
+    rdfs:label "Subject"@en ;
+    rdfs:comment "A person whose physiological, behavioral, environmental, annotation, or biomarker data may be collected in a stress experiment."@en ;
+    :competencyQuestion "CQ9, CQ10"@en .
+
+:HumanObserver
+    a owl:Class ;
+    rdfs:subClassOf schema:Person ,
+        [
+            a owl:Restriction ;
+            owl:onProperty :hasRole ;
+            owl:someValuesFrom :ObserverRole
+        ] ;
+    rdfs:label "Human observer"@en ;
+    rdfs:comment "A person who is identified as the source of an annotation or human observation."@en ;
+    :competencyQuestion "CQ36, CQ37"@en .
+
+#################################################################
+# Platforms, sensors, and signal sources
+#################################################################
+
+:MeasurementPlatform
+    a owl:Class ;
+    rdfs:subClassOf sosa:Platform ;
+    rdfs:label "Measurement platform"@en ;
+    rdfs:comment "A device or platform that hosts sensors used for stress-related measurements."@en ;
+    :competencyQuestion "CQ14"@en .
+
+:WearableDevice
+    a owl:Class ;
+    rdfs:subClassOf :MeasurementPlatform ;
+    rdfs:label "Wearable device"@en ;
+    rdfs:comment "A measurement platform worn by a subject and used to host physiological or movement sensors."@en ;
+    :competencyQuestion "CQ11, CQ12, CQ13, CQ14"@en .
+
+:StressMeasurementSensor
+    a owl:Class ;
+    rdfs:subClassOf sosa:Sensor ;
+    rdfs:label "Stress measurement sensor"@en ;
+    rdfs:comment "A sensor used for stress-related measurements."@en ;
+    :competencyQuestion "CQ11"@en .
+
+:PhysiologicalSensor
+    a owl:Class ;
+    rdfs:subClassOf :StressMeasurementSensor ;
+    rdfs:label "Physiological sensor"@en ;
+    rdfs:comment "A sensor that measures physiological properties relevant to stress-related data."@en ;
+    :competencyQuestion "CQ12, CQ21"@en .
+
+:MovementSensor
+    a owl:Class ;
+    rdfs:subClassOf :StressMeasurementSensor ;
+    rdfs:label "Movement sensor"@en ;
+    rdfs:comment "A sensor that captures movement-related information."@en ;
+    :competencyQuestion "CQ13, CQ19, CQ22"@en .
+
+:EnvironmentalSensor
+    a owl:Class ;
+    rdfs:subClassOf :StressMeasurementSensor ;
+    rdfs:label "Environmental sensor"@en ;
+    rdfs:comment "A sensor that captures environmental factors associated with a stress-related setting."@en ;
+    :competencyQuestion "CQ23, CQ24"@en .
+
+:HeartRateSensor
+    a owl:Class ;
+    rdfs:subClassOf :PhysiologicalSensor ,
+        [
+            a owl:Restriction ;
+            owl:onProperty sosa:observes ;
+            owl:someValuesFrom :HeartRateProperty
+        ] ,
+        [
+            a owl:Restriction ;
+            owl:onProperty sosa:observes ;
+            owl:someValuesFrom :HeartRateVariabilityProperty
+        ] ;
+    rdfs:label "Heart rate sensor"@en ;
+    rdfs:comment "A physiological sensor that measures heart rate or heart-rate-derived properties."@en ;
+    :competencyQuestion "CQ12, CQ15"@en .
+
+:EDASensor
+    a owl:Class ;
+    rdfs:subClassOf :PhysiologicalSensor ,
+        [
+            a owl:Restriction ;
+            owl:onProperty sosa:observes ;
+            owl:someValuesFrom :ElectrodermalActivityProperty
+        ] ;
+    rdfs:label "EDA sensor"@en ;
+    rdfs:comment "A physiological sensor that measures electrodermal activity properties."@en ;
+    :competencyQuestion "CQ12, CQ16"@en .
+
+:SpO2Sensor
+    a owl:Class ;
+    rdfs:subClassOf :PhysiologicalSensor ,
+        [
+            a owl:Restriction ;
+            owl:onProperty sosa:observes ;
+            owl:someValuesFrom :BloodOxygenSaturationProperty
+        ] ;
+    rdfs:label "SpO2 sensor"@en ;
+    rdfs:comment "A physiological sensor that measures peripheral blood oxygen saturation."@en ;
+    :competencyQuestion "CQ12, CQ17"@en .
+
+:TemperatureSensor
+    a owl:Class ;
+    rdfs:subClassOf :PhysiologicalSensor ,
+        [
+            a owl:Restriction ;
+            owl:onProperty sosa:observes ;
+            owl:someValuesFrom :BodyTemperatureProperty
+        ] ;
+    rdfs:label "Temperature sensor"@en ;
+    rdfs:comment "A physiological sensor that measures body or skin temperature in stress-related data collection."@en ;
+    :competencyQuestion "CQ12, CQ18"@en .
+
+:Accelerometer
+    a owl:Class ;
+    rdfs:subClassOf :MovementSensor ,
+        [
+            a owl:Restriction ;
+            owl:onProperty sosa:observes ;
+            owl:someValuesFrom :AccelerationProperty
+        ] ;
+    rdfs:label "Accelerometer"@en ;
+    rdfs:comment "A movement sensor that captures acceleration-related properties."@en ;
+    :competencyQuestion "CQ13, CQ19"@en .
+
+#################################################################
+# Features of interest and environments
+#################################################################
+
+:SubjectBody
+    a owl:Class ;
+    rdfs:subClassOf sosa:FeatureOfInterest ;
+    rdfs:label "Subject body"@en ;
+    rdfs:comment "The subject's body considered as a feature of interest for physiological observations."@en ;
+    :competencyQuestion "CQ21, CQ25, CQ29"@en .
+
+:Environment
+    a owl:Class ;
+    rdfs:subClassOf sosa:FeatureOfInterest ,
+        [
+            a owl:Restriction ;
+            owl:onProperty :hasEnvironmentalInformation ;
+            owl:allValuesFrom :EnvironmentalInformation
+        ] ;
+    rdfs:label "Environment"@en ;
+    rdfs:comment "The environmental context in which an activity or observation occurs."@en ;
+    :competencyQuestion "CQ23, CQ24"@en .
+
+:EnvironmentalInformation
+    a owl:Class ;
+    rdfs:label "Environmental information"@en ;
+    rdfs:comment "Information assigned to an environment, such as ambient temperature, humidity, noise level, lighting, or location."@en ;
+    :competencyQuestion "CQ24"@en .
+
+#################################################################
+# Measurable properties
+#################################################################
+
+:MeasurableProperty
+    a owl:Class ;
+    rdfs:subClassOf sosa:ObservableProperty ;
+    rdfs:label "Measurable property"@en ;
+    rdfs:comment "A property that can be measured, observed, or captured in stress-related data."@en ;
+    :competencyQuestion "CQ15, CQ16, CQ17, CQ18, CQ19, CQ20, CQ21, CQ22, CQ23, CQ28"@en .
+
+:PhysiologicalProperty
+    a owl:Class ;
+    rdfs:subClassOf :MeasurableProperty ;
+    rdfs:label "Physiological property"@en ;
+    rdfs:comment "A measurable property representing physiological information."@en ;
+    :competencyQuestion "CQ20, CQ21"@en .
+
+:BehavioralIndicator
+    a owl:Class ;
+    rdfs:subClassOf :MeasurableProperty ;
+    rdfs:label "Behavioral indicator"@en ;
+    rdfs:comment "A measurable property or derived indicator describing behavior, movement, activity, or observable action."@en ;
+    :competencyQuestion "CQ20, CQ22"@en .
+
+:EnvironmentalProperty
+    a owl:Class ;
+    rdfs:subClassOf :MeasurableProperty ;
+    rdfs:label "Environmental property"@en ;
+    rdfs:comment "A measurable property describing the environment of a stress-related setting."@en ;
+    :competencyQuestion "CQ20, CQ23, CQ24"@en .
+
+:HeartRateProperty
+    a owl:Class ;
+    rdfs:subClassOf :PhysiologicalProperty ;
+    rdfs:label "Heart rate"@en ;
+    rdfs:comment "A physiological property representing heart beats per unit time."@en ;
+    :competencyQuestion "CQ15, CQ21"@en .
+
+:HeartRateVariabilityProperty
+    a owl:Class ;
+    rdfs:subClassOf :PhysiologicalProperty ;
+    rdfs:label "Heart rate variability"@en ;
+    rdfs:comment "A physiological property representing variability in time intervals between heartbeats."@en ;
+    :competencyQuestion "CQ15, CQ21"@en .
+
+:ElectrodermalActivityProperty
+    a owl:Class ;
+    rdfs:subClassOf :PhysiologicalProperty ;
+    rdfs:label "Electrodermal activity"@en ;
+    rdfs:comment "A physiological property representing skin conductance or electrodermal activity."@en ;
+    :competencyQuestion "CQ16, CQ21"@en .
+
+:SkinConductanceLevelProperty
+    a owl:Class ;
+    rdfs:subClassOf :ElectrodermalActivityProperty ;
+    rdfs:label "Skin conductance level"@en ;
+    rdfs:comment "The tonic component of electrodermal activity."@en ;
+    :competencyQuestion "CQ16, CQ21"@en .
+
+:SkinConductanceResponseProperty
+    a owl:Class ;
+    rdfs:subClassOf :ElectrodermalActivityProperty ;
+    rdfs:label "Skin conductance response"@en ;
+    rdfs:comment "The phasic response component of electrodermal activity."@en ;
+    :competencyQuestion "CQ16, CQ21"@en .
+
+:BloodOxygenSaturationProperty
+    a owl:Class ;
+    rdfs:subClassOf :PhysiologicalProperty ;
+    rdfs:label "Blood oxygen saturation"@en ;
+    rdfs:comment "A physiological property representing peripheral oxygen saturation measured by an SpO2 sensor."@en ;
+    :competencyQuestion "CQ17, CQ21"@en .
+
+:BodyTemperatureProperty
+    a owl:Class ;
+    rdfs:subClassOf :PhysiologicalProperty ;
+    rdfs:label "Body temperature"@en ;
+    rdfs:comment "A physiological property representing body, peripheral, or skin temperature."@en ;
+    :competencyQuestion "CQ18, CQ21"@en .
+
+:SkinTemperatureProperty
+    a owl:Class ;
+    rdfs:subClassOf :BodyTemperatureProperty ;
+    rdfs:label "Skin temperature"@en ;
+    rdfs:comment "A physiological temperature property measured at or near the skin surface."@en ;
+    :competencyQuestion "CQ18, CQ21"@en .
+
+:AccelerationProperty
+    a owl:Class ;
+    rdfs:subClassOf :BehavioralIndicator ;
+    rdfs:label "Acceleration"@en ;
+    rdfs:comment "A movement-related property captured by an accelerometer."@en ;
+    :competencyQuestion "CQ19, CQ22"@en .
+
+:AccelerationXProperty
+    a owl:Class ;
+    rdfs:subClassOf :AccelerationProperty ;
+    rdfs:label "X-axis acceleration"@en ;
+    rdfs:comment "Acceleration measured along the x-axis."@en ;
+    :competencyQuestion "CQ19"@en .
+
+:AccelerationYProperty
+    a owl:Class ;
+    rdfs:subClassOf :AccelerationProperty ;
+    rdfs:label "Y-axis acceleration"@en ;
+    rdfs:comment "Acceleration measured along the y-axis."@en ;
+    :competencyQuestion "CQ19"@en .
+
+:AccelerationZProperty
+    a owl:Class ;
+    rdfs:subClassOf :AccelerationProperty ;
+    rdfs:label "Z-axis acceleration"@en ;
+    rdfs:comment "Acceleration measured along the z-axis."@en ;
+    :competencyQuestion "CQ19"@en .
+
+:AccelerationMagnitudeProperty
+    a owl:Class ;
+    rdfs:subClassOf :AccelerationProperty ;
+    rdfs:label "Acceleration magnitude"@en ;
+    rdfs:comment "A derived acceleration property representing the magnitude across axes."@en ;
+    :competencyQuestion "CQ19"@en .
+
+:MovementIntensityProperty
+    a owl:Class ;
+    rdfs:subClassOf :BehavioralIndicator ;
+    rdfs:label "Movement intensity"@en ;
+    rdfs:comment "A behavioral indicator describing the intensity of movement."@en ;
+    :competencyQuestion "CQ22"@en .
+
+:ActivityLevelProperty
+    a owl:Class ;
+    rdfs:subClassOf :BehavioralIndicator ;
+    rdfs:label "Activity level"@en ;
+    rdfs:comment "A behavioral indicator describing the level of subject activity."@en ;
+    :competencyQuestion "CQ22"@en .
+
+:AmbientTemperatureProperty
+    a owl:Class ;
+    rdfs:subClassOf :EnvironmentalProperty ;
+    rdfs:label "Ambient temperature"@en ;
+    rdfs:comment "An environmental property representing surrounding air temperature."@en ;
+    :competencyQuestion "CQ23, CQ24"@en .
+
+:HumidityProperty
+    a owl:Class ;
+    rdfs:subClassOf :EnvironmentalProperty ;
+    rdfs:label "Humidity"@en ;
+    rdfs:comment "An environmental property representing relative humidity."@en ;
+    :competencyQuestion "CQ23, CQ24"@en .
+
+:NoiseLevelProperty
+    a owl:Class ;
+    rdfs:subClassOf :EnvironmentalProperty ;
+    rdfs:label "Noise level"@en ;
+    rdfs:comment "An environmental property representing sound or noise level."@en ;
+    :competencyQuestion "CQ23, CQ24"@en .
+
+:LightLevelProperty
+    a owl:Class ;
+    rdfs:subClassOf :EnvironmentalProperty ;
+    rdfs:label "Light level"@en ;
+    rdfs:comment "An environmental property representing illumination or light intensity."@en ;
+    :competencyQuestion "CQ23, CQ24"@en .
+
+#################################################################
+# Records, source data, and signal channels
+#################################################################
+
+:SourceData
+    a owl:Class ;
+    rdfs:label "Source data"@en ;
+    rdfs:comment "Data from which an observation or measurement can be traced."@en ;
+    :competencyQuestion "CQ31"@en .
+
+:PhysiologicalRecord
+    a owl:Class ;
+    rdfs:subClassOf :SourceData ,
+        [
+            a owl:Restriction ;
+            owl:onProperty :hasSignalChannel ;
+            owl:someValuesFrom :SignalChannel
+        ] ;
+    rdfs:label "Physiological record"@en ;
+    rdfs:comment "A source data record containing physiological signals and metadata."@en ;
+    :competencyQuestion "CQ25, CQ26, CQ31"@en .
+
+:SignalChannel
+    a owl:Class ;
+    rdfs:subClassOf [
+            a owl:Restriction ;
+            owl:onProperty :channelMeasures ;
+            owl:someValuesFrom :MeasurableProperty
+        ] ;
+    rdfs:label "Signal channel"@en ;
+    rdfs:comment "A channel within a physiological or sensor record that indicates what it measures and stores channel-level metadata."@en ;
+    :competencyQuestion "CQ26, CQ27, CQ28, CQ31"@en .
+
+#################################################################
+# Observations, annotations, and biomarker assays
+#################################################################
+
+:StressObservation
+    a owl:Class ;
+    rdfs:subClassOf sosa:Observation ,
+        [
+            a owl:Restriction ;
+            owl:onProperty sosa:observedProperty ;
+            owl:someValuesFrom :MeasurableProperty
+        ] ,
+        [
+            a owl:Restriction ;
+            owl:onProperty :madeDuringActivity ;
+            owl:someValuesFrom :Activity
+        ] ;
+    rdfs:label "Stress observation"@en ;
+    rdfs:comment "An observation made in the context of stress-related experimental data."@en ;
+    :competencyQuestion "CQ29, CQ30, CQ31, CQ32, CQ33"@en .
+
+:PhysiologicalObservation
+    a owl:Class ;
+    rdfs:subClassOf :StressObservation ,
+        [
+            a owl:Restriction ;
+            owl:onProperty sosa:observedProperty ;
+            owl:someValuesFrom :PhysiologicalProperty
+        ] ;
+    rdfs:label "Physiological observation"@en ;
+    rdfs:comment "An observation of a physiological property."@en ;
+    :competencyQuestion "CQ21, CQ25, CQ29"@en .
+
+:BehavioralObservation
+    a owl:Class ;
+    rdfs:subClassOf :StressObservation ,
+        [
+            a owl:Restriction ;
+            owl:onProperty sosa:observedProperty ;
+            owl:someValuesFrom :BehavioralIndicator
+        ] ;
+    rdfs:label "Behavioral observation"@en ;
+    rdfs:comment "An observation of a behavioral indicator."@en ;
+    :competencyQuestion "CQ22, CQ29"@en .
+
+:EnvironmentalObservation
+    a owl:Class ;
+    rdfs:subClassOf :StressObservation ,
+        [
+            a owl:Restriction ;
+            owl:onProperty sosa:observedProperty ;
+            owl:someValuesFrom :EnvironmentalProperty
+        ] ;
+    rdfs:label "Environmental observation"@en ;
+    rdfs:comment "An observation of an environmental property."@en ;
+    :competencyQuestion "CQ23, CQ24, CQ29"@en .
+
+:TimeSeriesObservation
+    a owl:Class ;
+    rdfs:subClassOf :StressObservation ,
+        [
+            a owl:Restriction ;
+            owl:onProperty :hasObservationStartTime ;
+            owl:someValuesFrom xsd:dateTime
+        ] ,
+        [
+            a owl:Restriction ;
+            owl:onProperty :hasObservationEndTime ;
+            owl:someValuesFrom xsd:dateTime
+        ] ;
+    rdfs:label "Time-series observation"@en ;
+    rdfs:comment "An observation representing a temporally extended series of measurement values."@en ;
+    :competencyQuestion "CQ29, CQ30"@en .
+
+:HumanObservation
+    a owl:Class ;
+    rdfs:subClassOf :StressObservation ,
+        [
+            a owl:Restriction ;
+            owl:onProperty :hasObserver ;
+            owl:someValuesFrom :HumanObserver
+        ] ;
+    rdfs:label "Human observation"@en ;
+    rdfs:comment "An observation whose source is a human observer rather than an automated sensor."@en ;
+    :competencyQuestion "CQ36, CQ37"@en .
+
+:Annotation
+    a owl:Class ;
+    rdfs:subClassOf [
+            a owl:Restriction ;
+            owl:onProperty :annotatesActivity ;
+            owl:someValuesFrom :Activity
+        ] ,
+        [
+            a owl:Restriction ;
+            owl:onProperty :hasObserver ;
+            owl:someValuesFrom :HumanObserver
+        ] ;
+    rdfs:label "Annotation"@en ;
+    rdfs:comment "A human or system-provided annotation assigned to an activity or phase, with metadata such as label, note, time, confidence, and observer."@en ;
+    :competencyQuestion "CQ34, CQ35, CQ36"@en .
+
+:BiomarkerAssay
+    a owl:Class ;
+    rdfs:subClassOf sosa:Procedure ;
+    rdfs:label "Biomarker assay"@en ;
+    rdfs:comment "A procedure or assay used to determine a biomarker value, including method, analyte, sample type, and assay time."@en ;
+    :competencyQuestion "CQ38, CQ39, CQ40"@en .
+
+:BiomarkerObservation
+    a owl:Class ;
+    rdfs:subClassOf :PhysiologicalObservation ,
+        [
+            a owl:Restriction ;
+            owl:onProperty :usesBiomarkerAssay ;
+            owl:someValuesFrom :BiomarkerAssay
+        ] ;
+    rdfs:label "Biomarker observation"@en ;
+    rdfs:comment "A physiological observation linked to a biomarker assay."@en ;
+    :competencyQuestion "CQ38, CQ39, CQ40"@en .
+
+#################################################################
+# Object properties
+#################################################################
+
+:hasActivity
+    a owl:ObjectProperty ;
+    rdfs:domain :StressExperiment ;
+    rdfs:range :Activity ;
+    rdfs:label "has activity"@en ;
+    rdfs:comment "Links a stress experiment to an activity or experimental phase."@en ;
+    :competencyQuestion "CQ5"@en .
+
+:hasParticipant
+    a owl:ObjectProperty ;
+    rdfs:domain :StressExperiment ;
+    rdfs:range schema:Person ;
+    rdfs:label "has participant"@en ;
+    rdfs:comment "Links a stress experiment to a participating person."@en ;
+    :competencyQuestion "CQ9, CQ10"@en .
+
+:hasSubject
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf :hasParticipant ;
+    rdfs:domain :StressExperiment ;
+    rdfs:range :Subject ;
+    rdfs:label "has subject"@en ;
+    rdfs:comment "Links a stress experiment to a subject."@en ;
+    :competencyQuestion "CQ10"@en .
+
+:hasRole
+    a owl:ObjectProperty ;
+    rdfs:domain schema:Person ;
+    rdfs:range :PersonRole ;
+    rdfs:label "has role"@en ;
+    rdfs:comment "Assigns a role to a person in the model."@en ;
+    :competencyQuestion "CQ9"@en .
+
+:linkedStressCondition
+    a owl:ObjectProperty ;
+    rdfs:domain :Activity ;
+    rdfs:range :StressRelatedCondition ;
+    rdfs:label "linked stress condition"@en ;
+    rdfs:comment "Links an activity or phase to the stress-related condition it represents."@en ;
+    :competencyQuestion "CQ6"@en .
+
+:hasAssociatedStressor
+    a owl:ObjectProperty ;
+    rdfs:domain :Activity ;
+    rdfs:range :Stressor ;
+    rdfs:label "has associated stressor"@en ;
+    rdfs:comment "Associates a stressor with a specific activity or experimental phase."@en ;
+    :competencyQuestion "CQ7"@en .
+
+:hasMeasurementPlatform
+    a owl:ObjectProperty ;
+    rdfs:domain :StressExperiment ;
+    rdfs:range :MeasurementPlatform ;
+    rdfs:label "has measurement platform"@en ;
+    rdfs:comment "Links a stress experiment to a device or platform used for measurement."@en ;
+    :competencyQuestion "CQ14"@en .
+
+:hostedOnPlatform
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf sosa:isHostedBy ;
+    rdfs:domain :StressMeasurementSensor ;
+    rdfs:range :MeasurementPlatform ;
+    rdfs:label "hosted on platform"@en ;
+    rdfs:comment "Links a sensor to the platform or device that hosts it."@en ;
+    :competencyQuestion "CQ14"@en .
+
+:hasEnvironmentalInformation
+    a owl:ObjectProperty ;
+    rdfs:domain :Environment ;
+    rdfs:range :EnvironmentalInformation ;
+    rdfs:label "has environmental information"@en ;
+    rdfs:comment "Assigns environmental information to an environment."@en ;
+    :competencyQuestion "CQ24"@en .
+
+:hasSignalChannel
+    a owl:ObjectProperty ;
+    rdfs:domain :PhysiologicalRecord ;
+    rdfs:range :SignalChannel ;
+    rdfs:label "has signal channel"@en ;
+    rdfs:comment "Connects a physiological record to one of its signal channels."@en ;
+    :competencyQuestion "CQ26"@en .
+
+:channelMeasures
+    a owl:ObjectProperty ;
+    rdfs:domain :SignalChannel ;
+    rdfs:range :MeasurableProperty ;
+    rdfs:label "channel measures"@en ;
+    rdfs:comment "Indicates what measurable property a signal channel measures."@en ;
+    :competencyQuestion "CQ28"@en .
+
+:derivedFromSourceData
+    a owl:ObjectProperty ;
+    rdfs:domain :StressObservation ;
+    rdfs:range :SourceData ;
+    rdfs:label "derived from source data"@en ;
+    rdfs:comment "Traces an observation back to its source data."@en ;
+    :competencyQuestion "CQ31"@en .
+
+:derivedFromSignalChannel
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf :derivedFromSourceData ;
+    rdfs:domain :StressObservation ;
+    rdfs:range :SignalChannel ;
+    rdfs:label "derived from signal channel"@en ;
+    rdfs:comment "Traces an observation back to a signal channel."@en ;
+    :competencyQuestion "CQ31"@en .
+
+:madeDuringActivity
+    a owl:ObjectProperty ;
+    rdfs:domain :StressObservation ;
+    rdfs:range :Activity ;
+    rdfs:label "made during activity"@en ;
+    rdfs:comment "Assigns an observation to the activity or phase during which it was made."@en ;
+    :competencyQuestion "CQ32, CQ33"@en .
+
+:measurementLinkedToActivity
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf :madeDuringActivity ;
+    rdfs:domain sosa:Observation ;
+    rdfs:range :Activity ;
+    rdfs:label "measurement linked to activity"@en ;
+    rdfs:comment "Links a measurement or observation back to the activity in which it occurred."@en ;
+    :competencyQuestion "CQ33"@en .
+
+:annotatesActivity
+    a owl:ObjectProperty ;
+    rdfs:domain :Annotation ;
+    rdfs:range :Activity ;
+    rdfs:label "annotates activity"@en ;
+    rdfs:comment "Assigns an annotation to an activity or experimental phase."@en ;
+    :competencyQuestion "CQ35"@en .
+
+:hasObserver
+    a owl:ObjectProperty ;
+    rdfs:domain [
+        a owl:Class ;
+        owl:unionOf ( :Annotation :HumanObservation )
+    ] ;
+    rdfs:range :HumanObserver ;
+    rdfs:label "has observer"@en ;
+    rdfs:comment "Connects an annotation or human observation to the human observer who provided it."@en ;
+    :competencyQuestion "CQ36, CQ37"@en .
+
+:usesBiomarkerAssay
+    a owl:ObjectProperty ;
+    rdfs:domain :BiomarkerObservation ;
+    rdfs:range :BiomarkerAssay ;
+    rdfs:label "uses biomarker assay"@en ;
+    rdfs:comment "Links an observation to the biomarker assay used to produce or interpret it."@en ;
+    :competencyQuestion "CQ39"@en .
+
+:hasFeatureOfInterest
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf sosa:hasFeatureOfInterest ;
+    rdfs:domain :StressObservation ;
+    rdfs:range sosa:FeatureOfInterest ;
+    rdfs:label "has feature of interest"@en ;
+    rdfs:comment "Links a stress observation to the feature of interest being observed."@en ;
+    :competencyQuestion "CQ29"@en .
+
+:isSignalChannelOf
+    a owl:ObjectProperty ;
+    owl:inverseOf :hasSignalChannel ;
+    rdfs:domain :SignalChannel ;
+    rdfs:range :PhysiologicalRecord ;
+    rdfs:label "is signal channel of"@en ;
+    rdfs:comment "Links a signal channel back to the physiological record that contains it."@en ;
+    :competencyQuestion "CQ26"@en .
+
+:isStressorAssociatedWithActivity
+    a owl:ObjectProperty ;
+    owl:inverseOf :hasAssociatedStressor ;
+    rdfs:domain :Stressor ;
+    rdfs:range :Activity ;
+    rdfs:label "is stressor associated with activity"@en ;
+    rdfs:comment "Links a stressor back to the activity or phase with which it is associated."@en ;
+    :competencyQuestion "CQ7"@en .
+
+:hasObservationMadeDuring
+    a owl:ObjectProperty ;
+    owl:inverseOf :madeDuringActivity ;
+    rdfs:domain :Activity ;
+    rdfs:range :StressObservation ;
+    rdfs:label "has observation made during"@en ;
+    rdfs:comment "Links an activity to an observation made during that activity."@en ;
+    :competencyQuestion "CQ32, CQ33"@en .
+
+#################################################################
+# Data properties
+#################################################################
+
+:hasIdentifier
+    a owl:DatatypeProperty ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string ;
+    rdfs:label "has identifier"@en ;
+    rdfs:comment "Stores a local identifier for an entity."@en ;
+    :competencyQuestion "CQ8, CQ10, CQ25, CQ27, CQ31, CQ34, CQ38"@en .
+
+:hasActivityName
+    a owl:DatatypeProperty ;
+    rdfs:domain :Activity ;
+    rdfs:range xsd:string ;
+    rdfs:label "has activity name"@en ;
+    rdfs:comment "Stores the name of an activity or phase."@en ;
+    :competencyQuestion "CQ8"@en .
+
+:hasActivityDescription
+    a owl:DatatypeProperty ;
+    rdfs:domain :Activity ;
+    rdfs:range xsd:string ;
+    rdfs:label "has activity description"@en ;
+    rdfs:comment "Stores a textual description of an activity."@en ;
+    :competencyQuestion "CQ8"@en .
+
+:hasActivityStartTime
+    a owl:DatatypeProperty ;
+    rdfs:domain :Activity ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "has activity start time"@en ;
+    rdfs:comment "Stores the start time of an activity or experimental phase."@en ;
+    :competencyQuestion "CQ8, CQ32, CQ33, CQ35"@en .
+
+:hasActivityEndTime
+    a owl:DatatypeProperty ;
+    rdfs:domain :Activity ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "has activity end time"@en ;
+    rdfs:comment "Stores the end time of an activity or experimental phase."@en ;
+    :competencyQuestion "CQ8, CQ32, CQ33, CQ35"@en .
+
+:hasActivityOrder
+    a owl:DatatypeProperty ;
+    rdfs:domain :Activity ;
+    rdfs:range xsd:integer ;
+    rdfs:label "has activity order"@en ;
+    rdfs:comment "Stores the ordinal position of an activity or phase in an experiment."@en ;
+    :competencyQuestion "CQ8"@en .
+
+:hasSubjectCode
+    a owl:DatatypeProperty ;
+    rdfs:domain :Subject ;
+    rdfs:range xsd:string ;
+    rdfs:label "has subject code"@en ;
+    rdfs:comment "Stores a pseudonymous subject code."@en ;
+    :competencyQuestion "CQ10"@en .
+
+:hasAge
+    a owl:DatatypeProperty ;
+    rdfs:domain :Subject ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "has age"@en ;
+    rdfs:comment "Stores the age of a subject when available."@en ;
+    :competencyQuestion "CQ10"@en .
+
+:hasSex
+    a owl:DatatypeProperty ;
+    rdfs:domain :Subject ;
+    rdfs:range xsd:string ;
+    rdfs:label "has sex"@en ;
+    rdfs:comment "Stores sex information for a subject when available."@en ;
+    :competencyQuestion "CQ10"@en .
+
+:hasHeight
+    a owl:DatatypeProperty ;
+    rdfs:domain :Subject ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "has height"@en ;
+    rdfs:comment "Stores subject height as a numeric value, with unit recorded separately if needed."@en ;
+    :competencyQuestion "CQ10"@en .
+
+:hasWeight
+    a owl:DatatypeProperty ;
+    rdfs:domain :Subject ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "has weight"@en ;
+    rdfs:comment "Stores subject weight as a numeric value, with unit recorded separately if needed."@en ;
+    :competencyQuestion "CQ10"@en .
+
+:hasUnit
+    a owl:DatatypeProperty ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string ;
+    rdfs:label "has unit"@en ;
+    rdfs:comment "Stores a unit label or unit code for a numeric value, record, channel, property, or observation result."@en ;
+    :competencyQuestion "CQ24, CQ25, CQ27, CQ30"@en .
+
+:hasEnvironmentName
+    a owl:DatatypeProperty ;
+    rdfs:domain :Environment ;
+    rdfs:range xsd:string ;
+    rdfs:label "has environment name"@en ;
+    rdfs:comment "Stores the name of an environment."@en ;
+    :competencyQuestion "CQ24"@en .
+
+:hasLocationDescription
+    a owl:DatatypeProperty ;
+    rdfs:domain :Environment ;
+    rdfs:range xsd:string ;
+    rdfs:label "has location description"@en ;
+    rdfs:comment "Stores textual location information for an environment."@en ;
+    :competencyQuestion "CQ24"@en .
+
+:hasAmbientTemperatureValue
+    a owl:DatatypeProperty ;
+    rdfs:domain :EnvironmentalInformation ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "has ambient temperature value"@en ;
+    rdfs:comment "Stores ambient temperature information assigned to an environment."@en ;
+    :competencyQuestion "CQ24"@en .
+
+:hasHumidityValue
+    a owl:DatatypeProperty ;
+    rdfs:domain :EnvironmentalInformation ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "has humidity value"@en ;
+    rdfs:comment "Stores humidity information assigned to an environment."@en ;
+    :competencyQuestion "CQ24"@en .
+
+:hasNoiseLevelValue
+    a owl:DatatypeProperty ;
+    rdfs:domain :EnvironmentalInformation ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "has noise level value"@en ;
+    rdfs:comment "Stores noise level information assigned to an environment."@en ;
+    :competencyQuestion "CQ24"@en .
+
+:hasLightLevelValue
+    a owl:DatatypeProperty ;
+    rdfs:domain :EnvironmentalInformation ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "has light level value"@en ;
+    rdfs:comment "Stores light level information assigned to an environment."@en ;
+    :competencyQuestion "CQ24"@en .
+
+:hasRecordName
+    a owl:DatatypeProperty ;
+    rdfs:domain :PhysiologicalRecord ;
+    rdfs:range xsd:string ;
+    rdfs:label "has record name"@en ;
+    rdfs:comment "Stores a name or file label for a physiological record."@en ;
+    :competencyQuestion "CQ25"@en .
+
+:hasRecordFormat
+    a owl:DatatypeProperty ;
+    rdfs:domain :PhysiologicalRecord ;
+    rdfs:range xsd:string ;
+    rdfs:label "has record format"@en ;
+    rdfs:comment "Stores the data format of a physiological record."@en ;
+    :competencyQuestion "CQ25"@en .
+
+:hasSamplingRate
+    a owl:DatatypeProperty ;
+    rdfs:domain [
+        a owl:Class ;
+        owl:unionOf ( :PhysiologicalRecord :SignalChannel :TimeSeriesObservation )
+    ] ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "has sampling rate"@en ;
+    rdfs:comment "Stores the sampling rate of a record, signal channel, or time-series observation."@en ;
+    :competencyQuestion "CQ25, CQ27, CQ30"@en .
+
+:hasRecordStartTime
+    a owl:DatatypeProperty ;
+    rdfs:domain :PhysiologicalRecord ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "has record start time"@en ;
+    rdfs:comment "Stores the start time of a physiological record."@en ;
+    :competencyQuestion "CQ25"@en .
+
+:hasRecordEndTime
+    a owl:DatatypeProperty ;
+    rdfs:domain :PhysiologicalRecord ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "has record end time"@en ;
+    rdfs:comment "Stores the end time of a physiological record."@en ;
+    :competencyQuestion "CQ25"@en .
+
+:hasChannelName
+    a owl:DatatypeProperty ;
+    rdfs:domain :SignalChannel ;
+    rdfs:range xsd:string ;
+    rdfs:label "has channel name"@en ;
+    rdfs:comment "Stores the name of a signal channel."@en ;
+    :competencyQuestion "CQ27"@en .
+
+:hasChannelIndex
+    a owl:DatatypeProperty ;
+    rdfs:domain :SignalChannel ;
+    rdfs:range xsd:integer ;
+    rdfs:label "has channel index"@en ;
+    rdfs:comment "Stores the index or position of a signal channel within a record."@en ;
+    :competencyQuestion "CQ27"@en .
+
+:hasChannelLabel
+    a owl:DatatypeProperty ;
+    rdfs:domain :SignalChannel ;
+    rdfs:range xsd:string ;
+    rdfs:label "has channel label"@en ;
+    rdfs:comment "Stores a label used to identify a signal channel."@en ;
+    :competencyQuestion "CQ27"@en .
+
+:hasObservationStartTime
+    a owl:DatatypeProperty ;
+    rdfs:domain :TimeSeriesObservation ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "has observation start time"@en ;
+    rdfs:comment "Stores the start time of a time-series observation."@en ;
+    :competencyQuestion "CQ30"@en .
+
+:hasObservationEndTime
+    a owl:DatatypeProperty ;
+    rdfs:domain :TimeSeriesObservation ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "has observation end time"@en ;
+    rdfs:comment "Stores the end time of a time-series observation."@en ;
+    :competencyQuestion "CQ30"@en .
+
+:hasResultValue
+    a owl:DatatypeProperty ;
+    rdfs:domain sosa:Observation ;
+    rdfs:range xsd:string ;
+    rdfs:label "has result value"@en ;
+    rdfs:comment "Stores an observation result value as a lexical value when a simple literal representation is sufficient."@en ;
+    :competencyQuestion "CQ29, CQ30, CQ39"@en .
+
+:hasResultNumericValue
+    a owl:DatatypeProperty ;
+    rdfs:domain sosa:Observation ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "has result numeric value"@en ;
+    rdfs:comment "Stores a numeric observation result."@en ;
+    :competencyQuestion "CQ29, CQ30, CQ39"@en .
+
+:hasAnnotationLabel
+    a owl:DatatypeProperty ;
+    rdfs:domain :Annotation ;
+    rdfs:range xsd:string ;
+    rdfs:label "has annotation label"@en ;
+    rdfs:comment "Stores the label assigned by an annotation."@en ;
+    :competencyQuestion "CQ34"@en .
+
+:hasAnnotationText
+    a owl:DatatypeProperty ;
+    rdfs:domain :Annotation ;
+    rdfs:range xsd:string ;
+    rdfs:label "has annotation text"@en ;
+    rdfs:comment "Stores free-text content for an annotation."@en ;
+    :competencyQuestion "CQ34"@en .
+
+:hasAnnotationTime
+    a owl:DatatypeProperty ;
+    rdfs:domain :Annotation ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "has annotation time"@en ;
+    rdfs:comment "Stores the time at which an annotation was made or applies."@en ;
+    :competencyQuestion "CQ34, CQ35"@en .
+
+:hasAnnotationConfidence
+    a owl:DatatypeProperty ;
+    rdfs:domain :Annotation ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "has annotation confidence"@en ;
+    rdfs:comment "Stores a confidence value for an annotation."@en ;
+    :competencyQuestion "CQ34"@en .
+
+:hasAssayName
+    a owl:DatatypeProperty ;
+    rdfs:domain :BiomarkerAssay ;
+    rdfs:range xsd:string ;
+    rdfs:label "has assay name"@en ;
+    rdfs:comment "Stores the name of a biomarker assay."@en ;
+    :competencyQuestion "CQ38"@en .
+
+:hasAssayMethod
+    a owl:DatatypeProperty ;
+    rdfs:domain :BiomarkerAssay ;
+    rdfs:range xsd:string ;
+    rdfs:label "has assay method"@en ;
+    rdfs:comment "Stores the method used for a biomarker assay."@en ;
+    :competencyQuestion "CQ38"@en .
+
+:hasBiomarkerAnalyte
+    a owl:DatatypeProperty ;
+    rdfs:domain :BiomarkerAssay ;
+    rdfs:range xsd:string ;
+    rdfs:label "has biomarker analyte"@en ;
+    rdfs:comment "Stores the biomarker analyte measured by an assay."@en ;
+    :competencyQuestion "CQ38"@en .
+
+:hasSampleType
+    a owl:DatatypeProperty ;
+    rdfs:domain :BiomarkerAssay ;
+    rdfs:range xsd:string ;
+    rdfs:label "has sample type"@en ;
+    rdfs:comment "Stores the type of sample used for a biomarker assay."@en ;
+    :competencyQuestion "CQ38"@en .
+
+:hasAssayTime
+    a owl:DatatypeProperty ;
+    rdfs:domain :BiomarkerAssay ;
+    rdfs:range xsd:dateTime ;
+    rdfs:label "has assay time"@en ;
+    rdfs:comment "Documents when the biomarker assay was performed or sampled."@en ;
+    :competencyQuestion "CQ40"@en .
+
+#################################################################
+# Disjointness axioms
+#################################################################
+
+:StressCondition owl:disjointWith :NoStressCondition .
+:PhysiologicalProperty owl:disjointWith :EnvironmentalProperty .
+:PhysiologicalSensor owl:disjointWith :EnvironmentalSensor .
+
+#################################################################
+# Example controlled individuals for queryable categories
+#################################################################
+
+:baselineCondition
+    a owl:NamedIndividual , :BaselineCondition ;
+    rdfs:label "baseline condition"@en .
+
+:acuteStressCondition
+    a owl:NamedIndividual , :AcuteStressCondition ;
+    rdfs:label "acute stress condition"@en .
+
+:recoveryCondition
+    a owl:NamedIndividual , :RecoveryCondition ;
+    rdfs:label "recovery condition"@en .
+
+:cognitiveStressor
+    a owl:NamedIndividual , :CognitiveStressor ;
+    rdfs:label "cognitive stressor"@en .
+
+:physicalStressor
+    a owl:NamedIndividual , :PhysicalStressor ;
+    rdfs:label "physical stressor"@en .
+
+:socialStressor
+    a owl:NamedIndividual , :SocialStressor ;
+    rdfs:label "social stressor"@en .
+
+:environmentalStressor
+    a owl:NamedIndividual , :EnvironmentalStressor ;
+    rdfs:label "environmental stressor"@en .
+
+:heartRate
+    a owl:NamedIndividual , :HeartRateProperty ;
+    rdfs:label "heart rate"@en .
+
+:heartRateVariability
+    a owl:NamedIndividual , :HeartRateVariabilityProperty ;
+    rdfs:label "heart rate variability"@en .
+
+:electrodermalActivity
+    a owl:NamedIndividual , :ElectrodermalActivityProperty ;
+    rdfs:label "electrodermal activity"@en .
+
+:skinConductanceLevel
+    a owl:NamedIndividual , :SkinConductanceLevelProperty ;
+    rdfs:label "skin conductance level"@en .
+
+:skinConductanceResponse
+    a owl:NamedIndividual , :SkinConductanceResponseProperty ;
+    rdfs:label "skin conductance response"@en .
+
+:bloodOxygenSaturation
+    a owl:NamedIndividual , :BloodOxygenSaturationProperty ;
+    rdfs:label "blood oxygen saturation"@en .
+
+:skinTemperature
+    a owl:NamedIndividual , :SkinTemperatureProperty ;
+    rdfs:label "skin temperature"@en .
+
+:accelerationX
+    a owl:NamedIndividual , :AccelerationXProperty ;
+    rdfs:label "x-axis acceleration"@en .
+
+:accelerationY
+    a owl:NamedIndividual , :AccelerationYProperty ;
+    rdfs:label "y-axis acceleration"@en .
+
+:accelerationZ
+    a owl:NamedIndividual , :AccelerationZProperty ;
+    rdfs:label "z-axis acceleration"@en .
+
+:accelerationMagnitude
+    a owl:NamedIndividual , :AccelerationMagnitudeProperty ;
+    rdfs:label "acceleration magnitude"@en .
+
+:ambientTemperature
+    a owl:NamedIndividual , :AmbientTemperatureProperty ;
+    rdfs:label "ambient temperature"@en .
+
+:humidity
+    a owl:NamedIndividual , :HumidityProperty ;
+    rdfs:label "humidity"@en .
+
+:noiseLevel
+    a owl:NamedIndividual , :NoiseLevelProperty ;
+    rdfs:label "noise level"@en .
+
+:lightLevel
+    a owl:NamedIndividual , :LightLevelProperty ;
+    rdfs:label "light level"@en .
