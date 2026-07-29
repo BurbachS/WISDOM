@@ -18,6 +18,7 @@
      xmlns:vann="http://purl.org/vocab/vann/"
      xmlns:dtype="http://www.linkedmodel.org/schema/dtype#"
      xmlns:schema="https://schema.org/"
+     xmlns:wisdom="https://burbachs.github.io/WISDOM/wisdom.owl#"
      xmlns:schema1="http://schema.org/">
     <owl:Ontology rdf:about="https://burbachs.github.io/WISDOM/wisdom.owl">
         <owl:imports rdf:resource="http://qudt.org/3.0.0/schema/qudt"/>

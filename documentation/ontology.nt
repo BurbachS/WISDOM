@@ -3,7 +3,7 @@
 <https://burbachs.github.io/WISDOM/wisdom.owl> <http://www.w3.org/2002/07/owl#imports> <http://www.w3.org/2006/time> .
 <https://burbachs.github.io/WISDOM/wisdom.owl> <http://www.w3.org/2002/07/owl#imports> <http://www.w3.org/ns/sosa/> .
 <https://burbachs.github.io/WISDOM/wisdom.owl> <http://www.w3.org/2002/07/owl#imports> <http://www.w3.org/ns/ssn/> .
-<https://burbachs.github.io/WISDOM/wisdom.owl> <http://purl.org/dc/terms/bibliographicCitation> "Lennart Mackert, Simon Burbach, Paul Schreiber, Maria Maleshkova (2026): WISDOM. https://doi.org/10.5281/zenodo.17671851" .
+<https://burbachs.github.io/WISDOM/wisdom.owl> <http://purl.org/dc/terms/bibliographicCitation> "Lennart Mackert, Simon Burbach, Paul Schreiber, Maria Maleshkova (2026): WISDOM. https://doi.org/10.5281/zenodo.21677141" .
 <https://burbachs.github.io/WISDOM/wisdom.owl> <http://purl.org/dc/terms/created> "2026-07-14"^^<http://www.w3.org/2001/XMLSchema#date> .
 <https://burbachs.github.io/WISDOM/wisdom.owl> <http://purl.org/dc/terms/creator> _:genid1 .
 _:genid1 <http://xmlns.com/foaf/0.1/name> "Lennart Mackert" .
@@ -27,7 +27,7 @@ _:genid4 <http://xmlns.com/foaf/0.1/homepage> <https://orcid.org/0000-0003-3458-
 _:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
 <https://burbachs.github.io/WISDOM/wisdom.owl> <http://purl.org/dc/terms/license> <https://creativecommons.org/licenses/by/4.0/> .
 <https://burbachs.github.io/WISDOM/wisdom.owl> <http://purl.org/dc/terms/title> "WISDOM: A Wearable Integrated Stress Data Ontology Model" .
-<https://burbachs.github.io/WISDOM/wisdom.owl> <http://purl.org/ontology/bibo/doi> "10.5281/zenodo.17671851" .
+<https://burbachs.github.io/WISDOM/wisdom.owl> <http://purl.org/ontology/bibo/doi> "10.5281/zenodo.21677141" .
 <https://burbachs.github.io/WISDOM/wisdom.owl> <http://www.w3.org/2000/01/rdf-schema#comment> "The WISDOM (Wearable Integrated Stress Data Ontology Model) ontology provides a semantic model for representing stress-related knowledge and physiological data collected from wearable devices. It integrates conceptual descriptions of human stress, stress-inducing stimuli, experimental context, wearable sensors, physiological observables, and their corresponding observations into a machine-interpretable knowledge graph. By building upon established semantic web standards, WISDOM enables the harmonization and integration of heterogeneous stress datasets while preserving contextual information about study protocols, stressors, and sensor measurements. The ontology supports interoperability, data integration, advanced analytics, and reproducible research in wearable-based stress detection."@en .
 <https://burbachs.github.io/WISDOM/wisdom.owl> <http://www.w3.org/2000/01/rdf-schema#label> "WISDOM"@en .
 # 

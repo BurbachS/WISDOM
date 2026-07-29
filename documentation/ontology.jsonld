@@ -267,7 +267,7 @@
   "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl",
   "@type" : [ "http://www.w3.org/2002/07/owl#Ontology" ],
   "http://purl.org/dc/terms/bibliographicCitation" : [ {
-    "@value" : "Lennart Mackert, Simon Burbach, Paul Schreiber, Maria Maleshkova (2026): WISDOM. https://doi.org/10.5281/zenodo.17671851"
+    "@value" : "Lennart Mackert, Simon Burbach, Paul Schreiber, Maria Maleshkova (2026): WISDOM. https://doi.org/10.5281/zenodo.21677141"
   } ],
   "http://purl.org/dc/terms/created" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#date",
@@ -289,7 +289,7 @@
     "@value" : "WISDOM: A Wearable Integrated Stress Data Ontology Model"
   } ],
   "http://purl.org/ontology/bibo/doi" : [ {
-    "@value" : "10.5281/zenodo.17671851"
+    "@value" : "10.5281/zenodo.21677141"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
     "@language" : "en",

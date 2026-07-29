@@ -1,4 +1,3 @@
-@prefix : <https://burbachs.github.io/WISDOM/wisdom.owl#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -11,7 +10,8 @@
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix schema: <https://schema.org/> .
-@base <https://burbachs.github.io/WISDOM/wisdom.owl#> .
+@prefix wisdom: <https://burbachs.github.io/WISDOM/wisdom.owl#> .
+@base <https://burbachs.github.io/WISDOM/wisdom.owl> .
 
 <https://burbachs.github.io/WISDOM/wisdom.owl> rdf:type owl:Ontology ;
                                                 owl:imports <http://qudt.org/3.0.0/schema/qudt> ,
@@ -101,224 +101,224 @@ sosa:observes rdfs:domain sosa:Sensor ;
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#annotatedDuringActivity
-:annotatedDuringActivity rdf:type owl:ObjectProperty ;
-                         owl:inverseOf :isAnnotatedInRecord ;
-                         rdfs:domain :AnnotationRecord ;
-                         rdfs:range :Activity ;
-                         rdfs:comment "Links an annotation record to the activity or experimental segment that it annotates."@en ;
-                         rdfs:label "annotated during activity"@en .
+wisdom:annotatedDuringActivity rdf:type owl:ObjectProperty ;
+                               owl:inverseOf wisdom:isAnnotatedInRecord ;
+                               rdfs:domain wisdom:AnnotationRecord ;
+                               rdfs:range wisdom:Activity ;
+                               rdfs:comment "Links an annotation record to the activity or experimental segment that it annotates."@en ;
+                               rdfs:label "annotated during activity"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#causes
-:causes rdf:type owl:ObjectProperty ;
-        owl:inverseOf :isCausedBy ;
-        rdfs:domain :Stressor ;
-        rdfs:range owl:Thing ;
-        rdfs:comment "Links a stressor to an entity that it causes or contributes to."@en ;
-        rdfs:label "causes"@en .
+wisdom:causes rdf:type owl:ObjectProperty ;
+              owl:inverseOf wisdom:isCausedBy ;
+              rdfs:domain wisdom:Stressor ;
+              rdfs:range owl:Thing ;
+              rdfs:comment "Links a stressor to an entity that it causes or contributes to."@en ;
+              rdfs:label "causes"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#hasActivityObservation
-:hasActivityObservation rdf:type owl:ObjectProperty ;
-                        owl:inverseOf :observedDuringActivity ;
-                        rdfs:domain :Activity ;
-                        rdfs:range sosa:Observation ;
-                        rdfs:comment "Links an activity or experimental phase to an observation made during that activity."@en ;
-                        rdfs:label "has activity observation"@en .
+wisdom:hasActivityObservation rdf:type owl:ObjectProperty ;
+                              owl:inverseOf wisdom:observedDuringActivity ;
+                              rdfs:domain wisdom:Activity ;
+                              rdfs:range sosa:Observation ;
+                              rdfs:comment "Links an activity or experimental phase to an observation made during that activity."@en ;
+                              rdfs:label "has activity observation"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#hasAnnotationRecord
-:hasAnnotationRecord rdf:type owl:ObjectProperty ;
-                     owl:inverseOf :isAnnotationRecordOf ;
-                     rdfs:domain :PhysiologicalRecord ;
-                     rdfs:range :AnnotationRecord ;
-                     rdfs:comment "Links a physiological record to its annotation record."@en ;
-                     rdfs:label "has annotation record"@en .
+wisdom:hasAnnotationRecord rdf:type owl:ObjectProperty ;
+                           owl:inverseOf wisdom:isAnnotationRecordOf ;
+                           rdfs:domain wisdom:PhysiologicalRecord ;
+                           rdfs:range wisdom:AnnotationRecord ;
+                           rdfs:comment "Links a physiological record to its annotation record."@en ;
+                           rdfs:label "has annotation record"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#hasAssociatedActivity
-:hasAssociatedActivity rdf:type owl:ObjectProperty ;
-                       owl:inverseOf :hasAssociatedStressor ;
-                       rdfs:domain :Stressor ;
-                       rdfs:range :Activity ;
-                       rdfs:comment "Links a stressor to the activity or experimental phase associated with it."@en ;
-                       rdfs:label "has associated activity"@en .
+wisdom:hasAssociatedActivity rdf:type owl:ObjectProperty ;
+                             owl:inverseOf wisdom:hasAssociatedStressor ;
+                             rdfs:domain wisdom:Stressor ;
+                             rdfs:range wisdom:Activity ;
+                             rdfs:comment "Links a stressor to the activity or experimental phase associated with it."@en ;
+                             rdfs:label "has associated activity"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#hasAssociatedStressor
-:hasAssociatedStressor rdf:type owl:ObjectProperty ;
-                       rdfs:subPropertyOf :hasStressCondition ;
-                       rdfs:domain :Activity ;
-                       rdfs:range :Stressor ;
-                       rdfs:comment "Links a stress-inducing activity or experimental phase to its associated stressor."@en ;
-                       rdfs:label "has associated stressor"@en .
+wisdom:hasAssociatedStressor rdf:type owl:ObjectProperty ;
+                             rdfs:subPropertyOf wisdom:hasStressCondition ;
+                             rdfs:domain wisdom:Activity ;
+                             rdfs:range wisdom:Stressor ;
+                             rdfs:comment "Links a stress-inducing activity or experimental phase to its associated stressor."@en ;
+                             rdfs:label "has associated stressor"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#hasPhysiologicalRecord
-:hasPhysiologicalRecord rdf:type owl:ObjectProperty ;
-                        owl:inverseOf :isPhysiologicalRecordOf ;
-                        rdfs:domain :Subject ;
-                        rdfs:range :PhysiologicalRecord ;
-                        rdfs:comment "Links a study subject to a physiological record containing measurements collected from that subject."@en ;
-                        rdfs:label "has physiological record"@en .
+wisdom:hasPhysiologicalRecord rdf:type owl:ObjectProperty ;
+                              owl:inverseOf wisdom:isPhysiologicalRecordOf ;
+                              rdfs:domain wisdom:Subject ;
+                              rdfs:range wisdom:PhysiologicalRecord ;
+                              rdfs:comment "Links a study subject to a physiological record containing measurements collected from that subject."@en ;
+                              rdfs:label "has physiological record"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#hasSignalChannel
-:hasSignalChannel rdf:type owl:ObjectProperty ;
-                  owl:inverseOf :isSignalChannelOf ;
-                  rdfs:domain :PhysiologicalRecord ;
-                  rdfs:range :SignalChannel ;
-                  rdfs:comment "Links a physiological record to one of its signal channels."@en ;
-                  rdfs:label "has signal channel"@en .
+wisdom:hasSignalChannel rdf:type owl:ObjectProperty ;
+                        owl:inverseOf wisdom:isSignalChannelOf ;
+                        rdfs:domain wisdom:PhysiologicalRecord ;
+                        rdfs:range wisdom:SignalChannel ;
+                        rdfs:comment "Links a physiological record to one of its signal channels."@en ;
+                        rdfs:label "has signal channel"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#hasSourceChannel
-:hasSourceChannel rdf:type owl:ObjectProperty ;
-                  owl:inverseOf :isSourceChannelOf ;
-                  rdfs:domain sosa:Observation ;
-                  rdfs:range :SignalChannel ;
-                  rdfs:comment "Links an observation to the signal channel from which it was derived."@en ;
-                  rdfs:label "has source channel"@en .
+wisdom:hasSourceChannel rdf:type owl:ObjectProperty ;
+                        owl:inverseOf wisdom:isSourceChannelOf ;
+                        rdfs:domain sosa:Observation ;
+                        rdfs:range wisdom:SignalChannel ;
+                        rdfs:comment "Links an observation to the signal channel from which it was derived."@en ;
+                        rdfs:label "has source channel"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#hasSourceRecord
-:hasSourceRecord rdf:type owl:ObjectProperty ;
-                 owl:inverseOf :isSourceRecordOf ;
-                 rdfs:domain sosa:Observation ;
-                 rdfs:range :PhysiologicalRecord ;
-                 rdfs:comment "Links an observation to the physiological record from which it was derived."@en ;
-                 rdfs:label "has source record"@en .
+wisdom:hasSourceRecord rdf:type owl:ObjectProperty ;
+                       owl:inverseOf wisdom:isSourceRecordOf ;
+                       rdfs:domain sosa:Observation ;
+                       rdfs:range wisdom:PhysiologicalRecord ;
+                       rdfs:comment "Links an observation to the physiological record from which it was derived."@en ;
+                       rdfs:label "has source record"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#hasStressCondition
-:hasStressCondition rdf:type owl:ObjectProperty ;
-                    owl:inverseOf :isStressConditionOf ;
-                    rdfs:domain :Activity ;
-                    rdfs:range :StressCondition ;
-                    rdfs:comment "Links an activity or experimental phase to the stress condition represented during that phase."@en ;
-                    rdfs:label "has stress condition"@en .
+wisdom:hasStressCondition rdf:type owl:ObjectProperty ;
+                          owl:inverseOf wisdom:isStressConditionOf ;
+                          rdfs:domain wisdom:Activity ;
+                          rdfs:range wisdom:StressCondition ;
+                          rdfs:comment "Links an activity or experimental phase to the stress condition represented during that phase."@en ;
+                          rdfs:label "has stress condition"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#isAnnotatedInRecord
-:isAnnotatedInRecord rdf:type owl:ObjectProperty ;
-                     rdfs:domain :Activity ;
-                     rdfs:range :AnnotationRecord ;
-                     rdfs:comment "Links an activity or experimental segment to the annotation record in which it is annotated."@en ;
-                     rdfs:label "is annotated by record"@en .
+wisdom:isAnnotatedInRecord rdf:type owl:ObjectProperty ;
+                           rdfs:domain wisdom:Activity ;
+                           rdfs:range wisdom:AnnotationRecord ;
+                           rdfs:comment "Links an activity or experimental segment to the annotation record in which it is annotated."@en ;
+                           rdfs:label "is annotated by record"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#isAnnotationRecordOf
-:isAnnotationRecordOf rdf:type owl:ObjectProperty ;
-                      rdfs:domain :AnnotationRecord ;
-                      rdfs:range :PhysiologicalRecord ;
-                      rdfs:comment "Links an annotation record to the physiological record it annotates."@en ;
-                      rdfs:label "is annotation record of"@en .
+wisdom:isAnnotationRecordOf rdf:type owl:ObjectProperty ;
+                            rdfs:domain wisdom:AnnotationRecord ;
+                            rdfs:range wisdom:PhysiologicalRecord ;
+                            rdfs:comment "Links an annotation record to the physiological record it annotates."@en ;
+                            rdfs:label "is annotation record of"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#isCausedBy
-:isCausedBy rdf:type owl:ObjectProperty ;
-            rdfs:domain owl:Thing ;
-            rdfs:range :Stressor ;
-            rdfs:comment "Links an entity to a stressor that causes or contributes to it."@en ;
-            rdfs:label "is caused by"@en .
+wisdom:isCausedBy rdf:type owl:ObjectProperty ;
+                  rdfs:domain owl:Thing ;
+                  rdfs:range wisdom:Stressor ;
+                  rdfs:comment "Links an entity to a stressor that causes or contributes to it."@en ;
+                  rdfs:label "is caused by"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#isPhysiologicalRecordOf
-:isPhysiologicalRecordOf rdf:type owl:ObjectProperty ;
-                         rdfs:domain :PhysiologicalRecord ;
-                         rdfs:range :Subject ;
-                         rdfs:comment "Links a physiological record to the study subject from whom its measurements were collected."@en ;
-                         rdfs:label "is physiological record of"@en .
+wisdom:isPhysiologicalRecordOf rdf:type owl:ObjectProperty ;
+                               rdfs:domain wisdom:PhysiologicalRecord ;
+                               rdfs:range wisdom:Subject ;
+                               rdfs:comment "Links a physiological record to the study subject from whom its measurements were collected."@en ;
+                               rdfs:label "is physiological record of"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#isRepresentedBySignalChannel
-:isRepresentedBySignalChannel rdf:type owl:ObjectProperty ;
-                              owl:inverseOf :representsObservableProperty ;
-                              rdfs:domain sosa:ObservableProperty ;
-                              rdfs:range :SignalChannel ;
-                              rdfs:comment "Links an observable property to a signal channel representing it."@en ;
-                              rdfs:label "is represented by signal channel"@en .
+wisdom:isRepresentedBySignalChannel rdf:type owl:ObjectProperty ;
+                                    owl:inverseOf wisdom:representsObservableProperty ;
+                                    rdfs:domain sosa:ObservableProperty ;
+                                    rdfs:range wisdom:SignalChannel ;
+                                    rdfs:comment "Links an observable property to a signal channel representing it."@en ;
+                                    rdfs:label "is represented by signal channel"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#isSignalChannelOf
-:isSignalChannelOf rdf:type owl:ObjectProperty ;
-                   rdfs:domain :SignalChannel ;
-                   rdfs:range :PhysiologicalRecord ;
-                   rdfs:comment "Links a signal channel to its physiological record."@en ;
-                   rdfs:label "is signal channel of"@en .
+wisdom:isSignalChannelOf rdf:type owl:ObjectProperty ;
+                         rdfs:domain wisdom:SignalChannel ;
+                         rdfs:range wisdom:PhysiologicalRecord ;
+                         rdfs:comment "Links a signal channel to its physiological record."@en ;
+                         rdfs:label "is signal channel of"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#isSourceChannelOf
-:isSourceChannelOf rdf:type owl:ObjectProperty ;
-                   rdfs:domain :SignalChannel ;
-                   rdfs:range sosa:Observation ;
-                   rdfs:comment "Links a signal channel to an observation derived from it."@en ;
-                   rdfs:label "is source channel of"@en .
+wisdom:isSourceChannelOf rdf:type owl:ObjectProperty ;
+                         rdfs:domain wisdom:SignalChannel ;
+                         rdfs:range sosa:Observation ;
+                         rdfs:comment "Links a signal channel to an observation derived from it."@en ;
+                         rdfs:label "is source channel of"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#isSourceRecordOf
-:isSourceRecordOf rdf:type owl:ObjectProperty ;
-                  rdfs:domain :PhysiologicalRecord ;
-                  rdfs:range sosa:Observation ;
-                  rdfs:comment "Links a physiological record to an observation derived from it."@en ;
-                  rdfs:label "is source record of"@en .
+wisdom:isSourceRecordOf rdf:type owl:ObjectProperty ;
+                        rdfs:domain wisdom:PhysiologicalRecord ;
+                        rdfs:range sosa:Observation ;
+                        rdfs:comment "Links a physiological record to an observation derived from it."@en ;
+                        rdfs:label "is source record of"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#isStressConditionOf
-:isStressConditionOf rdf:type owl:ObjectProperty ;
-                     rdfs:domain :StressCondition ;
-                     rdfs:range :Activity ;
-                     rdfs:comment "Links a stress condition to an activity or experimental phase in which it is represented."@en ;
-                     rdfs:label "is stress condition of"@en .
+wisdom:isStressConditionOf rdf:type owl:ObjectProperty ;
+                           rdfs:domain wisdom:StressCondition ;
+                           rdfs:range wisdom:Activity ;
+                           rdfs:comment "Links a stress condition to an activity or experimental phase in which it is represented."@en ;
+                           rdfs:label "is stress condition of"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#madeAnnotationRecord
-:madeAnnotationRecord rdf:type owl:ObjectProperty ;
-                      owl:inverseOf :wasMadeByObserver ;
-                      rdfs:domain :HumanObserver ;
-                      rdfs:range :AnnotationRecord ;
-                      rdfs:comment "Links a human observer to an annotation record made by that observer."@en ;
-                      rdfs:label "made annotation record"@en .
+wisdom:madeAnnotationRecord rdf:type owl:ObjectProperty ;
+                            owl:inverseOf wisdom:wasMadeByObserver ;
+                            rdfs:domain wisdom:HumanObserver ;
+                            rdfs:range wisdom:AnnotationRecord ;
+                            rdfs:comment "Links a human observer to an annotation record made by that observer."@en ;
+                            rdfs:label "made annotation record"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#madeByBiomarkerAssay
-:madeByBiomarkerAssay rdf:type owl:ObjectProperty ;
-                      rdfs:domain sosa:Observation ;
-                      rdfs:range :BiomarkerAssay ;
-                      rdfs:comment "Links an observation to the biomarker assay by which it was made."@en ;
-                      rdfs:label "made by biomarker assay"@en .
+wisdom:madeByBiomarkerAssay rdf:type owl:ObjectProperty ;
+                            rdfs:domain sosa:Observation ;
+                            rdfs:range wisdom:BiomarkerAssay ;
+                            rdfs:comment "Links an observation to the biomarker assay by which it was made."@en ;
+                            rdfs:label "made by biomarker assay"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#madeByObserver
-:madeByObserver rdf:type owl:ObjectProperty ;
-                rdfs:domain sosa:Observation ;
-                rdfs:range :HumanObserver ;
-                rdfs:comment "Links an observation to the human observer by whom it was made."@en ;
-                rdfs:label "made by observer"@en .
+wisdom:madeByObserver rdf:type owl:ObjectProperty ;
+                      rdfs:domain sosa:Observation ;
+                      rdfs:range wisdom:HumanObserver ;
+                      rdfs:comment "Links an observation to the human observer by whom it was made."@en ;
+                      rdfs:label "made by observer"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#observedDuringActivity
-:observedDuringActivity rdf:type owl:ObjectProperty ;
-                        rdfs:domain sosa:Observation ;
-                        rdfs:range :Activity ;
-                        rdfs:comment "Links an observation to the activity or experimental phase during which it was made."@en ;
-                        rdfs:label "observed during activity"@en .
+wisdom:observedDuringActivity rdf:type owl:ObjectProperty ;
+                              rdfs:domain sosa:Observation ;
+                              rdfs:range wisdom:Activity ;
+                              rdfs:comment "Links an observation to the activity or experimental phase during which it was made."@en ;
+                              rdfs:label "observed during activity"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#representsObservableProperty
-:representsObservableProperty rdf:type owl:ObjectProperty ;
-                              rdfs:domain :SignalChannel ;
-                              rdfs:range sosa:ObservableProperty ;
-                              rdfs:comment "Links a signal channel to the observable property represented by the channel."@en ;
-                              rdfs:label "represents observable property"@en .
+wisdom:representsObservableProperty rdf:type owl:ObjectProperty ;
+                                    rdfs:domain wisdom:SignalChannel ;
+                                    rdfs:range sosa:ObservableProperty ;
+                                    rdfs:comment "Links a signal channel to the observable property represented by the channel."@en ;
+                                    rdfs:label "represents observable property"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#wasMadeByObserver
-:wasMadeByObserver rdf:type owl:ObjectProperty ;
-                   rdfs:domain :AnnotationRecord ;
-                   rdfs:range :HumanObserver ;
-                   rdfs:comment "Links an annotation record to the human observer by whom it was made."@en ;
-                   rdfs:label "was made by observer"@en .
+wisdom:wasMadeByObserver rdf:type owl:ObjectProperty ;
+                         rdfs:domain wisdom:AnnotationRecord ;
+                         rdfs:range wisdom:HumanObserver ;
+                         rdfs:comment "Links an annotation record to the human observer by whom it was made."@en ;
+                         rdfs:label "was made by observer"@en .
 
 
 #################################################################
@@ -334,107 +334,107 @@ sosa:resultTime rdf:type owl:DatatypeProperty ;
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#ageAtAssessment
-:ageAtAssessment rdf:type owl:DatatypeProperty ;
-                 rdfs:domain schema:Person ;
-                 rdfs:range xsd:nonNegativeInteger ;
-                 rdfs:comment "The age of a person in completed years at the time of measurement."@en ;
-                 rdfs:label "age at assessment"@en .
+wisdom:ageAtAssessment rdf:type owl:DatatypeProperty ;
+                       rdfs:domain schema:Person ;
+                       rdfs:range xsd:nonNegativeInteger ;
+                       rdfs:comment "The age of a person in completed years at the time of measurement."@en ;
+                       rdfs:label "age at assessment"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#hasAnnotationTimeStamp
-:hasAnnotationTimeStamp rdf:type owl:DatatypeProperty ;
-                        rdfs:domain :AnnotationRecord ;
-                        rdfs:range xsd:dateTimeStamp ;
-                        rdfs:comment "Timestamp associated with an Annotation Record made by a Human Observer during a stress experiment"@en ;
-                        rdfs:label "has annotation time stamp"@en .
+wisdom:hasAnnotationTimeStamp rdf:type owl:DatatypeProperty ;
+                              rdfs:domain wisdom:AnnotationRecord ;
+                              rdfs:range xsd:dateTimeStamp ;
+                              rdfs:comment "Timestamp associated with an Annotation Record made by a Human Observer during a stress experiment"@en ;
+                              rdfs:label "has annotation time stamp"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#hasAssayTimeStamp
-:hasAssayTimeStamp rdf:type owl:DatatypeProperty ;
-                   rdfs:domain :BiomarkerAssay ;
-                   rdfs:range xsd:dateTimeStamp ;
-                   rdfs:comment "Timestamp indicating when a biomarker assay was performed or recorded."@en ;
-                   rdfs:label "has assay time stamp"@en .
+wisdom:hasAssayTimeStamp rdf:type owl:DatatypeProperty ;
+                         rdfs:domain wisdom:BiomarkerAssay ;
+                         rdfs:range xsd:dateTimeStamp ;
+                         rdfs:comment "Timestamp indicating when a biomarker assay was performed or recorded."@en ;
+                         rdfs:label "has assay time stamp"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#hasChannelName
-:hasChannelName rdf:type owl:DatatypeProperty ;
-                rdfs:domain :SignalChannel ;
-                rdfs:range xsd:string ;
-                rdfs:comment "Name of a signal channel."@en ;
-                rdfs:label "has channel name"@en .
+wisdom:hasChannelName rdf:type owl:DatatypeProperty ;
+                      rdfs:domain wisdom:SignalChannel ;
+                      rdfs:range xsd:string ;
+                      rdfs:comment "Name of a signal channel."@en ;
+                      rdfs:label "has channel name"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#hasDescription
-:hasDescription rdf:type owl:DatatypeProperty ;
-                rdfs:domain :Activity ;
-                rdfs:range xsd:string ;
-                rdfs:comment "The description of an activity made by the experimenter observer."@en ;
-                rdfs:label "has description"@en .
+wisdom:hasDescription rdf:type owl:DatatypeProperty ;
+                      rdfs:domain wisdom:Activity ;
+                      rdfs:range xsd:string ;
+                      rdfs:comment "The description of an activity made by the experimenter observer."@en ;
+                      rdfs:label "has description"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#hasFileFormat
-:hasFileFormat rdf:type owl:DatatypeProperty ;
-               rdfs:domain :PhysiologicalRecord ;
-               rdfs:range xsd:string ;
-               rdfs:comment "The file format of the physiological record."@en ;
-               rdfs:label "has file format"@en .
+wisdom:hasFileFormat rdf:type owl:DatatypeProperty ;
+                     rdfs:domain wisdom:PhysiologicalRecord ;
+                     rdfs:range xsd:string ;
+                     rdfs:comment "The file format of the physiological record."@en ;
+                     rdfs:label "has file format"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#hasFileName
-:hasFileName rdf:type owl:DatatypeProperty ;
-             rdfs:domain :PhysiologicalRecord ;
-             rdfs:range xsd:string ;
-             rdfs:comment "The file name of the physiological record."@en ;
-             rdfs:label "has file name"@en .
+wisdom:hasFileName rdf:type owl:DatatypeProperty ;
+                   rdfs:domain wisdom:PhysiologicalRecord ;
+                   rdfs:range xsd:string ;
+                   rdfs:comment "The file name of the physiological record."@en ;
+                   rdfs:label "has file name"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#hasIntensity
-:hasIntensity rdf:type owl:DatatypeProperty ;
-              rdfs:domain :Activity ;
-              rdfs:range xsd:string ;
-              rdfs:comment "Qualitative intensity of an activity or experimental phase, for example low, moderate, or high."@en ;
-              rdfs:label "has intensity"@en .
+wisdom:hasIntensity rdf:type owl:DatatypeProperty ;
+                    rdfs:domain wisdom:Activity ;
+                    rdfs:range xsd:string ;
+                    rdfs:comment "Qualitative intensity of an activity or experimental phase, for example low, moderate, or high."@en ;
+                    rdfs:label "has intensity"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#hasNote
-:hasNote rdf:type owl:DatatypeProperty ;
-         rdfs:domain :AnnotationRecord ;
-         rdfs:range xsd:string ;
-         rdfs:comment "A note associated with an annotation record made by a human observer during a stress experiment."@en ;
-         rdfs:label "has note"@en .
+wisdom:hasNote rdf:type owl:DatatypeProperty ;
+               rdfs:domain wisdom:AnnotationRecord ;
+               rdfs:range xsd:string ;
+               rdfs:comment "A note associated with an annotation record made by a human observer during a stress experiment."@en ;
+               rdfs:label "has note"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#hasNumberOfChannels
-:hasNumberOfChannels rdf:type owl:DatatypeProperty ;
-                     rdfs:domain :PhysiologicalRecord ;
-                     rdfs:range xsd:integer ;
-                     rdfs:comment "Number of signal channels in a physiological record."@en ;
-                     rdfs:label "has number of channels"@en .
+wisdom:hasNumberOfChannels rdf:type owl:DatatypeProperty ;
+                           rdfs:domain wisdom:PhysiologicalRecord ;
+                           rdfs:range xsd:integer ;
+                           rdfs:comment "Number of signal channels in a physiological record."@en ;
+                           rdfs:label "has number of channels"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#hasNumberOfSamples
-:hasNumberOfSamples rdf:type owl:DatatypeProperty ;
-                    rdfs:domain :PhysiologicalRecord ;
-                    rdfs:range xsd:integer ;
-                    rdfs:comment "Number of samples in a physiological record."@en ;
-                    rdfs:label "has number of samples"@en .
+wisdom:hasNumberOfSamples rdf:type owl:DatatypeProperty ;
+                          rdfs:domain wisdom:PhysiologicalRecord ;
+                          rdfs:range xsd:integer ;
+                          rdfs:comment "Number of samples in a physiological record."@en ;
+                          rdfs:label "has number of samples"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#hasReference
-:hasReference rdf:type owl:DatatypeProperty ;
-              rdfs:domain :Activity ;
-              rdfs:range xsd:anyURI ;
-              rdfs:comment "Describes whether a certain activity is linked to an established concept. For example, an activity could reference to an established sports assessment or psychological stressor such as the Trier Social Stress Test"@en ;
-              rdfs:label "has Reference"@en .
+wisdom:hasReference rdf:type owl:DatatypeProperty ;
+                    rdfs:domain wisdom:Activity ;
+                    rdfs:range xsd:anyURI ;
+                    rdfs:comment "Describes whether a certain activity is linked to an established concept. For example, an activity could reference to an established sports assessment or psychological stressor such as the Trier Social Stress Test"@en ;
+                    rdfs:label "has Reference"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#hasSamplingFrequency
-:hasSamplingFrequency rdf:type owl:DatatypeProperty ;
-                      rdfs:domain :SignalChannel ;
-                      rdfs:range xsd:decimal ;
-                      rdfs:comment "Sampling frequency of a signal channel."@en ;
-                      rdfs:label "has sampling frequency"@en .
+wisdom:hasSamplingFrequency rdf:type owl:DatatypeProperty ;
+                            rdfs:domain wisdom:SignalChannel ;
+                            rdfs:range xsd:decimal ;
+                            rdfs:comment "Sampling frequency of a signal channel."@en ;
+                            rdfs:label "has sampling frequency"@en .
 
 
 #################################################################
@@ -450,421 +450,421 @@ foaf:Person rdf:type owl:Class .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#AccelerationX
-:AccelerationX rdf:type owl:Class ;
-               rdfs:subClassOf :PhysiologicalProperty ;
-               rdfs:comment "Acceleration along the x-axis as a physiological or movement-related observable property."@en ;
-               rdfs:label "AccelerationX"@en .
+wisdom:AccelerationX rdf:type owl:Class ;
+                     rdfs:subClassOf wisdom:PhysiologicalProperty ;
+                     rdfs:comment "Acceleration along the x-axis as a physiological or movement-related observable property."@en ;
+                     rdfs:label "AccelerationX"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#AccelerationY
-:AccelerationY rdf:type owl:Class ;
-               rdfs:subClassOf :PhysiologicalProperty ;
-               rdfs:comment "Acceleration along the y-axis as a physiological or movement-related observable property."@en ;
-               rdfs:label "AccelerationY"@en .
+wisdom:AccelerationY rdf:type owl:Class ;
+                     rdfs:subClassOf wisdom:PhysiologicalProperty ;
+                     rdfs:comment "Acceleration along the y-axis as a physiological or movement-related observable property."@en ;
+                     rdfs:label "AccelerationY"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#AccelerationZ
-:AccelerationZ rdf:type owl:Class ;
-               rdfs:subClassOf :PhysiologicalProperty ;
-               rdfs:comment "Acceleration along the z-axis as a physiological or movement-related observable property."@en ;
-               rdfs:label "AccelerationZ"@en .
+wisdom:AccelerationZ rdf:type owl:Class ;
+                     rdfs:subClassOf wisdom:PhysiologicalProperty ;
+                     rdfs:comment "Acceleration along the z-axis as a physiological or movement-related observable property."@en ;
+                     rdfs:label "AccelerationZ"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#Accelerometer
-:Accelerometer rdf:type owl:Class ;
-               rdfs:subClassOf :MotionSensor ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty sosa:observes ;
-                                 owl:someValuesFrom :AccelerationX
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty sosa:observes ;
-                                 owl:someValuesFrom :AccelerationY
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty sosa:observes ;
-                                 owl:someValuesFrom :AccelerationZ
-                               ] ;
-               rdfs:comment "A three-axis motion sensor used to measure acceleration along the x, y, and z axes."@en ;
-               rdfs:label "Accelerometer"@en .
+wisdom:Accelerometer rdf:type owl:Class ;
+                     rdfs:subClassOf wisdom:MotionSensor ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty sosa:observes ;
+                                       owl:someValuesFrom wisdom:AccelerationX
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty sosa:observes ;
+                                       owl:someValuesFrom wisdom:AccelerationY
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty sosa:observes ;
+                                       owl:someValuesFrom wisdom:AccelerationZ
+                                     ] ;
+                     rdfs:comment "A three-axis motion sensor used to measure acceleration along the x, y, and z axes."@en ;
+                     rdfs:label "Accelerometer"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#Activity
-:Activity rdf:type owl:Class ;
-          rdfs:subClassOf [ rdf:type owl:Restriction ;
-                            owl:onProperty time:hasTime ;
-                            owl:someValuesFrom time:Interval
-                          ] ;
-          rdfs:comment "An activity or experimental phase with a temporal extent that can provide context for observations in a stress experiment."@en ;
-          rdfs:label "Activity"@en .
+wisdom:Activity rdf:type owl:Class ;
+                rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                  owl:onProperty time:hasTime ;
+                                  owl:someValuesFrom time:Interval
+                                ] ;
+                rdfs:comment "An activity or experimental phase with a temporal extent that can provide context for observations in a stress experiment."@en ;
+                rdfs:label "Activity"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#AcuteStressor
-:AcuteStressor rdf:type owl:Class ;
-               rdfs:subClassOf :Stressor ;
-               rdfs:comment "A stressor that triggers an immediate or short-term physiological or psychological stress response."@en ;
-               rdfs:label "Acute Stressor"@en .
+wisdom:AcuteStressor rdf:type owl:Class ;
+                     rdfs:subClassOf wisdom:Stressor ;
+                     rdfs:comment "A stressor that triggers an immediate or short-term physiological or psychological stress response."@en ;
+                     rdfs:label "Acute Stressor"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#AnnotationRecord
-:AnnotationRecord rdf:type owl:Class ;
-                  rdfs:subClassOf owl:Thing ;
-                  rdfs:comment "A file or record containing annotations for phases in a stress experiment. Its temporal context can be represented using time:hasTime with an OWL-Time instant or interval."@en ;
-                  rdfs:label "AnnotationRecord"@en .
+wisdom:AnnotationRecord rdf:type owl:Class ;
+                        rdfs:subClassOf owl:Thing ;
+                        rdfs:comment "A file or record containing annotations for phases in a stress experiment. Its temporal context can be represented using time:hasTime with an OWL-Time instant or interval."@en ;
+                        rdfs:label "AnnotationRecord"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#AudioSensor
-:AudioSensor rdf:type owl:Class ;
-             rdfs:subClassOf sosa:Sensor ;
-             rdfs:comment "An audio-based sensor that can produce acoustic or speech-related observations in stress experiments."@en ;
-             rdfs:label "Audio Sensor"@en .
+wisdom:AudioSensor rdf:type owl:Class ;
+                   rdfs:subClassOf sosa:Sensor ;
+                   rdfs:comment "An audio-based sensor that can produce acoustic or speech-related observations in stress experiments."@en ;
+                   rdfs:label "Audio Sensor"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#Baseline
-:Baseline rdf:type owl:Class ;
-          rdfs:subClassOf :Activity ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty :hasStressCondition ;
-                            owl:someValuesFrom :BaselineCondition
-                          ] ;
-          rdfs:comment "An initial no-stress reference phase that usually occurs before stress-inducing phases."@en ;
-          rdfs:label "Baseline"@en .
+wisdom:Baseline rdf:type owl:Class ;
+                rdfs:subClassOf wisdom:Activity ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty wisdom:hasStressCondition ;
+                                  owl:someValuesFrom wisdom:BaselineCondition
+                                ] ;
+                rdfs:comment "An initial no-stress reference phase that usually occurs before stress-inducing phases."@en ;
+                rdfs:label "Baseline"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#BaselineCondition
-:BaselineCondition rdf:type owl:Class ;
-                   rdfs:subClassOf :NoStressCondition ;
-                   rdfs:comment "A no-stress condition representing an initial baseline or reference state before stress-inducing phases."@en ;
-                   rdfs:label "Baseline Condition"@en .
+wisdom:BaselineCondition rdf:type owl:Class ;
+                         rdfs:subClassOf wisdom:NoStressCondition ;
+                         rdfs:comment "A no-stress condition representing an initial baseline or reference state before stress-inducing phases."@en ;
+                         rdfs:label "Baseline Condition"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#BehavioralProperty
-:BehavioralProperty rdf:type owl:Class ;
-                    rdfs:subClassOf sosa:ObservableProperty ;
-                    rdfs:comment "A property describing observable behavioral characteristics or activities of an individual."@en ;
-                    rdfs:label "Behavioral Property"@en .
+wisdom:BehavioralProperty rdf:type owl:Class ;
+                          rdfs:subClassOf sosa:ObservableProperty ;
+                          rdfs:comment "A property describing observable behavioral characteristics or activities of an individual."@en ;
+                          rdfs:label "Behavioral Property"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#BiomarkerAssay
-:BiomarkerAssay rdf:type owl:Class ;
-                rdfs:comment "A biomarker assay, such as a blood sample analysis for cortisol or adrenaline. Its temporal context can be represented using time:hasTime with an OWL-Time instant or interval."@en ;
-                rdfs:label "Biomarker Assay"@en .
+wisdom:BiomarkerAssay rdf:type owl:Class ;
+                      rdfs:comment "A biomarker assay, such as a blood sample analysis for cortisol or adrenaline. Its temporal context can be represented using time:hasTime with an OWL-Time instant or interval."@en ;
+                      rdfs:label "Biomarker Assay"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#BloodOxygenSaturation
-:BloodOxygenSaturation rdf:type owl:Class ;
-                       rdfs:subClassOf :PhysiologicalProperty ;
-                       rdfs:comment "Peripheral oxygen saturation as a physiological observable property."@en ;
-                       rdfs:label "BloodOxygenSaturation"@en .
+wisdom:BloodOxygenSaturation rdf:type owl:Class ;
+                             rdfs:subClassOf wisdom:PhysiologicalProperty ;
+                             rdfs:comment "Peripheral oxygen saturation as a physiological observable property."@en ;
+                             rdfs:label "BloodOxygenSaturation"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#CameraSensor
-:CameraSensor rdf:type owl:Class ;
-              rdfs:subClassOf sosa:Sensor ;
-              rdfs:comment "A camera-based sensor that can produce visual observations in stress experiments."@en ;
-              rdfs:label "Camera Sensor"@en .
+wisdom:CameraSensor rdf:type owl:Class ;
+                    rdfs:subClassOf sosa:Sensor ;
+                    rdfs:comment "A camera-based sensor that can produce visual observations in stress experiments."@en ;
+                    rdfs:label "Camera Sensor"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#ChronicStressor
-:ChronicStressor rdf:type owl:Class ;
-                 rdfs:subClassOf :Stressor ;
-                 rdfs:comment "A stressor that persists or recurs over an extended period and contributes to long-term stress exposure."@en ;
-                 rdfs:label "Chronic Stressor"@en .
+wisdom:ChronicStressor rdf:type owl:Class ;
+                       rdfs:subClassOf wisdom:Stressor ;
+                       rdfs:comment "A stressor that persists or recurs over an extended period and contributes to long-term stress exposure."@en ;
+                       rdfs:label "Chronic Stressor"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#CognitiveStressPhase
-:CognitiveStressPhase rdf:type owl:Class ;
-                      rdfs:subClassOf :Activity ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty :hasAssociatedStressor ;
-                                        owl:someValuesFrom :CognitiveStressor
-                                      ] ;
-                      rdfs:comment "A phase labeled as cognitive stress."@en ;
-                      rdfs:label "Cognitive Stress Phase"@en .
+wisdom:CognitiveStressPhase rdf:type owl:Class ;
+                            rdfs:subClassOf wisdom:Activity ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty wisdom:hasAssociatedStressor ;
+                                              owl:someValuesFrom wisdom:CognitiveStressor
+                                            ] ;
+                            rdfs:comment "A phase labeled as cognitive stress."@en ;
+                            rdfs:label "Cognitive Stress Phase"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#CognitiveStressor
-:CognitiveStressor rdf:type owl:Class ;
-                   rdfs:subClassOf :AcuteStressor ;
-                   rdfs:comment "An acute stressor associated with cognitive stress tasks or phases."@en ;
-                   rdfs:label "Cognitive Stressor"@en .
+wisdom:CognitiveStressor rdf:type owl:Class ;
+                         rdfs:subClassOf wisdom:AcuteStressor ;
+                         rdfs:comment "An acute stressor associated with cognitive stress tasks or phases."@en ;
+                         rdfs:label "Cognitive Stressor"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#EDASensor
-:EDASensor rdf:type owl:Class ;
-           rdfs:subClassOf :PhysiologicalSensor ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty sosa:observes ;
-                             owl:someValuesFrom :ElectrodermalActivity
-                           ] ;
-           rdfs:comment "A physiological sensor used to measure electrodermal activity."@en ;
-           rdfs:label "EDA Sensor"@en .
+wisdom:EDASensor rdf:type owl:Class ;
+                 rdfs:subClassOf wisdom:PhysiologicalSensor ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty sosa:observes ;
+                                   owl:someValuesFrom wisdom:ElectrodermalActivity
+                                 ] ;
+                 rdfs:comment "A physiological sensor used to measure electrodermal activity."@en ;
+                 rdfs:label "EDA Sensor"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#ElectrodermalActivity
-:ElectrodermalActivity rdf:type owl:Class ;
-                       rdfs:subClassOf :PhysiologicalProperty ;
-                       rdfs:comment "Electrodermal activity as a physiological observable property."@en ;
-                       rdfs:label "ElectrodermalActivity"@en .
+wisdom:ElectrodermalActivity rdf:type owl:Class ;
+                             rdfs:subClassOf wisdom:PhysiologicalProperty ;
+                             rdfs:comment "Electrodermal activity as a physiological observable property."@en ;
+                             rdfs:label "ElectrodermalActivity"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#Environment
-:Environment rdf:type owl:Class ;
-             rdfs:subClassOf sosa:FeatureOfInterest ;
-             rdfs:comment "An environment that is prevailing to an experimental segment that can provide context for observations in a stress experiment." ;
-             rdfs:label "Environment"@en .
+wisdom:Environment rdf:type owl:Class ;
+                   rdfs:subClassOf sosa:FeatureOfInterest ;
+                   rdfs:comment "An environment that is prevailing to an experimental segment that can provide context for observations in a stress experiment." ;
+                   rdfs:label "Environment"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#EnvironmentalProperty
-:EnvironmentalProperty rdf:type owl:Class ;
-                       rdfs:subClassOf sosa:ObservableProperty ;
-                       rdfs:comment "A property describing environmental conditions or external factors that may influence an individual's stress response."@en ;
-                       rdfs:label "Environmental Property"@en .
+wisdom:EnvironmentalProperty rdf:type owl:Class ;
+                             rdfs:subClassOf sosa:ObservableProperty ;
+                             rdfs:comment "A property describing environmental conditions or external factors that may influence an individual's stress response."@en ;
+                             rdfs:label "Environmental Property"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#ExperimenterObserver
-:ExperimenterObserver rdf:type owl:Class ;
-                      rdfs:subClassOf :HumanObserver ;
-                      rdfs:comment "An experimenter who records observations during a stress experiment."@en ;
-                      rdfs:label "Experiment Observer"@en .
+wisdom:ExperimenterObserver rdf:type owl:Class ;
+                            rdfs:subClassOf wisdom:HumanObserver ;
+                            rdfs:comment "An experimenter who records observations during a stress experiment."@en ;
+                            rdfs:label "Experiment Observer"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#Gesture
-:Gesture rdf:type owl:Class ;
-         rdfs:subClassOf :BehavioralProperty ;
-         rdfs:comment "Gestures a subjects does while being observed" ;
-         rdfs:label "Gesture" .
+wisdom:Gesture rdf:type owl:Class ;
+               rdfs:subClassOf wisdom:BehavioralProperty ;
+               rdfs:comment "Gestures a subjects does while being observed" ;
+               rdfs:label "Gesture" .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#GyroSensor
-:GyroSensor rdf:type owl:Class ;
-            rdfs:subClassOf :MotionSensor ;
-            rdfs:comment "A motion sensor used to measure angular velocity or rotation."@en ;
-            rdfs:label "GyroSensor"@en .
+wisdom:GyroSensor rdf:type owl:Class ;
+                  rdfs:subClassOf wisdom:MotionSensor ;
+                  rdfs:comment "A motion sensor used to measure angular velocity or rotation."@en ;
+                  rdfs:label "GyroSensor"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#HeartRate
-:HeartRate rdf:type owl:Class ;
-           rdfs:subClassOf :PhysiologicalProperty ;
-           rdfs:comment "Heart rate as a physiological observable property."@en ;
-           rdfs:label "HeartRate"@en .
+wisdom:HeartRate rdf:type owl:Class ;
+                 rdfs:subClassOf wisdom:PhysiologicalProperty ;
+                 rdfs:comment "Heart rate as a physiological observable property."@en ;
+                 rdfs:label "HeartRate"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#HeartRateVariability
-:HeartRateVariability rdf:type owl:Class ;
-                      rdfs:subClassOf :PhysiologicalProperty ;
-                      rdfs:comment "Heart rate variability as a physiological observable property that can be derived from heart-rate or inter-beat interval data."@en ;
-                      rdfs:label "HeartRateVariability"@en .
+wisdom:HeartRateVariability rdf:type owl:Class ;
+                            rdfs:subClassOf wisdom:PhysiologicalProperty ;
+                            rdfs:comment "Heart rate variability as a physiological observable property that can be derived from heart-rate or inter-beat interval data."@en ;
+                            rdfs:label "HeartRateVariability"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#HumanObserver
-:HumanObserver rdf:type owl:Class ;
-               rdfs:subClassOf sosa:Sensor ,
-                               schema:Person ;
-               rdfs:comment "A human observer acting as a SOSA sensor by documenting visible or contextual observations during a stress experiment."@en ;
-               rdfs:label "Human Observer"@en .
+wisdom:HumanObserver rdf:type owl:Class ;
+                     rdfs:subClassOf sosa:Sensor ,
+                                     schema:Person ;
+                     rdfs:comment "A human observer acting as a SOSA sensor by documenting visible or contextual observations during a stress experiment."@en ;
+                     rdfs:label "Human Observer"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#Humidity
-:Humidity rdf:type owl:Class ;
-          rdfs:subClassOf :EnvironmentalProperty ;
-          rdfs:comment "An environmental property describing humidity, which may influence perceived stress."@en ;
-          rdfs:label "Humidity"@en .
+wisdom:Humidity rdf:type owl:Class ;
+                rdfs:subClassOf wisdom:EnvironmentalProperty ;
+                rdfs:comment "An environmental property describing humidity, which may influence perceived stress."@en ;
+                rdfs:label "Humidity"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#Magnetometer
-:Magnetometer rdf:type owl:Class ;
-              rdfs:subClassOf :MotionSensor ;
-              rdfs:comment "A motion-related sensor used to measure magnetic field direction or orientation."@en ;
-              rdfs:label "Magnetometer"@en .
+wisdom:Magnetometer rdf:type owl:Class ;
+                    rdfs:subClassOf wisdom:MotionSensor ;
+                    rdfs:comment "A motion-related sensor used to measure magnetic field direction or orientation."@en ;
+                    rdfs:label "Magnetometer"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#Microphone
-:Microphone rdf:type owl:Class ;
-            rdfs:subClassOf :AudioSensor ;
-            rdfs:comment "A microphone used as an audio sensor in a stress experiment."@en ;
-            rdfs:label "Microphone"@en .
+wisdom:Microphone rdf:type owl:Class ;
+                  rdfs:subClassOf wisdom:AudioSensor ;
+                  rdfs:comment "A microphone used as an audio sensor in a stress experiment."@en ;
+                  rdfs:label "Microphone"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#MotionSensor
-:MotionSensor rdf:type owl:Class ;
-              rdfs:subClassOf sosa:Sensor ;
-              rdfs:comment "A sensor used to measure movement, orientation, or inertial motion."@en ;
-              rdfs:label "Motion Sensor"@en .
+wisdom:MotionSensor rdf:type owl:Class ;
+                    rdfs:subClassOf sosa:Sensor ;
+                    rdfs:comment "A sensor used to measure movement, orientation, or inertial motion."@en ;
+                    rdfs:label "Motion Sensor"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#NoStressCondition
-:NoStressCondition rdf:type owl:Class ;
-                   rdfs:subClassOf :StressCondition ;
-                   owl:disjointWith :Stressor ;
-                   rdfs:comment "A condition in which no stressor is present or intended."@en ;
-                   rdfs:label "No Stress Condition"@en .
+wisdom:NoStressCondition rdf:type owl:Class ;
+                         rdfs:subClassOf wisdom:StressCondition ;
+                         owl:disjointWith wisdom:Stressor ;
+                         rdfs:comment "A condition in which no stressor is present or intended."@en ;
+                         rdfs:label "No Stress Condition"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#OutsideTemperature
-:OutsideTemperature rdf:type owl:Class ;
-                    rdfs:subClassOf :EnvironmentalProperty ;
-                    rdfs:comment "An environmental property describing outside or ambient temperature, which may influence perceived stress."@en ;
-                    rdfs:label "Outside Temperature"@en .
+wisdom:OutsideTemperature rdf:type owl:Class ;
+                          rdfs:subClassOf wisdom:EnvironmentalProperty ;
+                          rdfs:comment "An environmental property describing outside or ambient temperature, which may influence perceived stress."@en ;
+                          rdfs:label "Outside Temperature"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#PPGSensor
-:PPGSensor rdf:type owl:Class ;
-           rdfs:subClassOf :PhysiologicalSensor ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty sosa:observes ;
-                             owl:someValuesFrom :BloodOxygenSaturation
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty sosa:observes ;
-                             owl:someValuesFrom :HeartRate
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty sosa:observes ;
-                             owl:someValuesFrom :HeartRateVariability
-                           ] ;
-           rdfs:comment "A physiological sensor based on photoplethysmography that is used in the ontology to observe heart rate, heart rate variability, and blood oxygen saturation."@en ;
-           rdfs:label "PPG Sensor"@en .
+wisdom:PPGSensor rdf:type owl:Class ;
+                 rdfs:subClassOf wisdom:PhysiologicalSensor ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty sosa:observes ;
+                                   owl:someValuesFrom wisdom:BloodOxygenSaturation
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty sosa:observes ;
+                                   owl:someValuesFrom wisdom:HeartRate
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty sosa:observes ;
+                                   owl:someValuesFrom wisdom:HeartRateVariability
+                                 ] ;
+                 rdfs:comment "A physiological sensor based on photoplethysmography that is used in the ontology to observe heart rate, heart rate variability, and blood oxygen saturation."@en ;
+                 rdfs:label "PPG Sensor"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#PhysicalStressPhase
-:PhysicalStressPhase rdf:type owl:Class ;
-                     rdfs:subClassOf :Activity ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :hasAssociatedStressor ;
-                                       owl:someValuesFrom :PhysicalStressor
-                                     ] ;
-                     rdfs:comment "A phase labeled as physical stress."@en ;
-                     rdfs:label "Physical Stress Phase"@en .
+wisdom:PhysicalStressPhase rdf:type owl:Class ;
+                           rdfs:subClassOf wisdom:Activity ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty wisdom:hasAssociatedStressor ;
+                                             owl:someValuesFrom wisdom:PhysicalStressor
+                                           ] ;
+                           rdfs:comment "A phase labeled as physical stress."@en ;
+                           rdfs:label "Physical Stress Phase"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#PhysicalStressor
-:PhysicalStressor rdf:type owl:Class ;
-                  rdfs:subClassOf :AcuteStressor ;
-                  rdfs:comment "An acute stressor associated with physical stress tasks or phases."@en ;
-                  rdfs:label "Physical Stressor"@en .
+wisdom:PhysicalStressor rdf:type owl:Class ;
+                        rdfs:subClassOf wisdom:AcuteStressor ;
+                        rdfs:comment "An acute stressor associated with physical stress tasks or phases."@en ;
+                        rdfs:label "Physical Stressor"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#PhysiologicalProperty
-:PhysiologicalProperty rdf:type owl:Class ;
-                       rdfs:subClassOf sosa:ObservableProperty ;
-                       rdfs:comment "A property describing physiological characteristics, functions, or responses of the human body."@en ;
-                       rdfs:label "Physiological Property"@en .
+wisdom:PhysiologicalProperty rdf:type owl:Class ;
+                             rdfs:subClassOf sosa:ObservableProperty ;
+                             rdfs:comment "A property describing physiological characteristics, functions, or responses of the human body."@en ;
+                             rdfs:label "Physiological Property"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#PhysiologicalRecord
-:PhysiologicalRecord rdf:type owl:Class ;
-                     rdfs:comment "A data record containing one or more physiological or wearable signal channels."@en ;
-                     rdfs:label "Physiological Record"@en .
+wisdom:PhysiologicalRecord rdf:type owl:Class ;
+                           rdfs:comment "A data record containing one or more physiological or wearable signal channels."@en ;
+                           rdfs:label "Physiological Record"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#PhysiologicalSensor
-:PhysiologicalSensor rdf:type owl:Class ;
-                     rdfs:subClassOf sosa:Sensor ;
-                     rdfs:comment "A sensor used to measure physiological properties or bodily signals."@en ;
-                     rdfs:label "Physiological Sensor"@en .
+wisdom:PhysiologicalSensor rdf:type owl:Class ;
+                           rdfs:subClassOf sosa:Sensor ;
+                           rdfs:comment "A sensor used to measure physiological properties or bodily signals."@en ;
+                           rdfs:label "Physiological Sensor"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#RelaxationCondition
-:RelaxationCondition rdf:type owl:Class ;
-                     rdfs:subClassOf :NoStressCondition ;
-                     rdfs:comment "A no-stress condition representing relaxation or recovery between stress-inducing phases."@en ;
-                     rdfs:label "Relaxation Condition"@en .
+wisdom:RelaxationCondition rdf:type owl:Class ;
+                           rdfs:subClassOf wisdom:NoStressCondition ;
+                           rdfs:comment "A no-stress condition representing relaxation or recovery between stress-inducing phases."@en ;
+                           rdfs:label "Relaxation Condition"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#RelaxationPhase
-:RelaxationPhase rdf:type owl:Class ;
-                 rdfs:subClassOf :Activity ,
-                                 [ rdf:type owl:Restriction ;
-                                   owl:onProperty :hasStressCondition ;
-                                   owl:someValuesFrom :RelaxationCondition
-                                 ] ;
-                 rdfs:comment "A no-stress relaxation or recovery phase that can occur between stress-inducing phases."@en ;
-                 rdfs:label "Relaxation Phase"@en .
+wisdom:RelaxationPhase rdf:type owl:Class ;
+                       rdfs:subClassOf wisdom:Activity ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty wisdom:hasStressCondition ;
+                                         owl:someValuesFrom wisdom:RelaxationCondition
+                                       ] ;
+                       rdfs:comment "A no-stress relaxation or recovery phase that can occur between stress-inducing phases."@en ;
+                       rdfs:label "Relaxation Phase"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#SignalChannel
-:SignalChannel rdf:type owl:Class ;
-               rdfs:comment "A single signal channel within a physiological or wearable data record. Its measurement unit can be represented with usesUnit."@en ;
-               rdfs:label "Signal Channel"@en .
+wisdom:SignalChannel rdf:type owl:Class ;
+                     rdfs:comment "A single signal channel within a physiological or wearable data record. Its measurement unit can be represented with usesUnit."@en ;
+                     rdfs:label "Signal Channel"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#SkinTemperature
-:SkinTemperature rdf:type owl:Class ;
-                 rdfs:subClassOf :PhysiologicalProperty ;
-                 rdfs:comment "Skin or body-surface temperature as a physiological observable property."@en ;
-                 rdfs:label "SkinTemperature"@en .
+wisdom:SkinTemperature rdf:type owl:Class ;
+                       rdfs:subClassOf wisdom:PhysiologicalProperty ;
+                       rdfs:comment "Skin or body-surface temperature as a physiological observable property."@en ;
+                       rdfs:label "SkinTemperature"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#SocioEvaluativePhase
-:SocioEvaluativePhase rdf:type owl:Class ;
-                      rdfs:subClassOf :Activity ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty :hasAssociatedStressor ;
-                                        owl:someValuesFrom :SocioEvaluativeStressor
-                                      ] ;
-                      rdfs:comment "A phase labeled as socio-evaluative stress."@en ;
-                      rdfs:label "Socio-Evaluative Stress Phase"@en .
+wisdom:SocioEvaluativePhase rdf:type owl:Class ;
+                            rdfs:subClassOf wisdom:Activity ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty wisdom:hasAssociatedStressor ;
+                                              owl:someValuesFrom wisdom:SocioEvaluativeStressor
+                                            ] ;
+                            rdfs:comment "A phase labeled as socio-evaluative stress."@en ;
+                            rdfs:label "Socio-Evaluative Stress Phase"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#SocioEvaluativeStressor
-:SocioEvaluativeStressor rdf:type owl:Class ;
-                         rdfs:subClassOf :AcuteStressor ;
-                         rdfs:comment "An acute stressor associated with socio-evaluative stress tasks or phases."@en ;
-                         rdfs:label "Socio-Evaluative Stressor"@en .
+wisdom:SocioEvaluativeStressor rdf:type owl:Class ;
+                               rdfs:subClassOf wisdom:AcuteStressor ;
+                               rdfs:comment "An acute stressor associated with socio-evaluative stress tasks or phases."@en ;
+                               rdfs:label "Socio-Evaluative Stressor"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#StressCondition
-:StressCondition rdf:type owl:Class ;
-                 rdfs:comment "A condition describing whether stress is induced, absent, or represented by a specific stressor context."@en ;
-                 rdfs:label "Stress Condition"@en .
+wisdom:StressCondition rdf:type owl:Class ;
+                       rdfs:comment "A condition describing whether stress is induced, absent, or represented by a specific stressor context."@en ;
+                       rdfs:label "Stress Condition"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#Stressor
-:Stressor rdf:type owl:Class ;
-          rdfs:subClassOf :StressCondition ;
-          rdfs:comment "A condition, event, stimulus, or situation that can induce stress."@en ;
-          rdfs:label "Stressor"@en .
+wisdom:Stressor rdf:type owl:Class ;
+                rdfs:subClassOf wisdom:StressCondition ;
+                rdfs:comment "A condition, event, stimulus, or situation that can induce stress."@en ;
+                rdfs:label "Stressor"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#Subject
-:Subject rdf:type owl:Class ;
-         rdfs:subClassOf sosa:FeatureOfInterest ,
-                         schema:Person ;
-         rdfs:comment "A study subject represented as a person and as the feature of interest of observations made during a stress experiment."@en ;
-         rdfs:label "Subject"@en .
+wisdom:Subject rdf:type owl:Class ;
+               rdfs:subClassOf sosa:FeatureOfInterest ,
+                               schema:Person ;
+               rdfs:comment "A study subject represented as a person and as the feature of interest of observations made during a stress experiment."@en ;
+               rdfs:label "Subject"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#TemperatureSensor
-:TemperatureSensor rdf:type owl:Class ;
-                   rdfs:subClassOf :PhysiologicalSensor ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty sosa:observes ;
-                                     owl:someValuesFrom :SkinTemperature
-                                   ] ;
-                   rdfs:comment "A physiological sensor used to measure skin or body-surface temperature."@en ;
-                   rdfs:label "Temperature Sensor"@en .
+wisdom:TemperatureSensor rdf:type owl:Class ;
+                         rdfs:subClassOf wisdom:PhysiologicalSensor ,
+                                         [ rdf:type owl:Restriction ;
+                                           owl:onProperty sosa:observes ;
+                                           owl:someValuesFrom wisdom:SkinTemperature
+                                         ] ;
+                         rdfs:comment "A physiological sensor used to measure skin or body-surface temperature."@en ;
+                         rdfs:label "Temperature Sensor"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#TimeSeriesObservation
-:TimeSeriesObservation rdf:type owl:Class ;
-                       rdfs:subClassOf sosa:Observation ;
-                       rdfs:comment "An observation derived from a physiological time-series signal. Its temporal context can be represented using sosa:phenomenonTime and sosa:resultTime with OWL-Time instants or intervals."@en ;
-                       rdfs:label "TimeSeriesObservation"@en .
+wisdom:TimeSeriesObservation rdf:type owl:Class ;
+                             rdfs:subClassOf sosa:Observation ;
+                             rdfs:comment "An observation derived from a physiological time-series signal. Its temporal context can be represented using sosa:phenomenonTime and sosa:resultTime with OWL-Time instants or intervals."@en ;
+                             rdfs:label "TimeSeriesObservation"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#VideoCamera
-:VideoCamera rdf:type owl:Class ;
-             rdfs:subClassOf :CameraSensor ;
-             rdfs:comment "A video camera used as a visual sensor in a stress experiment."@en ;
-             rdfs:label "Video Camera"@en .
+wisdom:VideoCamera rdf:type owl:Class ;
+                   rdfs:subClassOf wisdom:CameraSensor ;
+                   rdfs:comment "A video camera used as a visual sensor in a stress experiment."@en ;
+                   rdfs:label "Video Camera"@en .
 
 
 ###  https://burbachs.github.io/WISDOM/wisdom.owl#WearableDevice
-:WearableDevice rdf:type owl:Class ;
-                rdfs:subClassOf sosa:Platform ;
-                rdfs:comment "A wearable platform that can host physiological or motion sensors."@en ;
-                rdfs:label "Wearable Device"@en .
+wisdom:WearableDevice rdf:type owl:Class ;
+                      rdfs:subClassOf sosa:Platform ;
+                      rdfs:comment "A wearable platform that can host physiological or motion sensors."@en ;
+                      rdfs:label "Wearable Device"@en .
 
 
 ###  https://schema.org/Person
