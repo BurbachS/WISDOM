@@ -1,47 +1,52 @@
 [ {
   "@id" : "_:genid1",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://www.w3.org/ns/sosa/observes"
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "http://xmlns.com/foaf/0.1/Person"
   } ],
-  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AccelerationX"
+  "http://xmlns.com/foaf/0.1/homepage" : [ {
+    "@id" : "https://orcid.org/0009-0006-7138-7902"
+  } ],
+  "http://xmlns.com/foaf/0.1/mbox" : [ {
+    "@id" : "mailto:lennart.mackert@hsu-hh.de"
+  } ],
+  "http://xmlns.com/foaf/0.1/name" : [ {
+    "@value" : "Lennart Mackert"
   } ]
 }, {
   "@id" : "_:genid10",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://www.w3.org/ns/sosa/observes"
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#hasAssociatedStressor"
   } ],
   "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/HeartRateVariability"
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#CognitiveStressor"
   } ]
 }, {
   "@id" : "_:genid11",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAssociatedStressor"
+    "@id" : "http://www.w3.org/ns/sosa/observes"
   } ],
   "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysicalStressor"
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#ElectrodermalActivity"
   } ]
 }, {
   "@id" : "_:genid12",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasStressCondition"
+    "@id" : "http://www.w3.org/ns/sosa/observes"
   } ],
   "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/RelaxationCondition"
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#BloodOxygenSaturation"
   } ]
 }, {
   "@id" : "_:genid13",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAssociatedStressor"
+    "@id" : "http://www.w3.org/ns/sosa/observes"
   } ],
   "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SocioEvaluativeStressor"
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#HeartRate"
   } ]
 }, {
   "@id" : "_:genid14",
@@ -50,52 +55,103 @@
     "@id" : "http://www.w3.org/ns/sosa/observes"
   } ],
   "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SkinTemperature"
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#HeartRateVariability"
+  } ]
+}, {
+  "@id" : "_:genid15",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#hasAssociatedStressor"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#PhysicalStressor"
+  } ]
+}, {
+  "@id" : "_:genid16",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#hasStressCondition"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#RelaxationCondition"
+  } ]
+}, {
+  "@id" : "_:genid17",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#hasAssociatedStressor"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#SocioEvaluativeStressor"
+  } ]
+}, {
+  "@id" : "_:genid18",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
+  "http://www.w3.org/2002/07/owl#onProperty" : [ {
+    "@id" : "http://www.w3.org/ns/sosa/observes"
+  } ],
+  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#SkinTemperature"
   } ]
 }, {
   "@id" : "_:genid2",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://www.w3.org/ns/sosa/observes"
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "http://xmlns.com/foaf/0.1/Person"
   } ],
-  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AccelerationY"
+  "http://xmlns.com/foaf/0.1/homepage" : [ {
+    "@id" : "https://orcid.org/0009-0009-8373-6622"
+  } ],
+  "http://xmlns.com/foaf/0.1/mbox" : [ {
+    "@id" : "mailto:burbachs@hsu-hh.de"
+  } ],
+  "http://xmlns.com/foaf/0.1/name" : [ {
+    "@value" : "Simon Burbach"
   } ]
 }, {
   "@id" : "_:genid3",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://www.w3.org/ns/sosa/observes"
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "http://xmlns.com/foaf/0.1/Person"
   } ],
-  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AccelerationZ"
+  "http://xmlns.com/foaf/0.1/homepage" : [ {
+    "@id" : "https://orcid.org/0009-0009-5585-2183"
+  } ],
+  "http://xmlns.com/foaf/0.1/mbox" : [ {
+    "@id" : "mailto:schreibp@hsu-hh.de"
+  } ],
+  "http://xmlns.com/foaf/0.1/name" : [ {
+    "@value" : "Paul Schreiber"
   } ]
 }, {
   "@id" : "_:genid4",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
-  "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://www.w3.org/2006/time#hasTime"
+  "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" : [ {
+    "@id" : "http://xmlns.com/foaf/0.1/Person"
   } ],
-  "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
-    "@id" : "http://www.w3.org/2006/time#Interval"
+  "http://xmlns.com/foaf/0.1/homepage" : [ {
+    "@id" : "https://orcid.org/0000-0003-3458-4748"
+  } ],
+  "http://xmlns.com/foaf/0.1/mbox" : [ {
+    "@id" : "mailto:maleshkm@hsu-hh.de"
+  } ],
+  "http://xmlns.com/foaf/0.1/name" : [ {
+    "@value" : "Maria Maleshkova"
   } ]
 }, {
   "@id" : "_:genid5",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasStressCondition"
+    "@id" : "http://www.w3.org/ns/sosa/observes"
   } ],
   "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/BaselineCondition"
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#AccelerationX"
   } ]
 }, {
   "@id" : "_:genid6",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAssociatedStressor"
+    "@id" : "http://www.w3.org/ns/sosa/observes"
   } ],
   "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/CognitiveStressor"
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#AccelerationY"
   } ]
 }, {
   "@id" : "_:genid7",
@@ -104,1338 +160,35 @@
     "@id" : "http://www.w3.org/ns/sosa/observes"
   } ],
   "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/ElectrodermalActivity"
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#AccelerationZ"
   } ]
 }, {
   "@id" : "_:genid8",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://www.w3.org/ns/sosa/observes"
+    "@id" : "http://www.w3.org/2006/time#hasTime"
   } ],
   "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/BloodOxygenSaturation"
+    "@id" : "http://www.w3.org/2006/time#Interval"
   } ]
 }, {
   "@id" : "_:genid9",
   "@type" : [ "http://www.w3.org/2002/07/owl#Restriction" ],
   "http://www.w3.org/2002/07/owl#onProperty" : [ {
-    "@id" : "http://www.w3.org/ns/sosa/observes"
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#hasStressCondition"
   } ],
   "http://www.w3.org/2002/07/owl#someValuesFrom" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/HeartRate"
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#BaselineCondition"
   } ]
+}, {
+  "@id" : "http://purl.org/dc/terms/bibliographicCitation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://purl.org/ontology/bibo/doi",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
 }, {
   "@id" : "http://qudt.org/schema/qudt/Unit",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Ontology" ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "WISDOM-Stress"
-  } ],
-  "http://www.w3.org/2002/07/owl#imports" : [ {
-    "@id" : "http://www.w3.org/2006/time"
-  }, {
-    "@id" : "http://www.w3.org/ns/sosa/"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AccelerationX",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Acceleration along the x-axis as a physiological or movement-related observable property."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "AccelerationX"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalProperty"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AccelerationY",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Acceleration along the y-axis as a physiological or movement-related observable property."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "AccelerationY"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalProperty"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AccelerationZ",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Acceleration along the z-axis as a physiological or movement-related observable property."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "AccelerationZ"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalProperty"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Accelerometer",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "A three-axis motion sensor used to measure acceleration along the x, y, and z axes."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "Accelerometer"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/MotionSensor"
-  }, {
-    "@id" : "_:genid1"
-  }, {
-    "@id" : "_:genid2"
-  }, {
-    "@id" : "_:genid3"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Activity",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "An activity or experimental phase with a temporal extent that can provide context for observations in a stress experiment."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "Activity"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "_:genid4"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AcuteStressor",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "Acute Stressor"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Stressor"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AnnotationRecord",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "A file or record containing annotations for phases in a stress experiment. Its temporal context can be represented using time:hasTime with an OWL-Time instant or interval."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "AnnotationRecord"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.w3.org/2002/07/owl#Thing"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AudioSensor",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "An audio-based sensor that can produce acoustic or speech-related observations in stress experiments."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "Audio Sensor"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.w3.org/ns/sosa/Sensor"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Baseline",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "An initial no-stress reference phase that usually occurs before stress-inducing phases."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "Baseline"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Activity"
-  }, {
-    "@id" : "_:genid5"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/BaselineCondition",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "A no-stress condition representing an initial baseline or reference state before stress-inducing phases."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "Baseline Condition"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/NoStressCondition"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/BehavioralProperty",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "Behavioral Property"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.w3.org/ns/sosa/ObservableProperty"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/BiomarkerAssay",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "A biomarker assay, such as a blood sample analysis for cortisol or adrenaline. Its temporal context can be represented using time:hasTime with an OWL-Time instant or interval."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "Biomarker Assay"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/BloodOxygenSaturation",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Peripheral oxygen saturation as a physiological observable property."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "BloodOxygenSaturation"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalProperty"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/CameraSensor",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "A camera-based sensor that can produce visual observations in stress experiments."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "Camera Sensor"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.w3.org/ns/sosa/Sensor"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/ChronicStressor",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "Chronic Stressor"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Stressor"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/CognitiveStressPhase",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "A phase labeled as cognitive stress."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "Cognitive Stress Phase"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Activity"
-  }, {
-    "@id" : "_:genid6"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/CognitiveStressor",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "An acute stressor associated with cognitive stress tasks or phases."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "Cognitive Stressor"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AcuteStressor"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/EDASensor",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "A physiological sensor used to measure electrodermal activity."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "EDA Sensor"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalSensor"
-  }, {
-    "@id" : "_:genid7"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/ElectrodermalActivity",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Electrodermal activity as a physiological observable property."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "ElectrodermalActivity"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalProperty"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Environment",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "An environment that is prevailing to an experimental segment that can provide context for observations in a stress experiment."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "Environment"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.w3.org/ns/sosa/FeatureOfInterest"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/EnvironmentalProperty",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "Environmental Property"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.w3.org/ns/sosa/ObservableProperty"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/ExperimenterObserver",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "An experimenter who records observations during a stress experiment."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "Experiment Observer"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/HumanObserver"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Gesture",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "Gestures a subjects does while being observed"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "Gesture"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/BehavioralProperty"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/GyroSensor",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "A motion sensor used to measure angular velocity or rotation."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "GyroSensor"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/MotionSensor"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/HeartRate",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Heart rate as a physiological observable property."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "HeartRate"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalProperty"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/HeartRateVariability",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Heart rate variability as a physiological observable property that can be derived from heart-rate or inter-beat interval data."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "HeartRateVariability"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalProperty"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/HumanObserver",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "A human observer acting as a SOSA sensor by documenting visible or contextual observations during a stress experiment."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "Human Observer"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.w3.org/ns/sosa/Sensor"
-  }, {
-    "@id" : "https://schema.org/Person"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Humidity",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "An environmental property describing humidity, which may influence perceived stress."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "Humidity"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/EnvironmentalProperty"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Magnetometer",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "A motion-related sensor used to measure magnetic field direction or orientation."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "Magnetometer"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/MotionSensor"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Microphone",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "A microphone used as an audio sensor in a stress experiment."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "Microphone"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AudioSensor"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/MotionSensor",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "A sensor used to measure movement, orientation, or inertial motion."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "Motion Sensor"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.w3.org/ns/sosa/Sensor"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/NoStressCondition",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "A condition in which no stressor is present or intended."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "No Stress Condition"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/StressCondition"
-  } ],
-  "http://www.w3.org/2002/07/owl#disjointWith" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Stressor"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/OutsideTemperature",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "An environmental property describing outside or ambient temperature, which may influence perceived stress."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "Outside Temperature"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/EnvironmentalProperty"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PPGSensor",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "A physiological sensor based on photoplethysmography that is used in the ontology to observe heart rate, heart rate variability, and blood oxygen saturation."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "PPG Sensor"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalSensor"
-  }, {
-    "@id" : "_:genid8"
-  }, {
-    "@id" : "_:genid9"
-  }, {
-    "@id" : "_:genid10"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysicalStressPhase",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "A phase labeled as physical stress."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "Physical Stress Phase"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Activity"
-  }, {
-    "@id" : "_:genid11"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysicalStressor",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "An acute stressor associated with physical stress tasks or phases."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "Physical Stressor"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AcuteStressor"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalProperty",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "Physiological Property"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.w3.org/ns/sosa/ObservableProperty"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalRecord",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "A data record containing one or more physiological or wearable signal channels."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "Physiological Record"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalSensor",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "A sensor used to measure physiological properties or bodily signals."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "Physiological Sensor"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.w3.org/ns/sosa/Sensor"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/RelaxationCondition",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "A no-stress condition representing relaxation or recovery between stress-inducing phases."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "Relaxation Condition"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/NoStressCondition"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/RelaxationPhase",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "A no-stress relaxation or recovery phase that can occur between stress-inducing phases."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "Relaxation Phase"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Activity"
-  }, {
-    "@id" : "_:genid12"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SignalChannel",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "A single signal channel within a physiological or wearable data record. Its measurement unit can be represented with usesUnit."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "Signal Channel"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SkinTemperature",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Skin or body-surface temperature as a physiological observable property."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "SkinTemperature"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalProperty"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SocioEvaluativePhase",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "A phase labeled as socio-evaluative stress."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "Socio-Evaluative Stress Phase"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Activity"
-  }, {
-    "@id" : "_:genid13"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SocioEvaluativeStressor",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "An acute stressor associated with socio-evaluative stress tasks or phases."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "Socio-Evaluative Stressor"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AcuteStressor"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/StressCondition",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "A condition describing whether stress is induced, absent, or represented by a specific stressor context."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "Stress Condition"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Stressor",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "A condition, event, stimulus, or situation that can induce stress."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "Stressor"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/StressCondition"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Subject",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "A study subject represented as a person and as the feature of interest of observations made during a stress experiment."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "Subject"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.w3.org/ns/sosa/FeatureOfInterest"
-  }, {
-    "@id" : "https://schema.org/Person"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/TemperatureSensor",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "A physiological sensor used to measure skin or body-surface temperature."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "Temperature Sensor"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalSensor"
-  }, {
-    "@id" : "_:genid14"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/TimeSeriesObservation",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "An observation derived from a physiological time-series signal. Its temporal context can be represented using sosa:phenomenonTime and sosa:resultTime with OWL-Time instants or intervals."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "TimeSeriesObservation"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.w3.org/ns/sosa/Observation"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/VideoCamera",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "A video camera used as a visual sensor in a stress experiment."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "Video Camera"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/CameraSensor"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/WearableDevice",
-  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "A wearable platform that can host physiological or motion sensors."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "Wearable Device"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
-    "@id" : "http://www.w3.org/ns/sosa/Platform"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/age",
-  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "https://schema.org/Person"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#int"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/annotatedDuringActivity",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Links an annotation record to the activity or experimental segment that it annotates."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AnnotationRecord"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "annotated during activity"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Activity"
-  } ],
-  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/isAnnotatedInRecord"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasActivityObservation",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Links an activity or experimental phase to an observation made during that activity."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Activity"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "has activity observation"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/ns/sosa/Observation"
-  } ],
-  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/observedDuringActivity"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAnnotationRecord",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Links a physiological record to its annotation record."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalRecord"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "has annotation record"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AnnotationRecord"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAnnotationTimeStamp",
-  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "Timestamp associated with an Annotation Record made by a Human Observer during a stress experiment"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AnnotationRecord"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "has annotation time stamp"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAssayTimeStamp",
-  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@value" : "Timestamp indicating when a biomarker assay was performed or recorded."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/BiomarkerAssay"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@value" : "has assay time stamp"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAssociatedActivity",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Links a stressor to the activity or experimental phase associated with it."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Stressor"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "has associated activity"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Activity"
-  } ],
-  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAssociatedStressor"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasAssociatedStressor",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Links a stress-inducing activity or experimental phase to its associated stressor."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Activity"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "has associated stressor"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Stressor"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasStressCondition"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasChannelName",
-  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Name of a signal channel."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SignalChannel"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "has channel name"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#string"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasDescription",
-  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Activity"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "has Description"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#string"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasFileFormat",
-  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalRecord"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "has file format"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#string"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasFileName",
-  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalRecord"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "has file name"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#string"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasIntensity",
-  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Qualitative intensity of an activity or experimental phase, for example low, moderate, or high."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Activity"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "has intensity"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#string"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasNote",
-  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "A note associated with an annotation record made by a human observer during a stress experiment."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AnnotationRecord"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "has note"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#string"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasNumberOfChannels",
-  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Number of signal channels in a physiological record."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalRecord"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "has number of channels"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#integer"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasNumberOfSamples",
-  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Number of samples in a physiological record."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalRecord"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "has number of samples"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#integer"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasPhysiologicalRecord",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Links a study subject to a physiological record containing measurements collected from that subject."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Subject"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "has physiological record"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalRecord"
-  } ],
-  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/isPhysiologicalRecordOf"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasReference",
-  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Activity"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "has Reference"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#anyURI"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasSamplingFrequency",
-  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Sampling frequency of a signal channel."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SignalChannel"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "has sampling frequency"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2001/XMLSchema#decimal"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasSignalChannel",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Links a physiological record to one of its signal channels."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalRecord"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "has signal channel"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SignalChannel"
-  } ],
-  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/isSignalChannelOf"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasSourceChannel",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Links an observation to the signal channel from which it was derived."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.w3.org/ns/sosa/Observation"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "has source channel"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SignalChannel"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasSourceRecord",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Links an observation to the physiological record from which it was derived."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.w3.org/ns/sosa/Observation"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "has source record"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalRecord"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/hasStressCondition",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Links an activity or experimental phase to the stress condition represented during that phase."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Activity"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "has stress condition"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/StressCondition"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/isAnnotatedInRecord",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Links an activity or experimental segment to the annotation record in which it is annotated."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Activity"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "is annotated by record"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AnnotationRecord"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/isCausedBy",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Links an entity to a stressor that causes or contributes to it."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.w3.org/2002/07/owl#Thing"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "is caused by"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Stressor"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/isPhysiologicalRecordOf",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Links a physiological record to the study subject from whom its measurements were collected."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalRecord"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "is physiological record of"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Subject"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/isSignalChannelOf",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Links a signal channel to its physiological record."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SignalChannel"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "is signal channel of"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/PhysiologicalRecord"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/madeAnnotationRecord",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Links a human observer to an annotation record made by that observer."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/HumanObserver"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "made annotation record"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AnnotationRecord"
-  } ],
-  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/wasMadeByObserver"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/madeByBiomarkerAssay",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Links an observation to the biomarker assay by which it was made."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.w3.org/ns/sosa/Observation"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "made by biomarker assay"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/BiomarkerAssay"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/madeByObserver",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Links an observation to the human observer by whom it was made."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.w3.org/ns/sosa/Observation"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "made by observer"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/HumanObserver"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/observedDuringActivity",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Links an observation to the activity or experimental phase during which it was made."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.w3.org/ns/sosa/Observation"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "observed during activity"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/Activity"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/representsObservableProperty",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Links a signal channel to the observable property represented by the channel."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SignalChannel"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "represents observable property"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/ns/sosa/ObservableProperty"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/usesUnit",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Links a signal channel to the unit used for the values represented by that channel."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/SignalChannel"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "uses unit"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://qudt.org/schema/qudt/Unit"
-  } ]
-}, {
-  "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/wasMadeByObserver",
-  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
-  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
-    "@language" : "en",
-    "@value" : "Links an annotation record to the human observer by whom it was made."
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/AnnotationRecord"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
-    "@language" : "en",
-    "@value" : "was made by observer"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.semanticweb.org/lennart/ontologies/2026/4/WISDOM-Stress/HumanObserver"
-  } ]
 }, {
   "@id" : "http://www.w3.org/ns/sosa/hosts",
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
@@ -1500,6 +253,1508 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "http://www.w3.org/2001/XMLSchema#dateTime"
+  } ]
+}, {
+  "@id" : "http://xmlns.com/foaf/0.1/Person",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "http://xmlns.com/foaf/0.1/homepage",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://xmlns.com/foaf/0.1/mbox",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Ontology" ],
+  "http://purl.org/dc/terms/bibliographicCitation" : [ {
+    "@value" : "Lennart Mackert, Simon Burbach, Paul Schreiber, Maria Maleshkova (2026): WISDOM. https://doi.org/10.5281/zenodo.17671851"
+  } ],
+  "http://purl.org/dc/terms/created" : [ {
+    "@type" : "http://www.w3.org/2001/XMLSchema#date",
+    "@value" : "2026-07-14"
+  } ],
+  "http://purl.org/dc/terms/creator" : [ {
+    "@id" : "_:genid1"
+  }, {
+    "@id" : "_:genid2"
+  }, {
+    "@id" : "_:genid3"
+  }, {
+    "@id" : "_:genid4"
+  } ],
+  "http://purl.org/dc/terms/license" : [ {
+    "@id" : "https://creativecommons.org/licenses/by/4.0/"
+  } ],
+  "http://purl.org/dc/terms/title" : [ {
+    "@value" : "WISDOM: A Wearable Integrated Stress Data Ontology Model"
+  } ],
+  "http://purl.org/ontology/bibo/doi" : [ {
+    "@value" : "10.5281/zenodo.17671851"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "The WISDOM (Wearable Integrated Stress Data Ontology Model) ontology provides a semantic model for representing stress-related knowledge and physiological data collected from wearable devices. It integrates conceptual descriptions of human stress, stress-inducing stimuli, experimental context, wearable sensors, physiological observables, and their corresponding observations into a machine-interpretable knowledge graph. By building upon established semantic web standards, WISDOM enables the harmonization and integration of heterogeneous stress datasets while preserving contextual information about study protocols, stressors, and sensor measurements. The ontology supports interoperability, data integration, advanced analytics, and reproducible research in wearable-based stress detection."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "WISDOM"
+  } ],
+  "http://www.w3.org/2002/07/owl#imports" : [ {
+    "@id" : "http://qudt.org/3.0.0/schema/qudt"
+  }, {
+    "@id" : "http://www.w3.org/2006/time"
+  }, {
+    "@id" : "http://www.w3.org/ns/sosa/"
+  }, {
+    "@id" : "http://www.w3.org/ns/ssn/"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#AccelerationX",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Acceleration along the x-axis as a physiological or movement-related observable property."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "AccelerationX"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#PhysiologicalProperty"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#AccelerationY",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Acceleration along the y-axis as a physiological or movement-related observable property."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "AccelerationY"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#PhysiologicalProperty"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#AccelerationZ",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Acceleration along the z-axis as a physiological or movement-related observable property."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "AccelerationZ"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#PhysiologicalProperty"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#Accelerometer",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A three-axis motion sensor used to measure acceleration along the x, y, and z axes."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Accelerometer"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#MotionSensor"
+  }, {
+    "@id" : "_:genid5"
+  }, {
+    "@id" : "_:genid6"
+  }, {
+    "@id" : "_:genid7"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#Activity",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "An activity or experimental phase with a temporal extent that can provide context for observations in a stress experiment."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Activity"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "_:genid8"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#AcuteStressor",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A stressor that triggers an immediate or short-term physiological or psychological stress response."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Acute Stressor"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#Stressor"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#AnnotationRecord",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A file or record containing annotations for phases in a stress experiment. Its temporal context can be represented using time:hasTime with an OWL-Time instant or interval."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "AnnotationRecord"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/2002/07/owl#Thing"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#AudioSensor",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "An audio-based sensor that can produce acoustic or speech-related observations in stress experiments."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Audio Sensor"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/ns/sosa/Sensor"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#Baseline",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "An initial no-stress reference phase that usually occurs before stress-inducing phases."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Baseline"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#Activity"
+  }, {
+    "@id" : "_:genid9"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#BaselineCondition",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A no-stress condition representing an initial baseline or reference state before stress-inducing phases."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Baseline Condition"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#NoStressCondition"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#BehavioralProperty",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A property describing observable behavioral characteristics or activities of an individual."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Behavioral Property"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/ns/sosa/ObservableProperty"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#BiomarkerAssay",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A biomarker assay, such as a blood sample analysis for cortisol or adrenaline. Its temporal context can be represented using time:hasTime with an OWL-Time instant or interval."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Biomarker Assay"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#BloodOxygenSaturation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Peripheral oxygen saturation as a physiological observable property."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "BloodOxygenSaturation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#PhysiologicalProperty"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#CameraSensor",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A camera-based sensor that can produce visual observations in stress experiments."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Camera Sensor"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/ns/sosa/Sensor"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#ChronicStressor",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A stressor that persists or recurs over an extended period and contributes to long-term stress exposure."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Chronic Stressor"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#Stressor"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#CognitiveStressPhase",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A phase labeled as cognitive stress."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Cognitive Stress Phase"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#Activity"
+  }, {
+    "@id" : "_:genid10"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#CognitiveStressor",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "An acute stressor associated with cognitive stress tasks or phases."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Cognitive Stressor"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#AcuteStressor"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#EDASensor",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A physiological sensor used to measure electrodermal activity."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "EDA Sensor"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#PhysiologicalSensor"
+  }, {
+    "@id" : "_:genid11"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#ElectrodermalActivity",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Electrodermal activity as a physiological observable property."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "ElectrodermalActivity"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#PhysiologicalProperty"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#Environment",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "An environment that is prevailing to an experimental segment that can provide context for observations in a stress experiment."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Environment"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/ns/sosa/FeatureOfInterest"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#EnvironmentalProperty",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A property describing environmental conditions or external factors that may influence an individual's stress response."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Environmental Property"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/ns/sosa/ObservableProperty"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#ExperimenterObserver",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "An experimenter who records observations during a stress experiment."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Experiment Observer"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#HumanObserver"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#Gesture",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Gestures a subjects does while being observed"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "Gesture"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#BehavioralProperty"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#GyroSensor",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A motion sensor used to measure angular velocity or rotation."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "GyroSensor"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#MotionSensor"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#HeartRate",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Heart rate as a physiological observable property."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "HeartRate"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#PhysiologicalProperty"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#HeartRateVariability",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Heart rate variability as a physiological observable property that can be derived from heart-rate or inter-beat interval data."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "HeartRateVariability"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#PhysiologicalProperty"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#HumanObserver",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A human observer acting as a SOSA sensor by documenting visible or contextual observations during a stress experiment."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Human Observer"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/ns/sosa/Sensor"
+  }, {
+    "@id" : "https://schema.org/Person"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#Humidity",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "An environmental property describing humidity, which may influence perceived stress."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Humidity"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#EnvironmentalProperty"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#Magnetometer",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A motion-related sensor used to measure magnetic field direction or orientation."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Magnetometer"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#MotionSensor"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#Microphone",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A microphone used as an audio sensor in a stress experiment."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Microphone"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#AudioSensor"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#MotionSensor",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A sensor used to measure movement, orientation, or inertial motion."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Motion Sensor"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/ns/sosa/Sensor"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#NoStressCondition",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A condition in which no stressor is present or intended."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "No Stress Condition"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#StressCondition"
+  } ],
+  "http://www.w3.org/2002/07/owl#disjointWith" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#Stressor"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#OutsideTemperature",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "An environmental property describing outside or ambient temperature, which may influence perceived stress."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Outside Temperature"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#EnvironmentalProperty"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#PPGSensor",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A physiological sensor based on photoplethysmography that is used in the ontology to observe heart rate, heart rate variability, and blood oxygen saturation."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "PPG Sensor"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#PhysiologicalSensor"
+  }, {
+    "@id" : "_:genid12"
+  }, {
+    "@id" : "_:genid13"
+  }, {
+    "@id" : "_:genid14"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#PhysicalStressPhase",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A phase labeled as physical stress."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Physical Stress Phase"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#Activity"
+  }, {
+    "@id" : "_:genid15"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#PhysicalStressor",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "An acute stressor associated with physical stress tasks or phases."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Physical Stressor"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#AcuteStressor"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#PhysiologicalProperty",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A property describing physiological characteristics, functions, or responses of the human body."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Physiological Property"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/ns/sosa/ObservableProperty"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#PhysiologicalRecord",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A data record containing one or more physiological or wearable signal channels."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Physiological Record"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#PhysiologicalSensor",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A sensor used to measure physiological properties or bodily signals."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Physiological Sensor"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/ns/sosa/Sensor"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#RelaxationCondition",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A no-stress condition representing relaxation or recovery between stress-inducing phases."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Relaxation Condition"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#NoStressCondition"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#RelaxationPhase",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A no-stress relaxation or recovery phase that can occur between stress-inducing phases."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Relaxation Phase"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#Activity"
+  }, {
+    "@id" : "_:genid16"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#SignalChannel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A single signal channel within a physiological or wearable data record. Its measurement unit can be represented with usesUnit."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Signal Channel"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#SkinTemperature",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Skin or body-surface temperature as a physiological observable property."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "SkinTemperature"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#PhysiologicalProperty"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#SocioEvaluativePhase",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A phase labeled as socio-evaluative stress."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Socio-Evaluative Stress Phase"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#Activity"
+  }, {
+    "@id" : "_:genid17"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#SocioEvaluativeStressor",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "An acute stressor associated with socio-evaluative stress tasks or phases."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Socio-Evaluative Stressor"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#AcuteStressor"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#StressCondition",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A condition describing whether stress is induced, absent, or represented by a specific stressor context."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Stress Condition"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#Stressor",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A condition, event, stimulus, or situation that can induce stress."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Stressor"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#StressCondition"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#Subject",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A study subject represented as a person and as the feature of interest of observations made during a stress experiment."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Subject"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/ns/sosa/FeatureOfInterest"
+  }, {
+    "@id" : "https://schema.org/Person"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#TemperatureSensor",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A physiological sensor used to measure skin or body-surface temperature."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Temperature Sensor"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#PhysiologicalSensor"
+  }, {
+    "@id" : "_:genid18"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#TimeSeriesObservation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "An observation derived from a physiological time-series signal. Its temporal context can be represented using sosa:phenomenonTime and sosa:resultTime with OWL-Time instants or intervals."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "TimeSeriesObservation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/ns/sosa/Observation"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#VideoCamera",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A video camera used as a visual sensor in a stress experiment."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Video Camera"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#CameraSensor"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#WearableDevice",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A wearable platform that can host physiological or motion sensors."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Wearable Device"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/ns/sosa/Platform"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#ageAtAssessment",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "The age of a person in completed years at the time of measurement."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://schema.org/Person"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "age at assessment"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#annotatedDuringActivity",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links an annotation record to the activity or experimental segment that it annotates."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#AnnotationRecord"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "annotated during activity"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#Activity"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#isAnnotatedInRecord"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#causes",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links a stressor to an entity that it causes or contributes to."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#Stressor"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "causes"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2002/07/owl#Thing"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#isCausedBy"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#hasActivityObservation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links an activity or experimental phase to an observation made during that activity."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#Activity"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has activity observation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/ns/sosa/Observation"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#observedDuringActivity"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#hasAnnotationRecord",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links a physiological record to its annotation record."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#PhysiologicalRecord"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has annotation record"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#AnnotationRecord"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#isAnnotationRecordOf"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#hasAnnotationTimeStamp",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Timestamp associated with an Annotation Record made by a Human Observer during a stress experiment"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#AnnotationRecord"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has annotation time stamp"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#hasAssayTimeStamp",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Timestamp indicating when a biomarker assay was performed or recorded."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#BiomarkerAssay"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has assay time stamp"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#hasAssociatedActivity",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links a stressor to the activity or experimental phase associated with it."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#Stressor"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has associated activity"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#Activity"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#hasAssociatedStressor"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#hasAssociatedStressor",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links a stress-inducing activity or experimental phase to its associated stressor."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#Activity"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has associated stressor"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#Stressor"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#hasStressCondition"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#hasChannelName",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Name of a signal channel."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#SignalChannel"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has channel name"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#hasDescription",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "The description of an activity made by the experimenter observer."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#Activity"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has description"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#hasFileFormat",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "The file format of the physiological record."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#PhysiologicalRecord"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has file format"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#hasFileName",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "The file name of the physiological record."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#PhysiologicalRecord"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has file name"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#hasIntensity",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Qualitative intensity of an activity or experimental phase, for example low, moderate, or high."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#Activity"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has intensity"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#hasNote",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A note associated with an annotation record made by a human observer during a stress experiment."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#AnnotationRecord"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has note"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#string"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#hasNumberOfChannels",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Number of signal channels in a physiological record."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#PhysiologicalRecord"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has number of channels"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#integer"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#hasNumberOfSamples",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Number of samples in a physiological record."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#PhysiologicalRecord"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has number of samples"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#integer"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#hasPhysiologicalRecord",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links a study subject to a physiological record containing measurements collected from that subject."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#Subject"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has physiological record"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#PhysiologicalRecord"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#isPhysiologicalRecordOf"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#hasReference",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Describes whether a certain activity is linked to an established concept. For example, an activity could reference to an established sports assessment or psychological stressor such as the Trier Social Stress Test"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#Activity"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has Reference"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#anyURI"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#hasSamplingFrequency",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Sampling frequency of a signal channel."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#SignalChannel"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has sampling frequency"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/2001/XMLSchema#decimal"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#hasSignalChannel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links a physiological record to one of its signal channels."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#PhysiologicalRecord"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has signal channel"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#SignalChannel"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#isSignalChannelOf"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#hasSourceChannel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links an observation to the signal channel from which it was derived."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/sosa/Observation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has source channel"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#SignalChannel"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#isSourceChannelOf"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#hasSourceRecord",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links an observation to the physiological record from which it was derived."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/sosa/Observation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has source record"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#PhysiologicalRecord"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#isSourceRecordOf"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#hasStressCondition",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links an activity or experimental phase to the stress condition represented during that phase."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#Activity"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has stress condition"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#StressCondition"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#isStressConditionOf"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#isAnnotatedInRecord",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links an activity or experimental segment to the annotation record in which it is annotated."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#Activity"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "is annotated by record"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#AnnotationRecord"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#isAnnotationRecordOf",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links an annotation record to the physiological record it annotates."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#AnnotationRecord"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "is annotation record of"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#PhysiologicalRecord"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#isCausedBy",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links an entity to a stressor that causes or contributes to it."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/2002/07/owl#Thing"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "is caused by"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#Stressor"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#isPhysiologicalRecordOf",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links a physiological record to the study subject from whom its measurements were collected."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#PhysiologicalRecord"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "is physiological record of"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#Subject"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#isRepresentedBySignalChannel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links an observable property to a signal channel representing it."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/sosa/ObservableProperty"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "is represented by signal channel"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#SignalChannel"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#representsObservableProperty"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#isSignalChannelOf",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links a signal channel to its physiological record."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#SignalChannel"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "is signal channel of"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#PhysiologicalRecord"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#isSourceChannelOf",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links a signal channel to an observation derived from it."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#SignalChannel"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "is source channel of"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/ns/sosa/Observation"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#isSourceRecordOf",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links a physiological record to an observation derived from it."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#PhysiologicalRecord"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "is source record of"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/ns/sosa/Observation"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#isStressConditionOf",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links a stress condition to an activity or experimental phase in which it is represented."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#StressCondition"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "is stress condition of"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#Activity"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#madeAnnotationRecord",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links a human observer to an annotation record made by that observer."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#HumanObserver"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "made annotation record"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#AnnotationRecord"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#wasMadeByObserver"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#madeByBiomarkerAssay",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links an observation to the biomarker assay by which it was made."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/sosa/Observation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "made by biomarker assay"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#BiomarkerAssay"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#madeByObserver",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links an observation to the human observer by whom it was made."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/sosa/Observation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "made by observer"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#HumanObserver"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#observedDuringActivity",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links an observation to the activity or experimental phase during which it was made."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.w3.org/ns/sosa/Observation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "observed during activity"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#Activity"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#representsObservableProperty",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links a signal channel to the observable property represented by the channel."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#SignalChannel"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "represents observable property"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.w3.org/ns/sosa/ObservableProperty"
+  } ]
+}, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#wasMadeByObserver",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Links an annotation record to the human observer by whom it was made."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#AnnotationRecord"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "was made by observer"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#HumanObserver"
   } ]
 }, {
   "@id" : "https://schema.org/Person",
