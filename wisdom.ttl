@@ -18,7 +18,7 @@
                                                             <http://www.w3.org/2006/time> ,
                                                             sosa: ,
                                                             <http://www.w3.org/ns/ssn/> ;
-                                                dct:bibliographicCitation "Lennart Mackert, Simon Burbach, Paul Schreiber, Maria Maleshkova (2026): WISDOM. https://doi.org/10.5281/zenodo.17671851" ;
+                                                dct:bibliographicCitation "Lennart Mackert, Simon Burbach, Paul Schreiber, Maria Maleshkova (2026): WISDOM. https://doi.org/10.5281/zenodo.21677141" ;
                                                 dct:created "2026-07-14"^^xsd:date ;
                                                 dct:creator [ rdf:type foaf:Person ;
                                                               foaf:homepage <https://orcid.org/0009-0006-7138-7902> ;
@@ -42,7 +42,7 @@
                                                             ] ;
                                                 dct:license <https://creativecommons.org/licenses/by/4.0/> ;
                                                 dct:title "WISDOM: A Wearable Integrated Stress Data Ontology Model" ;
-                                                bibo:doi "10.5281/zenodo.17671851" ;
+                                                bibo:doi "10.5281/zenodo.21677141" ;
                                                 rdfs:comment "The WISDOM (Wearable Integrated Stress Data Ontology Model) ontology provides a semantic model for representing stress-related knowledge and physiological data collected from wearable devices. It integrates conceptual descriptions of human stress, stress-inducing stimuli, experimental context, wearable sensors, physiological observables, and their corresponding observations into a machine-interpretable knowledge graph. By building upon established semantic web standards, WISDOM enables the harmonization and integration of heterogeneous stress datasets while preserving contextual information about study protocols, stressors, and sensor measurements. The ontology supports interoperability, data integration, advanced analytics, and reproducible research in wearable-based stress detection."@en ;
                                                 rdfs:label "WISDOM"@en .
 
