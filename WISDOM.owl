@@ -231,7 +231,6 @@
     <!-- https://burbachs.github.io/WISDOM/wisdom.owl#hasAssociatedStressor -->
 
     <owl:ObjectProperty rdf:about="https://burbachs.github.io/WISDOM/wisdom.owl#hasAssociatedStressor">
-        <rdfs:subPropertyOf rdf:resource="https://burbachs.github.io/WISDOM/wisdom.owl#hasStressCondition"/>
         <rdfs:domain rdf:resource="https://burbachs.github.io/WISDOM/wisdom.owl#Activity"/>
         <rdfs:range rdf:resource="https://burbachs.github.io/WISDOM/wisdom.owl#Stressor"/>
         <rdfs:comment xml:lang="en">Links a stress-inducing activity or experimental phase to its associated stressor.</rdfs:comment>
