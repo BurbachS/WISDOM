@@ -24,27 +24,27 @@ The ontology models, among others:
 - observations and time-series observations
 - annotations and biomarker assays
 
-![WISDOM Modules](OntologyDiagrams/Module1_stress_conditions.png)
+![WISDOM Modules](OntologyDiagramms/Module1_stress_conditions.png)
 
 *Figure 1. Represents stress-related conditions, including stressors, non-stress conditions, and stress responses, together with their relationships to experimental activities.*
 
-![WISDOM Modules](OntologyDiagrams/Module2_activities.png)
+![WISDOM Modules](OntologyDiagramms/Module2_activities.png)
 
 *Figure 2. Captures experimental phases and their connections to stress conditions, stressors, and observations, providing contextual information for recorded measurements.*
 
-![WISDOM Modules](OntologyDiagrams/Module3_observable_properties.png)
+![WISDOM Modules](OntologyDiagramms/Module3_observable_properties.png)
 
 *Figure 3. Defines physiological, behavioral, and environmental properties that can be observed independently of the sensors or measurement data used to capture them.*
 
-![WISDOM Modules](OntologyDiagrams/Module4_sensors.png)
+![WISDOM Modules](OntologyDiagramms/Module4_sensors.png)
 
 *Figure 4. Describes wearable sensor types and their associations with the physiological, behavioral, and environmental properties they observe.*
 
-![WISDOM Modules](OntologyDiagrams/Module5_person.png)
+![WISDOM Modules](OntologyDiagramms/Module5_person.png)
 
 *Figure 5. Distinguishes study subjects, human observers, and experimenters, representing their respective roles within stress experiments and observations.*
 
-![WISDOM Modules](OntologyDiagrams/Module6_recordings.png)
+![WISDOM Modules](OntologyDiagramms/Module6_recordings.png)
 
 *Figure 6. Organizes physiological recordings, annotation records, signal channels, and observations to provide a semantic representation of multimodal stress measurement data.*
 
