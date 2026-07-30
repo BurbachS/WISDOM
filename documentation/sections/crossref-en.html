@@ -49,6 +49,7 @@ This section provides details for each class and property defined by WISDOM.
   <li><a href="#SocioEvaluativePhase" title="https://burbachs.github.io/WISDOM/wisdom.owl#SocioEvaluativePhase">Socio-Evaluative Stress Phase</a></li>
   <li><a href="#SocioEvaluativeStressor" title="https://burbachs.github.io/WISDOM/wisdom.owl#SocioEvaluativeStressor">Socio-Evaluative Stressor</a></li>
   <li><a href="#StressCondition" title="https://burbachs.github.io/WISDOM/wisdom.owl#StressCondition">Stress Condition</a></li>
+  <li><a href="#StressResponse" title="https://burbachs.github.io/WISDOM/wisdom.owl#StressResponse">Stress Response</a></li>
   <li><a href="#Stressor" title="https://burbachs.github.io/WISDOM/wisdom.owl#Stressor">Stressor</a></li>
   <li><a href="#Subject" title="https://burbachs.github.io/WISDOM/wisdom.owl#Subject">Subject</a></li>
   <li><a href="#TemperatureSensor" title="https://burbachs.github.io/WISDOM/wisdom.owl#TemperatureSensor">Temperature Sensor</a></li>
@@ -882,6 +883,27 @@ This section provides details for each class and property defined by WISDOM.
    </dd>
   </dl>
  </div>
+ <div class="entity" id="StressResponse">
+  <h3>Stress Response<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> https://burbachs.github.io/WISDOM/wisdom.owl#StressResponse</p>
+  <div class="comment">
+   <span class="markdown">A condition describing the physiological or psychological stress state of a subject.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#isCausedBy" title="https://burbachs.github.io/WISDOM/wisdom.owl#isCausedBy">is caused by</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#causes" title="https://burbachs.github.io/WISDOM/wisdom.owl#causes">causes</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+  </dl>
+ </div>
  <div class="entity" id="Stressor">
   <h3>Stressor<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
   <p><strong>IRI:</strong> https://burbachs.github.io/WISDOM/wisdom.owl#Stressor</p>
@@ -1085,7 +1107,7 @@ This section provides details for each class and property defined by WISDOM.
      has range
     </dt>
     <dd>
-     <a href="http://www.w3.org/2002/07/owl#Thing" target="_blank" title="http://www.w3.org/2002/07/owl#Thing">Thing</a> <sup class="type-c" title="class">c</sup>
+     <a href="#StressResponse" title="https://burbachs.github.io/WISDOM/wisdom.owl#StressResponse">Stress Response</a> <sup class="type-c" title="class">c</sup>
     </dd>
     <dt>
      is inverse of
@@ -1191,12 +1213,6 @@ This section provides details for each class and property defined by WISDOM.
   </div>
   <div class="description">
    <dl>
-    <dt>
-     has super-properties
-    </dt>
-    <dd>
-     <a href="#hasStressCondition" title="https://burbachs.github.io/WISDOM/wisdom.owl#hasStressCondition">has stress condition</a> <sup class="type-op" title="object property">op</sup>
-    </dd>
     <dt>
      has domain
     </dt>
@@ -1343,12 +1359,6 @@ This section provides details for each class and property defined by WISDOM.
   <div class="description">
    <dl>
     <dt>
-     has sub-properties
-    </dt>
-    <dd>
-     <a href="#hasAssociatedStressor" title="https://burbachs.github.io/WISDOM/wisdom.owl#hasAssociatedStressor">has associated stressor</a> <sup class="type-op" title="object property">op</sup>
-    </dd>
-    <dt>
      has domain
     </dt>
     <dd>
@@ -1439,7 +1449,7 @@ This section provides details for each class and property defined by WISDOM.
      has domain
     </dt>
     <dd>
-     <a href="http://www.w3.org/2002/07/owl#Thing" target="_blank" title="http://www.w3.org/2002/07/owl#Thing">Thing</a> <sup class="type-c" title="class">c</sup>
+     <a href="#StressResponse" title="https://burbachs.github.io/WISDOM/wisdom.owl#StressResponse">Stress Response</a> <sup class="type-c" title="class">c</sup>
     </dd>
     <dt>
      has range

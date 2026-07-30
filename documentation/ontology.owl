@@ -187,7 +187,7 @@
     <owl:ObjectProperty rdf:about="https://burbachs.github.io/WISDOM/wisdom.owl#causes">
         <owl:inverseOf rdf:resource="https://burbachs.github.io/WISDOM/wisdom.owl#isCausedBy"/>
         <rdfs:domain rdf:resource="https://burbachs.github.io/WISDOM/wisdom.owl#Stressor"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="https://burbachs.github.io/WISDOM/wisdom.owl#StressResponse"/>
         <rdfs:comment xml:lang="en">Links a stressor to an entity that it causes or contributes to.</rdfs:comment>
         <rdfs:label xml:lang="en">causes</rdfs:label>
     </owl:ObjectProperty>
@@ -237,7 +237,6 @@
 
 
     <owl:ObjectProperty rdf:about="https://burbachs.github.io/WISDOM/wisdom.owl#hasAssociatedStressor">
-        <rdfs:subPropertyOf rdf:resource="https://burbachs.github.io/WISDOM/wisdom.owl#hasStressCondition"/>
         <rdfs:domain rdf:resource="https://burbachs.github.io/WISDOM/wisdom.owl#Activity"/>
         <rdfs:range rdf:resource="https://burbachs.github.io/WISDOM/wisdom.owl#Stressor"/>
         <rdfs:comment xml:lang="en">Links a stress-inducing activity or experimental phase to its associated stressor.</rdfs:comment>
@@ -339,7 +338,7 @@
 
 
     <owl:ObjectProperty rdf:about="https://burbachs.github.io/WISDOM/wisdom.owl#isCausedBy">
-        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:domain rdf:resource="https://burbachs.github.io/WISDOM/wisdom.owl#StressResponse"/>
         <rdfs:range rdf:resource="https://burbachs.github.io/WISDOM/wisdom.owl#Stressor"/>
         <rdfs:comment xml:lang="en">Links an entity to a stressor that causes or contributes to it.</rdfs:comment>
         <rdfs:label xml:lang="en">is caused by</rdfs:label>
@@ -1276,6 +1275,16 @@
     <owl:Class rdf:about="https://burbachs.github.io/WISDOM/wisdom.owl#StressCondition">
         <rdfs:comment xml:lang="en">A condition describing whether stress is induced, absent, or represented by a specific stressor context.</rdfs:comment>
         <rdfs:label xml:lang="en">Stress Condition</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://burbachs.github.io/WISDOM/wisdom.owl#StressResponse -->
+
+
+    <owl:Class rdf:about="https://burbachs.github.io/WISDOM/wisdom.owl#StressResponse">
+        <rdfs:comment xml:lang="en">A condition describing the physiological or psychological stress state of a subject.</rdfs:comment>
+        <rdfs:label xml:lang="en">Stress Response</rdfs:label>
     </owl:Class>
     
 

@@ -96,7 +96,7 @@ _:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foa
 <https://burbachs.github.io/WISDOM/wisdom.owl#causes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
 <https://burbachs.github.io/WISDOM/wisdom.owl#causes> <http://www.w3.org/2002/07/owl#inverseOf> <https://burbachs.github.io/WISDOM/wisdom.owl#isCausedBy> .
 <https://burbachs.github.io/WISDOM/wisdom.owl#causes> <http://www.w3.org/2000/01/rdf-schema#domain> <https://burbachs.github.io/WISDOM/wisdom.owl#Stressor> .
-<https://burbachs.github.io/WISDOM/wisdom.owl#causes> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2002/07/owl#Thing> .
+<https://burbachs.github.io/WISDOM/wisdom.owl#causes> <http://www.w3.org/2000/01/rdf-schema#range> <https://burbachs.github.io/WISDOM/wisdom.owl#StressResponse> .
 <https://burbachs.github.io/WISDOM/wisdom.owl#causes> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a stressor to an entity that it causes or contributes to."@en .
 <https://burbachs.github.io/WISDOM/wisdom.owl#causes> <http://www.w3.org/2000/01/rdf-schema#label> "causes"@en .
 # 
@@ -126,7 +126,6 @@ _:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foa
 # 
 # https://burbachs.github.io/WISDOM/wisdom.owl#hasAssociatedStressor
 <https://burbachs.github.io/WISDOM/wisdom.owl#hasAssociatedStressor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<https://burbachs.github.io/WISDOM/wisdom.owl#hasAssociatedStressor> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://burbachs.github.io/WISDOM/wisdom.owl#hasStressCondition> .
 <https://burbachs.github.io/WISDOM/wisdom.owl#hasAssociatedStressor> <http://www.w3.org/2000/01/rdf-schema#domain> <https://burbachs.github.io/WISDOM/wisdom.owl#Activity> .
 <https://burbachs.github.io/WISDOM/wisdom.owl#hasAssociatedStressor> <http://www.w3.org/2000/01/rdf-schema#range> <https://burbachs.github.io/WISDOM/wisdom.owl#Stressor> .
 <https://burbachs.github.io/WISDOM/wisdom.owl#hasAssociatedStressor> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a stress-inducing activity or experimental phase to its associated stressor."@en .
@@ -188,7 +187,7 @@ _:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foa
 # 
 # https://burbachs.github.io/WISDOM/wisdom.owl#isCausedBy
 <https://burbachs.github.io/WISDOM/wisdom.owl#isCausedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
-<https://burbachs.github.io/WISDOM/wisdom.owl#isCausedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.w3.org/2002/07/owl#Thing> .
+<https://burbachs.github.io/WISDOM/wisdom.owl#isCausedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <https://burbachs.github.io/WISDOM/wisdom.owl#StressResponse> .
 <https://burbachs.github.io/WISDOM/wisdom.owl#isCausedBy> <http://www.w3.org/2000/01/rdf-schema#range> <https://burbachs.github.io/WISDOM/wisdom.owl#Stressor> .
 <https://burbachs.github.io/WISDOM/wisdom.owl#isCausedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Links an entity to a stressor that causes or contributes to it."@en .
 <https://burbachs.github.io/WISDOM/wisdom.owl#isCausedBy> <http://www.w3.org/2000/01/rdf-schema#label> "is caused by"@en .
@@ -725,6 +724,11 @@ _:genid17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2
 <https://burbachs.github.io/WISDOM/wisdom.owl#StressCondition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <https://burbachs.github.io/WISDOM/wisdom.owl#StressCondition> <http://www.w3.org/2000/01/rdf-schema#comment> "A condition describing whether stress is induced, absent, or represented by a specific stressor context."@en .
 <https://burbachs.github.io/WISDOM/wisdom.owl#StressCondition> <http://www.w3.org/2000/01/rdf-schema#label> "Stress Condition"@en .
+# 
+# https://burbachs.github.io/WISDOM/wisdom.owl#StressResponse
+<https://burbachs.github.io/WISDOM/wisdom.owl#StressResponse> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://burbachs.github.io/WISDOM/wisdom.owl#StressResponse> <http://www.w3.org/2000/01/rdf-schema#comment> "A condition describing the physiological or psychological stress state of a subject."@en .
+<https://burbachs.github.io/WISDOM/wisdom.owl#StressResponse> <http://www.w3.org/2000/01/rdf-schema#label> "Stress Response"@en .
 # 
 # https://burbachs.github.io/WISDOM/wisdom.owl#Stressor
 <https://burbachs.github.io/WISDOM/wisdom.owl#Stressor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .

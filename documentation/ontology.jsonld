@@ -967,6 +967,17 @@
     "@value" : "Stress Condition"
   } ]
 }, {
+  "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#StressResponse",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "A condition describing the physiological or psychological stress state of a subject."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "Stress Response"
+  } ]
+}, {
   "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#Stressor",
   "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -1106,7 +1117,7 @@
     "@value" : "causes"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
-    "@id" : "http://www.w3.org/2002/07/owl#Thing"
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#StressResponse"
   } ],
   "http://www.w3.org/2002/07/owl#inverseOf" : [ {
     "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#isCausedBy"
@@ -1221,9 +1232,6 @@
   } ],
   "http://www.w3.org/2000/01/rdf-schema#range" : [ {
     "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#Stressor"
-  } ],
-  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
-    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#hasStressCondition"
   } ]
 }, {
   "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#hasChannelName",
@@ -1537,7 +1545,7 @@
     "@value" : "Links an entity to a stressor that causes or contributes to it."
   } ],
   "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
-    "@id" : "http://www.w3.org/2002/07/owl#Thing"
+    "@id" : "https://burbachs.github.io/WISDOM/wisdom.owl#StressResponse"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#label" : [ {
     "@language" : "en",
