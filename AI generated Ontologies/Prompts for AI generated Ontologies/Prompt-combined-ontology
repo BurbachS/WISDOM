@@ -1,0 +1,90 @@
+You are an expert ontology engineer specializing in OWL 2, RDF, RDFS, SOSA/SSN, schema.org, ontology development from competency
+questions, and ontology development from example data.
+
+Your task is to develop a mature OWL ontology in Turtle syntax.
+
+The ontology must be developed independently and must not assume access to any pre-existing ontology created by me. The goal is to create
+a complete and well-structured ontology that can later be compared with an already developed ontology and with other AI-generated
+ontologies in order to analyze differences in conceptual coverage, modeling depth, reuse of standards, data representability, and structural
+design.
+
+General domain frame:
+The ontology should represent human stress in the context of wearable- and sensor-based stress experiment data.
+Do not assume a predefined module structure. Instead, derive the relevant conceptual areas, classes, properties, relations, and constraints
+from the provided development input.
+Do not include concepts only because they are common in stress ontologies. Include them only if they are directly supported, implied, or
+reasonably required by at least one of the provided input sources.
+
+Development input:
+Use all three of the following input sources as the combined basis for the ontology design.
+Input source 1: Standards and vocabularies
+Use the following standards and vocabularies as semantic references:
+
+1. SOSA/SSN:
+• Use SOSA/SSN concepts where appropriate for sensors, observations, observable properties, features of interest, procedures,
+platforms, samples, results, and related measurement structures.
+• Reuse existing SOSA/SSN classes and properties whenever they fit the modeling purpose.
+• Do not unnecessarily recreate concepts already covered by SOSA/SSN.
+
+2. Schema.org / Person / Patient:
+• Use schema.org concepts where appropriate for representing human persons, participants, subjects, or patients.
+• Represent the human participant in a way that is compatible with schema.org Person and/or Patient where appropriate.
+• Avoid creating redundant person-related classes if existing schema.org concepts are suitable.
+
+3. OWL / RDF / RDFS:
+• Use OWL, RDF, and RDFS modeling principles consistently.
+• Define meaningful classes, object properties, data properties, domains, ranges, subclass relations, labels, comments, and selected
+restrictions where useful.
+• Keep the ontology compatible with OWL DL as far as reasonably possible.
+
+Input source 2: Competency Questions
+Use the following competency questions as functional requirements for the ontology. The ontology should be modeled in such a way that
+these questions can be answered using the ontology structure, for example through SPARQL queries.
+Paste the full list of competency questions here:
+
+[COMPETENCY QUESTIONS WERE INSERTED HERE]
+
+Input source 3: Example datasets
+Use the following 3 example datasets from a stress experiment as representational requirements for the ontology. The ontology should be
+modeled in such a way that the relevant entities, measurements, relations, and contextual information contained in the example data can be
+represented semantically.
+
+[3 EXAMPLE DATASETS WERE INSERTED HERE]
+
+Modeling requirements:
+• Derive the ontology structure from the combined input of standards, competency questions, and example data.
+• Use the standards primarily to guide semantic alignment and reuse.
+• Use the competency questions primarily to determine the functional scope and required answerability of the ontology.
+• Use the example datasets primarily to ensure that concrete stress experiment data can be represented semantically.
+• Create a coherent class hierarchy that balances conceptual clarity, standard reuse, competency question answerability, and data
+representability.
+• Reuse SOSA/SSN and schema.org concepts where appropriate.
+• Define custom classes and properties only where the combined input requires concepts not sufficiently covered by existing
+standards.
+• Include meaningful rdfs:label and rdfs:comment annotations.
+• Include object properties and data properties with clear domain and range definitions.
+• Include OWL restrictions where they improve semantic precision.
+• Use clear and consistent naming conventions.
+• Avoid overly generic classes.
+• Avoid unnecessary duplication of classes or properties.
+• Avoid overfitting the ontology exclusively to the 3 example datasets; the ontology should generalize beyond the examples while
+still being able to represent them accurately.
+• Include the 3 example datasets as individuals where appropriate, so that the ontology demonstrates how the data can be
+represented.
+• The ontology should be suitable for later comparison with another stress ontology and with AI-generated ontologies based
+separately on standards, competency questions, and example data.
+
+Conflict handling:
+• If the three input sources suggest different modeling directions, choose the solution that provides the best balance between
+semantic correctness, standard compatibility, competency question answerability, and data representability.
+• Do not simply merge all possible concepts. Prefer a coherent and non-redundant ontology structure.
+• Do not prioritize one input source exclusively. The final ontology should reflect the combined influence of all three input sources.
+
+Output requirements:
+• Return one complete ontology in valid Turtle syntax.
+• The ontology must be directly openable in Protégé.
+• Use the base IRI: http://example.org/generated-stress-combined#
+• Include all required prefixes.
+• Do not include explanations outside the Turtle code block.
+• Do not include Markdown headings.
+• Return exactly one Turtle code block containing the complete ontology.
