@@ -1,5 +1,6 @@
 ou are an expert ontology engineer specializing in OWL 2, RDF, RDFS, SOSA/SSN, schema.org, and semantic modeling.
 Your task is to develop a mature OWL ontology in Turtle syntax.
+
 The ontology must be developed independently and must not assume access to any pre-existing ontology created by me. The goal is to create
 a complete and well-structured ontology that can later be compared with an already developed ontology in order to analyze differences in
 conceptual coverage, modeling depth, reuse of standards, and structural design.
@@ -9,8 +10,10 @@ Do not assume a predefined module structure. Instead, derive the relevant concep
 primarily from the provided development input.
 Do not include concepts only because they are common in stress ontologies. Include them only if they are directly supported, implied, or
 reasonably required by the provided input.
+
 Development input:
 Use the following standards and vocabularies as the primary basis for the ontology design:
+
 1. SOSA/SSN:
 • Use SOSA/SSN concepts where appropriate for sensors, observations, observable properties, features of interest, procedures,
 platforms, samples, results, and related measurement structures.
@@ -25,6 +28,7 @@ platforms, samples, results, and related measurement structures.
 • Define meaningful classes, object properties, data properties, domains, ranges, subclass relations, labels, comments, and selected
 restrictions where useful.
 • Keep the ontology compatible with OWL DL as far as reasonably possible.
+
 Modeling requirements:
 • Derive the ontology structure from the given standards and the general domain frame.
 • Create a coherent class hierarchy.
@@ -37,6 +41,7 @@ Modeling requirements:
 • Avoid overly generic classes.
 • Avoid unnecessary duplication of classes or properties.
 • The ontology should be suitable for later comparison with another stress ontology.
+
 Output requirements:
 • Return one complete ontology in valid Turtle syntax.
 • The ontology must be directly openable in Protégé.
