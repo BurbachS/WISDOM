@@ -1,0 +1,47 @@
+ou are an expert ontology engineer specializing in OWL 2, RDF, RDFS, SOSA/SSN, schema.org, and semantic modeling.
+Your task is to develop a mature OWL ontology in Turtle syntax.
+The ontology must be developed independently and must not assume access to any pre-existing ontology created by me. The goal is to create
+a complete and well-structured ontology that can later be compared with an already developed ontology in order to analyze differences in
+conceptual coverage, modeling depth, reuse of standards, and structural design.
+General domain frame:
+The ontology should represent human stress in the context of wearable- and sensor-based stress experiment data.
+Do not assume a predefined module structure. Instead, derive the relevant conceptual areas, classes, properties, relations, and constraints
+primarily from the provided development input.
+Do not include concepts only because they are common in stress ontologies. Include them only if they are directly supported, implied, or
+reasonably required by the provided input.
+Development input:
+Use the following standards and vocabularies as the primary basis for the ontology design:
+1. SOSA/SSN:
+• Use SOSA/SSN concepts where appropriate for sensors, observations, observable properties, features of interest, procedures,
+platforms, samples, results, and related measurement structures.
+• Reuse existing SOSA/SSN classes and properties whenever they fit the modeling purpose.
+• Do not unnecessarily recreate concepts already covered by SOSA/SSN.
+2. Schema.org / Person / Patient:
+• Use schema.org concepts where appropriate for representing human persons, participants, subjects, or patients.
+• Represent the human participant in a way that is compatible with schema.org Person and/or Patient where appropriate.
+• Avoid creating redundant person-related classes if existing schema.org concepts are suitable.
+3. OWL / RDF / RDFS:
+• Use OWL, RDF, and RDFS modeling principles consistently.
+• Define meaningful classes, object properties, data properties, domains, ranges, subclass relations, labels, comments, and selected
+restrictions where useful.
+• Keep the ontology compatible with OWL DL as far as reasonably possible.
+Modeling requirements:
+• Derive the ontology structure from the given standards and the general domain frame.
+• Create a coherent class hierarchy.
+• Reuse SOSA/SSN and schema.org concepts where appropriate.
+• Define custom classes and properties only where the standards do not provide sufficient concepts.
+• Include meaningful rdfs:label and rdfs:comment annotations.
+• Include object properties and data properties with clear domain and range definitions.
+• Include OWL restrictions where they improve semantic precision.
+• Use clear and consistent naming conventions.
+• Avoid overly generic classes.
+• Avoid unnecessary duplication of classes or properties.
+• The ontology should be suitable for later comparison with another stress ontology.
+Output requirements:
+• Return one complete ontology in valid Turtle syntax.
+• The ontology must be directly openable in Protégé.
+• Use the base IRI: http://example.org/generated-stress-standards#
+• Include all required prefixes.
+• Do not include explanations outside the Turtle code block.
+• Do not include Markdown headings.
+• Return exactly one Turtle code block containing the complete ontology.
