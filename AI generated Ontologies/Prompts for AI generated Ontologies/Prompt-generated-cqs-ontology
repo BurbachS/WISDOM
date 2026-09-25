@@ -1,0 +1,47 @@
+You are an expert ontology engineer specializing in OWL 2, RDF, RDFS, SOSA/SSN, schema.org, and ontology development based on
+competency questions.
+
+Your task is to develop a mature OWL ontology in Turtle syntax.
+
+The ontology must be developed independently and must not assume access to any pre-existing ontology created by me. The goal is to create
+a complete and well-structured ontology that can later be compared with an already developed ontology in order to analyze differences in
+conceptual coverage, modeling depth, reuse of standards, and structural design.
+
+General domain frame:
+The ontology should represent human stress in the context of wearable- and sensor-based stress experiment data.
+Do not assume a predefined module structure. Instead, derive the relevant conceptual areas, classes, properties, relations, and constraints
+primarily from the provided development input.
+Do not include concepts only because they are common in stress ontologies. Include them only if they are directly supported, implied, or
+reasonably required by the provided input.
+
+Development input:
+Use the following competency questions as the primary basis for the ontology design.
+The ontology should be modeled in such a way that the competency questions can be answered using the ontology structure, for example
+through SPARQL queries.
+
+[ALL COMPETENCY QUESTIONS WERE INSERTED HERE]
+
+Modeling requirements:
+• Derive the ontology structure from the competency questions and the general domain frame.
+• Identify the necessary classes, object properties, data properties, relations, and constraints required to answer the competency
+questions.
+• Create a coherent class hierarchy.
+• Reuse SOSA/SSN and schema.org concepts where appropriate.
+• Define custom classes and properties only where they are required by the competency questions or reasonably implied by them.
+• Include meaningful rdfs:label and rdfs:comment annotations.
+• Include object properties and data properties with clear domain and range definitions.
+• Include OWL restrictions where they improve semantic precision.
+• Use clear and consistent naming conventions.
+• Avoid overly generic classes.
+• Avoid unnecessary duplication of classes or properties.
+• The ontology should be suitable for later SPARQL-based competency question testing and comparison with another stress
+ontology.
+
+Output requirements:
+• Return one complete ontology in valid Turtle syntax.
+• The ontology must be directly openable in Protégé.
+• Use the base IRI: http://example.org/generated-stress-cqs#
+• Include all required prefixes.
+• Do not include explanations outside the Turtle code block.
+• Do not include Markdown headings.
+• Return exactly one Turtle code block containing the complete ontology.
